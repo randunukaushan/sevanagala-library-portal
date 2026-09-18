@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AdminPageHeader } from "@/components/admin/admin-page-header";
 import { AdminSection } from "@/components/admin/admin-section";
 import { AdminStatusPill } from "@/components/admin/admin-status-pill";
@@ -10,7 +11,7 @@ export default function AdminDonationsPage() {
         eyebrow="Support verification"
         title="Donations"
         description="Record what physically arrived, verify the actual quantity and condition, then allocate it to the correct need or project."
-        action={<span className="button-primary">Record receipt — preview</span>}
+        action={<Link className="button-primary" href="/admin-preview/donations/verify">Verify receipt — preview</Link>}
       />
 
       <section className="mt-7 grid gap-4 xl:grid-cols-3">
