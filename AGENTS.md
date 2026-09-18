@@ -96,6 +96,7 @@ Before changing public UI, read:
 - `docs/ui-ux-accessibility-and-design-system.md`
 - `docs/visual-identity-color-and-typography.md`
 - `docs/ui-ux-page-patterns.md`
+- `docs/admin-dashboard-ui-ux-specification.md` for admin work
 
 Use the documented semantic design tokens. Do not introduce arbitrary brand hex colors inside components unless the design-system documentation is intentionally updated.
 
