@@ -55,14 +55,14 @@ Codex and contributors should read [AGENTS.md](./AGENTS.md) before implementatio
 
 ### 4.1 Baseline Stack
 
-- Next.js
+- Next.js 16.3.3
+- React 19.3
 - TypeScript
-- Supabase
-- Vercel
+- Tailwind CSS 4
+- Supabase — backend phase
+- Vercel — deployment phase
 - GitHub
 - VS Code + Codex
-
-Exact package versions will be selected from stable releases when the application is bootstrapped.
 
 ## 5. Current Status
 
@@ -97,7 +97,10 @@ Exact package versions will be selected from stable releases when the applicatio
 - verified needs;
 - collection data;
 - domain decision;
-- prototype implementation.
+- institutional approval for official launch;
+- verified production library data;
+- Supabase backend implementation;
+- official domain decision.
 
 ## 6. Important Boundaries
 
@@ -115,9 +118,15 @@ Do not publish private member, staff, or donor information without approved purp
 
 ## 7. Development
 
-### 7.1 Next Step
+### 7.1 Prototype Bootstrap
 
-Bootstrap the application only after reviewing:
+The prototype application baseline is being developed on `feat/prototype-bootstrap`.
+
+Local setup is documented in `docs/local-development-and-codex-setup.md`.
+
+### 7.2 Required Reading
+
+Before implementing major features, review:
 
 - `docs/product-vision-and-requirements.md`
 - `docs/data-model-and-database-design.md`
