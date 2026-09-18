@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AdminPageHeader } from "@/components/admin/admin-page-header";
 import { AdminSection } from "@/components/admin/admin-section";
 import { AdminStatusPill } from "@/components/admin/admin-status-pill";
@@ -10,7 +11,7 @@ export default function AdminUsersPage() {
         eyebrow="Access control"
         title="Users"
         description="Use individual staff accounts, least-privilege roles, and clear account lifecycle controls. Shared admin passwords are not part of the design."
-        action={<span className="button-primary">Invite user — preview</span>}
+        action={<Link className="button-primary" href="/admin-preview/users/roles">Roles & permissions</Link>}
       />
 
       <AdminSection eyebrow="STAFF ACCOUNTS" title="Sample user records">
