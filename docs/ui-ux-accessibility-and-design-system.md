@@ -41,7 +41,16 @@ Important text and quantities should not be hidden behind carousels or decorativ
 
 ## 3. Visual Identity
 
-### 3.1 Branding Status
+### 3.1 Canonical Prototype System
+
+The canonical prototype palette, typography direction, spacing, and visual hierarchy are defined in:
+
+- [Visual Identity, Color and Typography](./visual-identity-color-and-typography.md)
+- [UI and UX Page Patterns](./ui-ux-page-patterns.md)
+
+These documents take precedence over older placeholder visual values.
+
+### 3.2 Branding Status
 
 Until official approval:
 
@@ -49,7 +58,7 @@ Until official approval:
 - do not use unapproved institutional emblems;
 - clearly label staging/demo environments.
 
-### 3.2 Colour
+### 3.3 Colour
 
 Final colours should:
 
@@ -57,7 +66,7 @@ Final colours should:
 - support clear status distinctions;
 - not rely on colour alone.
 
-### 3.3 Typography
+### 3.4 Typography
 
 Use highly readable fonts with good Sinhala, Tamil, and Latin-script support.
 
@@ -68,7 +77,7 @@ Font selection should consider:
 - script coverage;
 - licensing.
 
-### 3.4 Spacing
+### 3.5 Spacing
 
 Use a consistent spacing scale.
 
