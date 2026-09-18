@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Link from "next/link";
 import { AdminPageHeader } from "@/components/admin/admin-page-header";
 import { AdminSection } from "@/components/admin/admin-section";
 import { AdminStatusPill } from "@/components/admin/admin-status-pill";
@@ -11,7 +12,7 @@ export default function AdminBooksPage() {
         eyebrow="Collection management"
         title="Books"
         description="Maintain collection records, physical condition, review status, classification, language, and copy count without automatically deciding that older books should be removed."
-        action={<span className="button-primary">Add book — preview</span>}
+        action={<Link className="button-primary" href="/admin-preview/books/new">Add book — preview</Link>}
       />
 
       <AdminSection
