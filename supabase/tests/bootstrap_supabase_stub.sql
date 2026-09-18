@@ -1,0 +1,21 @@
+-- Minimal Supabase-compatible stubs for migration syntax/RLS CI.
+-- This is NOT a replacement for testing against the real local Supabase stack.
+
+create role anon noinherit;
+create role authenticated noinherit;
+
+create schema auth;
+
+create table auth.users (
+  id uuid primary key default gen_random_uuid(),
+  email text,
+  raw_user_meta_data jsonb not null default '{}'::jsonb
+);
+
+create or replace function auth.uid()
+returns uuid
+language sql
+stable
+as $$
+  select null::uuid;
+$$;
