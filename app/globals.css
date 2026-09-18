@@ -1,36 +1,36 @@
 @import "tailwindcss";
 
 :root {
-  --color-bg: #f7f6f1;
-  --color-surface: #ffffff;
-  --color-surface-soft: #eef3ef;
-  --color-text: #18201c;
-  --color-text-muted: #526059;
-  --color-border: #d9ded8;
+  --color-bg: #f6f0e6;
+  --color-surface: #fffdf9;
+  --color-surface-soft: #efe2d2;
+  --color-text: #211b17;
+  --color-text-muted: #66574b;
+  --color-border: #d7c7b3;
 
-  --color-brand-primary: #155e4b;
-  --color-brand-primary-dark: #0e4537;
-  --color-brand-primary-soft: #e8f3ee;
-  --color-brand-secondary: #1e3a5f;
-  --color-brand-secondary-soft: #eaf0f7;
-  --color-accent: #8a5a00;
-  --color-accent-soft: #f7e7c1;
+  --color-brand-primary: #7a2e24;
+  --color-brand-primary-dark: #5e211b;
+  --color-brand-primary-soft: #f3e2de;
+  --color-brand-secondary: #4a2f24;
+  --color-brand-secondary-soft: #ede3db;
+  --color-accent: #8a4b20;
+  --color-accent-soft: #f2dfc6;
 
-  --color-info: #1d4ed8;
-  --color-info-soft: #e8efff;
-  --color-success: #166534;
-  --color-success-soft: #e9f5ec;
-  --color-warning: #8a5a00;
-  --color-warning-soft: #fff3cd;
-  --color-danger: #b42318;
-  --color-danger-soft: #fdecec;
-  --color-focus: #005ea8;
+  --color-info: #2f4a68;
+  --color-info-soft: #e7ecf2;
+  --color-success: #6b4d1f;
+  --color-success-soft: #f2e9d8;
+  --color-warning: #8a5a18;
+  --color-warning-soft: #f8eacb;
+  --color-danger: #a5302a;
+  --color-danger-soft: #f7e2df;
+  --color-focus: #5b3b91;
 
   --radius-control: 0.75rem;
   --radius-card: 1.125rem;
   --radius-panel: 1.5rem;
 
-  --shadow-soft: 0 12px 36px rgba(24, 32, 28, 0.08);
+  --shadow-soft: 0 12px 36px rgba(74, 47, 36, 0.1);
 
   /* Compatibility aliases while components are migrated. */
   --background: var(--color-bg);
