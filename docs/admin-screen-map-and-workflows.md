@@ -118,7 +118,32 @@ Purpose:
 - record language and priority;
 - match requests with donor opportunities.
 
-### 2.9 News
+### 2.9 Enquiries
+
+Route:
+
+`/admin-preview/enquiries`
+
+Purpose:
+
+- manage reader and partner messages;
+- assign responsibility;
+- apply retention and privacy controls;
+- connect partnership enquiries to needs/projects.
+
+### 2.10 Pages
+
+Route:
+
+`/admin-preview/pages`
+
+Purpose:
+
+- manage evergreen public pages;
+- maintain approval and translation state;
+- avoid requiring code edits for routine content.
+
+### 2.11 News
 
 Route:
 
@@ -132,7 +157,7 @@ Purpose:
 - publish;
 - archive public updates.
 
-### 2.10 Media
+### 2.12 Media
 
 Route:
 
@@ -145,7 +170,7 @@ Purpose:
 - separate public/private visibility;
 - prevent accidental publication of internal evidence.
 
-### 2.11 Users
+### 2.13 Users
 
 Route:
 
@@ -158,7 +183,7 @@ Purpose:
 - track account status;
 - support MFA for privileged roles.
 
-### 2.12 Audit Log
+### 2.14 Audit Log
 
 Route:
 
@@ -170,7 +195,7 @@ Purpose:
 - support accountability;
 - avoid logging secrets or unnecessary private content.
 
-### 2.13 Settings
+### 2.15 Settings
 
 Route:
 
@@ -296,18 +321,21 @@ Privileged database keys must never be exposed to these screens.
 Implemented static form/workflow previews:
 
 - create need;
+- create project;
 - record pledge;
 - verify donation;
+- add book;
 - CSV book import;
-- review public content.
+- review public content;
+- partner recognition permission;
+- role/permission matrix.
 
 Still planned:
 
-- edit need;
-- create/edit project;
-- add/edit book;
-- partner recognition permission editor;
-- user-role editor.
+- edit existing records;
+- full multilingual page editor;
+- enquiry assignment/detail view;
+- media upload permission review.
 
 ### 8.2 Backend Phase
 
