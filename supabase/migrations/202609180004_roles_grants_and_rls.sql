@@ -115,10 +115,15 @@ as $$
   );
 $$;
 
+revoke all on function public.set_updated_at() from public;
+revoke all on function public.handle_new_auth_user() from public;
 revoke all on function public.is_active_staff() from public;
 revoke all on function public.has_permission(text) from public;
+
 grant execute on function public.is_active_staff() to authenticated;
 grant execute on function public.has_permission(text) to authenticated;
+
+grant usage on schema public to anon, authenticated;
 
 -- Explicit table privileges. RLS below determines which rows/actions are allowed.
 revoke all on all tables in schema public from anon, authenticated;
