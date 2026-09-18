@@ -62,6 +62,7 @@ The documents move from product intent and institutional governance through dono
 
 - [Content Governance, SEO and Launch](./content-governance-seo-and-launch.md)
 - [Implementation Roadmap and Codex Workflow](./implementation-roadmap-and-codex-workflow.md)
+- [Local Development and Codex Setup](./local-development-and-codex-setup.md)
 
 ## 9. Current Project Status
 
@@ -95,7 +96,7 @@ Pending:
 
 ### 9.4 Development
 
-Prototype development may begin using placeholder/sample data.
+Prototype bootstrap is in progress on a feature branch using placeholder/sample data.
 
 Official publication must wait for required approval and verified content.
 
