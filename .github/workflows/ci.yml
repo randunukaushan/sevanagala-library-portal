@@ -41,3 +41,51 @@ jobs:
 
       - name: Production build
         run: npm run build
+
+  database:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d postgres"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      PGPASSWORD: postgres
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Ensure PostgreSQL client is available
+        run: |
+          if ! command -v psql >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y postgresql-client
+          fi
+
+      - name: Create Supabase auth stubs
+        run: |
+          psql -v ON_ERROR_STOP=1 -h localhost -U postgres -d postgres             -f supabase/tests/bootstrap_supabase_stub.sql
+
+      - name: Apply database migrations
+        run: |
+          for migration in supabase/migrations/*.sql; do
+            echo "Applying $migration"
+            psql -v ON_ERROR_STOP=1 -h localhost -U postgres -d postgres -f "$migration"
+          done
+
+      - name: Run database foundation assertions
+        run: |
+          psql -v ON_ERROR_STOP=1 -h localhost -U postgres -d postgres             -f supabase/tests/assert_foundation.sql
