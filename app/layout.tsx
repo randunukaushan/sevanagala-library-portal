@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { PrototypeBanner } from "@/components/prototype-banner";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { SiteChrome } from "@/components/site-chrome";
 
 export const metadata: Metadata = {
   title: {
@@ -21,13 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <a className="skip-link" href="#main-content">
-          Skip to main content
-        </a>
-        <PrototypeBanner />
-        <SiteHeader />
-        <main id="main-content">{children}</main>
-        <SiteFooter />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

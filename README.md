@@ -80,7 +80,7 @@ Codex and contributors should read [AGENTS.md](./AGENTS.md) before implementatio
 - UI/accessibility plan;
 - canonical book-inspired visual identity, color, typography, and page-pattern system;
 - professional public-page UI pass;
-- static admin-dashboard UI preview and admin UX specification;
+- multi-screen admin-dashboard UI preview, admin UX specification, and workflow map;
 - technical architecture;
 - content/launch plan;
 - implementation/Codex roadmap;
