@@ -4,46 +4,74 @@
 
 ### 1.1 Objective
 
-This file defines the reading order for the Sevanagala Public Library Portal documentation.
+This file defines the recommended reading order for the Sevanagala Public Library Portal documentation.
 
-The documents are designed to move from product intent to implementation.
+The documents move from product intent and institutional governance through donor operations, library operations, system design, quality, launch, and long-term smart-library development.
 
-## 2. Reading Order
+## 2. Product Foundation
 
-### 2.1 Product Foundation
+### 2.1 Core Product Documents
 
-1. [Product Vision and Requirements](./product-vision-and-requirements.md)
-2. [Information Architecture and Sitemap](./information-architecture-and-sitemap.md)
-3. [Users, Roles and Permissions](./users-roles-and-permissions.md)
+- [Product Vision and Requirements](./product-vision-and-requirements.md)
+- [Information Architecture and Sitemap](./information-architecture-and-sitemap.md)
+- [Users, Roles and Permissions](./users-roles-and-permissions.md)
+- [Institutional Approval and Governance](./institutional-approval-and-governance.md)
 
-### 2.2 Donor and Library Operations
+## 3. Donor and Partnership Operations
 
-4. [Donor, Partner and Transparency Workflow](./donor-partner-and-transparency-workflow.md)
-5. [Needs, Projects and Asset Management](./needs-projects-and-asset-management.md)
-6. [Library Collection and Book Management](./library-collection-and-book-management.md)
+### 3.1 Donor System
 
-### 2.3 System Design
+- [Donor, Partner and Transparency Workflow](./donor-partner-and-transparency-workflow.md)
+- [Donor Research and Outreach Strategy](./donor-research-and-outreach-strategy.md)
+- [Needs, Projects and Asset Management](./needs-projects-and-asset-management.md)
 
-7. [Data Model and Database Design](./data-model-and-database-design.md)
-8. [Admin Dashboard and Content Workflow](./admin-dashboard-and-content-workflow.md)
-9. [Security, Privacy and Compliance](./security-privacy-and-compliance.md)
-10. [UI, UX, Accessibility and Design System](./ui-ux-accessibility-and-design-system.md)
-11. [Technical Architecture, Deployment and Operations](./technical-architecture-deployment-and-operations.md)
+## 4. Library Collection and Data
 
-### 2.4 Publishing and Execution
+### 4.1 Collection Management
 
-12. [Content Governance, SEO and Launch](./content-governance-seo-and-launch.md)
-13. [Implementation Roadmap and Codex Workflow](./implementation-roadmap-and-codex-workflow.md)
+- [Library Collection and Book Management](./library-collection-and-book-management.md)
+- [Data Import, Migration and Record Quality](./data-import-migration-and-record-quality.md)
 
-## 3. Current Project Status
+## 5. Smart Library Development
 
-### 3.1 Foundation
+### 5.1 Transformation Roadmap
 
-The documentation foundation is created.
+- [Smart Library Development Roadmap](./smart-library-development-roadmap.md)
 
-### 3.2 Institutional Approval
+## 6. System Design
 
-Pending confirmation from the library/responsible authority for:
+### 6.1 Architecture and Administration
+
+- [Data Model and Database Design](./data-model-and-database-design.md)
+- [Admin Dashboard and Content Workflow](./admin-dashboard-and-content-workflow.md)
+- [Security, Privacy and Compliance](./security-privacy-and-compliance.md)
+- [UI, UX, Accessibility and Design System](./ui-ux-accessibility-and-design-system.md)
+- [Technical Architecture, Deployment and Operations](./technical-architecture-deployment-and-operations.md)
+
+## 7. Quality and Operational Readiness
+
+### 7.1 Quality Assurance
+
+- [Testing, Quality Assurance and Acceptance](./testing-quality-assurance-and-acceptance.md)
+- [Risk Register and Mitigation Plan](./risk-register-and-mitigation-plan.md)
+- [Operations, Maintenance and Staff Handover](./operations-maintenance-and-staff-handover.md)
+
+## 8. Publishing and Execution
+
+### 8.1 Launch and Development
+
+- [Content Governance, SEO and Launch](./content-governance-seo-and-launch.md)
+- [Implementation Roadmap and Codex Workflow](./implementation-roadmap-and-codex-workflow.md)
+
+## 9. Current Project Status
+
+### 9.1 Documentation
+
+The product, governance, donor, library-operations, technical, quality, and long-term development foundations are documented.
+
+### 9.2 Institutional Approval
+
+Pending confirmation from the library or responsible authority for:
 
 - official website permission;
 - official branding;
@@ -51,48 +79,64 @@ Pending confirmation from the library/responsible authority for:
 - public photographs;
 - domain ownership;
 - donor-recognition policy;
+- donation acceptance process;
 - content approval process.
 
-### 3.3 Development
+### 9.3 Library Data
 
-Prototype development can begin with placeholder/sample data.
+Pending:
 
-Official launch must wait for required approval and verified content.
+- verified library profile;
+- current collection data;
+- outdated/review-needed book data;
+- reader-request data;
+- facility and equipment needs;
+- project priorities.
 
-## 4. Documentation Rules
+### 9.4 Development
 
-### 4.1 Source of Truth
+Prototype development may begin using placeholder/sample data.
 
-The repository is the canonical source of truth.
+Official publication must wait for required approval and verified content.
 
-### 4.2 Heading Style
+## 10. Documentation Rules
+
+### 10.1 Source of Truth
+
+The repository is the canonical source of truth for product and engineering decisions.
+
+### 10.2 Heading Style
 
 Documents use:
 
 - `# Document Title`
 - `## 1. Main Section`
 - `### 1.1 Subsection`
-- `#### Unnumbered Fourth-Level Heading`
+- `#### Fourth-Level Heading Without Number`
 
 Fourth-level headings are not numbered.
 
-### 4.3 Change Rule
+### 10.3 Filename Style
 
-If implementation decisions change, update the relevant document in the same change or before the implementation is merged.
+Document filenames use descriptive names without numeric prefixes.
 
-## 5. Next Documentation Updates
+### 10.4 Change Rule
 
-### 5.1 After Library Follow-Up
+If implementation decisions change, update the relevant document in the same change or before implementation is merged.
+
+## 11. Next Documentation Updates
+
+### 11.1 After Library Follow-Up
 
 Update the documents with:
 
 - confirmed official library details;
-- approved content owner;
-- website approval status;
-- verified book/collection data;
+- approval status;
+- responsible staff roles;
+- verified book and collection data;
 - verified facility needs;
-- approved donor process.
+- donor and partnership procedures.
 
-### 5.2 Before Coding Major Features
+### 11.2 Before Major Coding
 
-Any unresolved requirement that changes data, security, or workflow must be documented before implementation.
+Any unresolved requirement that changes data, security, permissions, donations, or institutional workflow must be documented before implementation.
