@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AdminPageHeader } from "@/components/admin/admin-page-header";
 import { AdminSection } from "@/components/admin/admin-section";
 import { AdminStatusPill } from "@/components/admin/admin-status-pill";
@@ -10,7 +11,7 @@ export default function AdminProjectsPage() {
         eyebrow="Development management"
         title="Projects"
         description="Group individual needs into measurable outcomes with milestones, responsible staff, and public progress updates."
-        action={<span className="button-primary">Create project — preview</span>}
+        action={<Link className="button-primary" href="/admin-preview/projects/new">Create project — preview</Link>}
       />
 
       <section className="mt-7 grid gap-4 lg:grid-cols-3">
