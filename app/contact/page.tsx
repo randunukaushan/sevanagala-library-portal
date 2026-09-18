@@ -1,30 +1,69 @@
 import { PageHero } from "@/components/page-hero";
+import { SectionHeading } from "@/components/section-heading";
+
+const contactTypes = [
+  {
+    title: "Library information",
+    description:
+      "Future official phone, email, opening hours, address, and service enquiries.",
+  },
+  {
+    title: "Book & resource enquiries",
+    description:
+      "Questions about collection access, requested books, and future catalogue information.",
+  },
+  {
+    title: "Partnership enquiries",
+    description:
+      "A dedicated route for book donors, foundations, NGOs, companies, and community partners.",
+  },
+];
 
 export default function ContactPage() {
   return (
     <>
       <PageHero
         eyebrow="Contact"
-        title="Official contact information will appear here after verification."
-        description="The production website will provide the approved library address, phone, email, opening hours, and a safe contact path for readers and potential partners."
+        title="Use verified institutional contacts — not personal placeholders."
+        description="The production site will publish the approved library address, phone, email, opening hours, and a privacy-aware contact path."
       />
 
       <section className="section">
-        <div className="shell grid gap-6 md:grid-cols-2">
-          <article className="card p-6">
-            <h2 className="text-xl font-bold">Library contact</h2>
-            <p className="muted mt-3">
-              Pending institutional confirmation. Personal contact information
-              is intentionally not used as a placeholder.
+        <div className="shell">
+          <SectionHeading
+            eyebrow="Planned contact routes"
+            title="Different questions should reach the right person."
+            description="The final routing will be confirmed with library staff before any real contact information is published."
+          />
+
+          <div className="grid-auto mt-8">
+            {contactTypes.map((item) => (
+              <article className="card p-6" key={item.title}>
+                <h2 className="text-xl font-black tracking-[-0.02em]">
+                  {item.title}
+                </h2>
+                <p className="muted mt-3">{item.description}</p>
+                <p className="mt-5 text-sm font-bold text-[var(--color-accent)]">
+                  Pending official confirmation
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-soft">
+        <div className="shell">
+          <div className="card p-7 md:p-9">
+            <p className="eyebrow">Privacy rule</p>
+            <h2 className="max-w-3xl text-3xl font-black tracking-[-0.03em]">
+              Future forms will ask only for the information needed to respond.
+            </h2>
+            <p className="lead mt-4 text-base">
+              No unnecessary identity information, behavioural profiling, or
+              private donor details will be exposed through the public contact experience.
             </p>
-          </article>
-          <article className="card p-6">
-            <h2 className="text-xl font-bold">Partnership enquiries</h2>
-            <p className="muted mt-3">
-              A future form will collect only the minimum information needed to
-              respond and will include an approved privacy notice.
-            </p>
-          </article>
+          </div>
         </div>
       </section>
     </>

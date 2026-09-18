@@ -44,6 +44,7 @@ The documents move from product intent and institutional governance through dono
 
 - [Data Model and Database Design](./data-model-and-database-design.md)
 - [Admin Dashboard and Content Workflow](./admin-dashboard-and-content-workflow.md)
+- [Admin Dashboard UI and UX Specification](./admin-dashboard-ui-ux-specification.md)
 - [Security, Privacy and Compliance](./security-privacy-and-compliance.md)
 - [UI, UX, Accessibility and Design System](./ui-ux-accessibility-and-design-system.md)
 - [Visual Identity, Color and Typography](./visual-identity-color-and-typography.md)
