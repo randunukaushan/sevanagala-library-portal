@@ -80,7 +80,14 @@ Exact package versions will be selected from stable releases when the applicatio
 - UI/accessibility plan;
 - technical architecture;
 - content/launch plan;
-- implementation/Codex roadmap.
+- implementation/Codex roadmap;
+- institutional approval and governance plan;
+- donor research and outreach strategy;
+- smart-library development roadmap;
+- data import and record-quality plan;
+- testing and acceptance plan;
+- operations and staff-handover plan;
+- risk register and mitigation plan.
 
 ### 5.2 Pending
 
@@ -118,6 +125,10 @@ Bootstrap the application only after reviewing:
 - `docs/ui-ux-accessibility-and-design-system.md`
 - `docs/technical-architecture-deployment-and-operations.md`
 - `docs/implementation-roadmap-and-codex-workflow.md`
+- `docs/institutional-approval-and-governance.md`
+- `docs/donor-research-and-outreach-strategy.md`
+- `docs/smart-library-development-roadmap.md`
+- `docs/testing-quality-assurance-and-acceptance.md`
 
 ## 8. Research Foundations
 
