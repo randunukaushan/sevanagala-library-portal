@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AdminPageHeader } from "@/components/admin/admin-page-header";
 import { AdminSection } from "@/components/admin/admin-section";
 import { AdminStatusPill } from "@/components/admin/admin-status-pill";
@@ -10,7 +11,7 @@ export default function AdminNewsPage() {
         eyebrow="Content management"
         title="News"
         description="Draft, review, approve, publish, and archive library updates with clear language and media permission checks."
-        action={<span className="button-primary">New article — preview</span>}
+        action={<Link className="button-primary" href="/admin-preview/news/review">Review sample article</Link>}
       />
 
       <AdminSection eyebrow="EDITORIAL QUEUE" title="News and updates">
