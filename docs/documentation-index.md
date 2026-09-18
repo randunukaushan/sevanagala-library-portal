@@ -46,6 +46,8 @@ The documents move from product intent and institutional governance through dono
 - [Admin Dashboard and Content Workflow](./admin-dashboard-and-content-workflow.md)
 - [Security, Privacy and Compliance](./security-privacy-and-compliance.md)
 - [UI, UX, Accessibility and Design System](./ui-ux-accessibility-and-design-system.md)
+- [Visual Identity, Color and Typography](./visual-identity-color-and-typography.md)
+- [UI and UX Page Patterns](./ui-ux-page-patterns.md)
 - [Technical Architecture, Deployment and Operations](./technical-architecture-deployment-and-operations.md)
 
 ## 7. Quality and Operational Readiness
