@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AdminPageHeader } from "@/components/admin/admin-page-header";
 import { AdminSection } from "@/components/admin/admin-section";
 import { AdminStatCard } from "@/components/admin/admin-stat-card";
@@ -11,7 +12,7 @@ export default function AdminNeedsPage() {
         eyebrow="Development management"
         title="Needs"
         description="Create, verify, prioritise, and track measurable library needs before they appear on the public site."
-        action={<span className="button-primary">Add need — preview</span>}
+        action={<Link className="button-primary" href="/admin-preview/needs/new">Add need — preview</Link>}
       />
 
       <section className="mt-7">
