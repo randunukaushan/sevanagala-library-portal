@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AdminPageHeader } from "@/components/admin/admin-page-header";
 import { AdminSection } from "@/components/admin/admin-section";
 import { AdminStatusPill } from "@/components/admin/admin-status-pill";
@@ -16,7 +17,7 @@ export default function AdminBooksPage() {
       <AdminSection
         eyebrow="COLLECTION"
         title="Sample catalogue records"
-        action={<span className="button-secondary text-sm">Import CSV — preview</span>}
+        action={<Link className="button-secondary text-sm" href="/admin-preview/books/import">Import CSV — preview</Link>}
       >
         <div className="overflow-x-auto">
           <table className="w-full min-w-[950px] border-collapse text-left text-sm">
