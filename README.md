@@ -75,6 +75,7 @@ Codex and contributors should read [AGENTS.md](./AGENTS.md) before implementatio
 - needs/project model;
 - collection model;
 - database design;
+- initial Supabase/PostgreSQL migrations, roles, grants, and RLS foundation;
 - admin workflow;
 - security/privacy plan;
 - UI/accessibility plan;
@@ -102,7 +103,8 @@ Codex and contributors should read [AGENTS.md](./AGENTS.md) before implementatio
 - domain decision;
 - institutional approval for official launch;
 - verified production library data;
-- Supabase backend implementation;
+- remote Supabase project connection and migration validation;
+- Supabase application client/auth integration;
 - official domain decision.
 
 ## 6. Important Boundaries
