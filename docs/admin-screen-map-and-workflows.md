@@ -291,18 +291,23 @@ Privileged database keys must never be exposed to these screens.
 
 ## 8. Next Admin Implementation Phase
 
-### 8.1 Interactive Forms
+### 8.1 Interactive Form Previews
 
-Next planned UI work:
+Implemented static form/workflow previews:
 
-- create/edit need;
-- create/edit project;
+- create need;
 - record pledge;
 - verify donation;
+- CSV book import;
+- review public content.
+
+Still planned:
+
+- edit need;
+- create/edit project;
 - add/edit book;
-- CSV import preview;
-- review content;
-- partner recognition permission editor.
+- partner recognition permission editor;
+- user-role editor.
 
 ### 8.2 Backend Phase
 
