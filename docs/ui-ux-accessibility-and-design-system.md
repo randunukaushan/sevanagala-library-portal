@@ -60,7 +60,23 @@ Until official approval:
 
 ### 3.3 Colour
 
-Final colours should:
+The canonical visual direction is **old-book warmth + modern public-library UI**.
+
+The active palette is built from:
+
+- parchment;
+- warm white;
+- aged-paper beige;
+- oxblood/burgundy;
+- walnut brown;
+- leather brown;
+- restrained antique-gold tones;
+- dark ink;
+- muted slate for information.
+
+The previous green-led palette is retired and should not be reused.
+
+All colours must:
 
 - meet contrast requirements;
 - support clear status distinctions;
