@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AdminPageHeader } from "@/components/admin/admin-page-header";
 import { AdminSection } from "@/components/admin/admin-section";
 import { AdminStatusPill } from "@/components/admin/admin-status-pill";
@@ -10,7 +11,7 @@ export default function AdminPledgesPage() {
         eyebrow="Support tracking"
         title="Pledges"
         description="Track proposed and accepted support separately from items that have physically arrived."
-        action={<span className="button-primary">Record pledge — preview</span>}
+        action={<Link className="button-primary" href="/admin-preview/pledges/new">Record pledge — preview</Link>}
       />
 
       <AdminSection eyebrow="ACTIVE PIPELINE" title="Pledge records">
