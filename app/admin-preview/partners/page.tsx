@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AdminPageHeader } from "@/components/admin/admin-page-header";
 import { AdminSection } from "@/components/admin/admin-section";
 import { AdminStatusPill } from "@/components/admin/admin-status-pill";
@@ -10,7 +11,7 @@ export default function AdminPartnersPage() {
         eyebrow="Relationship management"
         title="Partners"
         description="Keep private contact data separate from the public recognition record and track whether name, logo, and website publication are approved."
-        action={<span className="button-primary">Add partner — preview</span>}
+        action={<Link className="button-primary" href="/admin-preview/partners/recognition">Recognition preview</Link>}
       />
 
       <AdminSection eyebrow="SUPPORTERS" title="Partner records">
