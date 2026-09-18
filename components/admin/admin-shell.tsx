@@ -12,6 +12,8 @@ const nav = [
   { href: "/admin-preview/partners", label: "Partners" },
   { href: "/admin-preview/books", label: "Books" },
   { href: "/admin-preview/book-requests", label: "Book Requests" },
+  { href: "/admin-preview/enquiries", label: "Enquiries" },
+  { href: "/admin-preview/pages", label: "Pages" },
   { href: "/admin-preview/news", label: "News" },
   { href: "/admin-preview/media", label: "Media" },
   { href: "/admin-preview/users", label: "Users" },
