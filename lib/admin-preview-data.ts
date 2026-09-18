@@ -63,3 +63,17 @@ export const adminAudit = [
   { actor: "Sample Content Editor", action: "Submitted content for review", entity: "Smart-library roadmap update", time: "Sample time" },
   { actor: "Sample Library Admin", action: "Verified donation", entity: "English reference books", time: "Sample time" },
 ];
+
+
+export const adminEnquiries = [
+  { from: "Sample Book Organisation", type: "Partnership", subject: "Book support enquiry", related: "Updated English & STEM Books", status: "New", received: "Sample time" },
+  { from: "Sample Reader", type: "Library information", subject: "Resource availability question", related: "Books & Resources", status: "Assigned", received: "Sample time" },
+  { from: "Sample Technology Partner", type: "Partnership", subject: "Computer support discussion", related: "Digital Learning Corner", status: "In Progress", received: "Sample time" },
+];
+
+export const adminPages = [
+  { title: "About the Library", route: "/about", status: "Prototype", languages: "English", updated: "Sample time" },
+  { title: "Library Services", route: "/services", status: "Prototype", languages: "English", updated: "Sample time" },
+  { title: "Support & Partner", route: "/support", status: "Prototype", languages: "English", updated: "Sample time" },
+  { title: "Contact", route: "/contact", status: "Pending Official Data", languages: "English", updated: "Sample time" },
+];
