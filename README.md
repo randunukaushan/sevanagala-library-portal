@@ -79,6 +79,8 @@ Codex and contributors should read [AGENTS.md](./AGENTS.md) before implementatio
 - security/privacy plan;
 - UI/accessibility plan;
 - canonical visual identity, color, typography, and page-pattern system;
+- professional public-page UI pass;
+- static admin-dashboard UI preview and admin UX specification;
 - technical architecture;
 - content/launch plan;
 - implementation/Codex roadmap;
