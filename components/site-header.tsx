@@ -1,11 +1,15 @@
 import Link from "next/link";
 
 const links = [
-  { href: "/#about", label: "About" },
-  { href: "/#needs", label: "Current Needs" },
-  { href: "/#projects", label: "Projects" },
-  { href: "/#transparency", label: "Transparency" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/books-resources", label: "Books" },
+  { href: "/needs", label: "Needs" },
+  { href: "/projects", label: "Projects" },
+  { href: "/support", label: "Support" },
+  { href: "/transparency", label: "Transparency" },
+  { href: "/news", label: "News" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function SiteHeader() {
@@ -20,7 +24,7 @@ export function SiteHeader() {
         </Link>
 
         <nav aria-label="Primary navigation">
-          <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold">
+          <ul className="flex flex-wrap gap-x-4 gap-y-2 text-sm font-semibold">
             {links.map((link) => (
               <li key={link.href}>
                 <Link className="hover:underline" href={link.href}>
