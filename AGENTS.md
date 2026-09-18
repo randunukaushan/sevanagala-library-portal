@@ -164,13 +164,17 @@ Do not modify unrelated architecture.
 
 ### 7.3 After Work
 
-Run available:
+For the current web application baseline, run:
 
-- lint;
-- typecheck;
-- tests;
-- production build;
-- database/RLS tests where relevant.
+```bash
+npm run lint
+npm run typecheck
+npm run build
+```
+
+Run feature-specific tests and database/RLS tests where relevant.
+
+Do not claim a check passed unless it was actually executed.
 
 Review the diff before committing.
 
