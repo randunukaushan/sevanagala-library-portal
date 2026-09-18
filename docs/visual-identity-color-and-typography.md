@@ -4,98 +4,105 @@
 
 ### 1.1 Objective
 
-Define the canonical visual foundation for the Sevanagala Public Library Portal prototype before detailed UI implementation.
+Define the canonical visual foundation for the Sevanagala Public Library Portal prototype.
 
-The design must feel:
+The approved design direction is:
 
-- trustworthy;
-- calm;
-- public-service oriented;
-- educational;
-- modern without looking commercial;
-- appropriate for local readers and international donors;
-- usable on low-cost mobile devices;
-- ready for Sinhala, English, and Tamil content.
+**Old-book warmth + modern public-library UI**
+
+The interface should feel connected to books, reading, paper, leather, wood, and long-term knowledge without looking antique, dusty, or visually outdated.
 
 ### 1.2 Status
 
-This is the canonical prototype visual system.
+This document defines the canonical prototype palette.
 
-Official institutional branding may replace or extend it after approval.
+The previous green-led prototype palette is retired.
 
-## 2. Research Findings
+Green must not be reintroduced as a primary, secondary, status, or decorative brand color unless the design system is intentionally reviewed and approved again.
 
-### 2.1 Public-Service Design Systems
+Official institutional branding may later replace or extend this system after approval.
 
-The U.S. Web Design System recommends role-based color tokens rather than choosing colors page by page. It separates base, primary, secondary, and accent roles and treats accessibility as a core requirement.
+## 2. Design Intent
 
-Reference:
+### 2.1 Character
+
+The website should feel:
+
+- warm;
+- scholarly;
+- trustworthy;
+- calm;
+- modern;
+- public-service oriented;
+- book-inspired rather than corporate;
+- suitable for local readers and international supporters.
+
+### 2.2 What "Old-Book Inspired" Means
+
+The design takes inspiration from:
+
+- warm paper;
+- parchment;
+- leather book covers;
+- walnut wood;
+- oxblood and burgundy bindings;
+- faded bronze and antique-gold details;
+- dark ink.
+
+It does **not** mean:
+
+- yellowed dirty paper effects;
+- fake torn edges;
+- heavy vintage ornament;
+- low-contrast sepia text;
+- excessive textures;
+- old-fashioned navigation patterns.
+
+### 2.3 Modern Counterbalance
+
+The old-book palette is combined with:
+
+- clean spacing;
+- strong contrast;
+- modern responsive layouts;
+- accessible controls;
+- simple cards;
+- contemporary interaction patterns;
+- restrained texture.
+
+## 3. Research Principles
+
+### 3.1 Role-Based Color
+
+Colors are assigned semantic roles rather than chosen independently per page.
+
+This follows modern public-service design-system practice.
+
+References:
+
 https://designsystem.digital.gov/design-tokens/color/theme-tokens/
 
-GOV.UK similarly treats color as functional and requires accessible combinations rather than relying on color alone.
-
-Reference:
 https://design-system.service.gov.uk/styles/colour/
 
-### 2.2 Accessibility
+### 3.2 Accessibility
 
-WCAG 2.2 Level AA remains the minimum accessibility target.
+WCAG 2.2 Level AA is the baseline.
 
-For normal text, color combinations should meet at least 4.5:1 contrast.
+Normal text should meet at least 4.5:1 contrast.
 
-The interface must not communicate status only through color.
+Status must never be communicated only through color.
 
 Reference:
+
 https://www.w3.org/TR/WCAG22/
 
-### 2.3 Typography
+### 3.3 Typography
 
-USWDS guidance recommends at least an effective 16px body size for most running text, comfortable line-height, and readable line length.
-
-A useful target for long-form reading is around 66 characters per line, with an acceptable range around 45–90 characters.
+Body text should normally remain at least 16px with comfortable line-height and readable measure.
 
 Reference:
+
 https://designsystem.digital.gov/components/typography/
-
-### 2.4 Library UX Research
-
-Modern public-library websites such as Oodi emphasise direct access to:
-
-- services;
-- facilities;
-- opening information;
-- learning;
-- books and collections;
-- clear task-based navigation.
-
-Reference:
-https://oodihelsinki.fi/en/
-
-The Sevanagala portal should apply the same principle: visitors should first understand what they can do, not be forced to read institutional history before reaching useful services.
-
-## 3. Brand Direction
-
-### 3.1 Core Theme
-
-The visual direction is:
-
-**Knowledge + Community + Trust + Growth**
-
-### 3.2 Color Meaning
-
-The palette is intentionally role-based rather than decorative.
-
-**Forest Green**
-Primary public-service identity. Represents growth and community without appearing like a commercial technology brand.
-
-**Ink Blue**
-Secondary institutional color. Used for information, technical/digital sections, and visual balance.
-
-**Warm Gold**
-Small accent for emphasis, milestones, and warmth. It must not dominate the interface.
-
-**Warm Neutral Backgrounds**
-Reduce visual harshness and create a reading-friendly library atmosphere.
 
 ## 4. Canonical Color Palette
 
@@ -103,99 +110,112 @@ Reduce visual harshness and create a reading-friendly library atmosphere.
 
 | Token | Hex | Purpose |
 |---|---|---|
-| Background | #F7F6F1 | Main page background |
-| Surface | #FFFFFF | Cards, header, panels |
-| Surface Soft | #EEF3EF | Alternating sections |
-| Text | #18201C | Primary text |
-| Text Muted | #526059 | Secondary text |
-| Border | #D9DED8 | Dividers and card borders |
+| Background / Parchment | #F6F0E6 | Main page background |
+| Surface / Warm White | #FFFDF9 | Cards, forms, header panels |
+| Surface Soft / Aged Paper | #EFE2D2 | Alternate sections and subtle highlights |
+| Text / Dark Ink | #211B17 | Primary text |
+| Text Muted | #66574B | Secondary text |
+| Border | #D7C7B3 | Dividers and card borders |
 
 ### 4.2 Brand Colors
 
 | Token | Hex | Purpose |
 |---|---|---|
-| Primary | #155E4B | Main actions, brand emphasis |
-| Primary Dark | #0E4537 | Hover/pressed state |
-| Primary Soft | #E8F3EE | Soft branded backgrounds |
-| Secondary | #1E3A5F | Institutional/digital emphasis |
-| Secondary Soft | #EAF0F7 | Secondary background |
-| Accent Strong | #8A5A00 | Accessible warm accent text/icon |
-| Accent Soft | #F7E7C1 | Warm highlight background |
+| Primary / Oxblood | #7A2E24 | Main actions, active states, brand emphasis |
+| Primary Dark | #5E211B | Hover and pressed states |
+| Primary Soft | #F3E2DE | Soft primary backgrounds |
+| Secondary / Walnut | #4A2F24 | Strong sections, footer/admin navigation, institutional depth |
+| Secondary Soft | #EDE3DB | Secondary tinted backgrounds |
+| Accent / Leather | #8A4B20 | Labels, small emphasis, book-inspired detail |
+| Accent Soft / Antique Paper Gold | #F2DFC6 | Warm callouts and prototype notices |
 
-### 4.3 State Colors
+### 4.3 Semantic State Colors
+
+The status system deliberately avoids green.
 
 | State | Strong | Soft |
 |---|---|---|
-| Information | #1D4ED8 | #E8EFFF |
-| Success | #166534 | #E9F5EC |
-| Warning | #8A5A00 | #FFF3CD |
-| Danger | #B42318 | #FDECEC |
-| Focus | #005EA8 | — |
+| Information | #2F4A68 | #E7ECF2 |
+| Success / Completed | #6B4D1F | #F2E9D8 |
+| Warning | #8A5A18 | #F8EACB |
+| Danger | #A5302A | #F7E2DF |
+| Focus | #5B3B91 | — |
 
-## 5. Verified Contrast Targets
+## 5. Verified Contrast
 
 ### 5.1 Key Pairings
 
-The following pairs were checked using the WCAG relative-luminance contrast formula:
+The following pairs were checked with the WCAG relative-luminance contrast formula:
 
 | Pair | Contrast |
 |---|---:|
-| Text #18201C on Background #F7F6F1 | 15.38:1 |
-| Muted #526059 on Background #F7F6F1 | 6.11:1 |
-| Primary #155E4B on White | 7.68:1 |
-| White on Primary #155E4B | 7.68:1 |
-| Primary Dark #0E4537 on White | 10.91:1 |
-| Secondary #1E3A5F on White | 11.50:1 |
-| Accent Strong #8A5A00 on White | 5.93:1 |
-| Information #1D4ED8 on White | 6.70:1 |
-| Success #166534 on White | 7.13:1 |
-| Danger #B42318 on White | 6.57:1 |
-| Focus #005EA8 on White | 6.63:1 |
+| Text #211B17 on Background #F6F0E6 | 15.01:1 |
+| Muted #66574B on Background #F6F0E6 | 6.11:1 |
+| Primary #7A2E24 on Surface #FFFDF9 | 9.21:1 |
+| White on Primary #7A2E24 | 9.36:1 |
+| Primary Dark #5E211B on Surface #FFFDF9 | 12.09:1 |
+| Secondary #4A2F24 on Surface #FFFDF9 | 11.99:1 |
+| Accent #8A4B20 on Surface #FFFDF9 | 6.65:1 |
+| Information #2F4A68 on Surface #FFFDF9 | 8.99:1 |
+| Success #6B4D1F on Surface #FFFDF9 | 7.64:1 |
+| Warning #8A5A18 on Surface #FFFDF9 | 5.81:1 |
+| Danger #A5302A on Surface #FFFDF9 | 6.76:1 |
+| Focus #5B3B91 on Surface #FFFDF9 | 8.34:1 |
 
-### 5.2 Accent Rule
+### 5.2 Rule
 
-Bright gold is not used for normal text.
+Do not assume every tint or opacity combination is accessible.
 
-Warm gold is used either:
+New color combinations must be checked before becoming reusable component styles.
 
-- as a soft background with dark text; or
-- as the darker accessible Accent Strong token.
+## 6. Color Usage
 
-## 6. Color Usage Rules
+### 6.1 Primary / Oxblood
 
-### 6.1 Primary
+Use for:
 
-Use Primary for:
-
-- main call-to-action buttons;
+- primary call-to-action buttons;
 - active navigation;
-- important links;
+- key links;
 - progress emphasis;
-- brand marks in the prototype.
+- important section labels.
 
-### 6.2 Secondary
+Do not cover large areas of the page with oxblood unless there is a clear visual reason.
 
-Use Secondary for:
+### 6.2 Secondary / Walnut
 
-- information sections;
-- digital/smart-library content;
-- supporting calls to action;
-- institutional emphasis.
+Use for:
 
-### 6.3 Accent
+- dark editorial sections;
+- footer or admin navigation;
+- strong institutional panels;
+- smart-library/development sections where a dark surface is useful.
 
-Use Accent sparingly for:
+### 6.3 Leather Accent
+
+Use sparingly for:
 
 - small labels;
-- milestones;
-- highlights;
-- donor-impact accents.
+- category marks;
+- milestone details;
+- book-inspired visual accents.
 
-Do not use Accent as the main action color.
+### 6.4 Parchment and Aged Paper
 
-### 6.4 Status
+Use as quiet page and section surfaces.
 
-Always pair status color with visible text such as:
+Keep texture extremely subtle or absent in functional areas such as:
+
+- tables;
+- forms;
+- admin screens;
+- data-heavy cards.
+
+### 6.5 Status
+
+Every status must include readable text.
+
+Examples:
 
 - Seeking Support;
 - Pledged;
@@ -203,57 +223,62 @@ Always pair status color with visible text such as:
 - Verified;
 - Completed.
 
-Color must never be the only status signal.
+Status colors are secondary cues only.
 
-## 7. Typography System
+## 7. Typography
 
-### 7.1 Typeface Direction
+### 7.1 Body Typeface
 
-The long-term web-font direction should support all three planned languages cleanly:
+The long-term production font stack should support:
 
 - Sinhala;
 - English;
 - Tamil.
 
-Preferred family direction:
+Preferred direction:
 
 - Noto Sans Sinhala;
 - Noto Sans Tamil;
-- Noto Sans / highly legible system sans for Latin text.
+- Noto Sans or another highly legible sans-serif for English.
 
-Until web-font integration is finalised, the prototype uses a robust system fallback stack.
+### 7.2 Editorial Heading Option
 
-### 7.2 Body Text
+English display headings may later use a restrained serif face to strengthen the book/editorial identity, provided:
 
-Default body text:
+- Sinhala and Tamil remain visually compatible;
+- performance is acceptable;
+- licensing is clear;
+- accessibility remains strong.
 
-- minimum 16px;
-- line-height around 1.6;
-- regular weight;
-- high-contrast text color.
+The current prototype may continue using a strong sans-serif heading system until multilingual typography is tested.
 
-### 7.3 Headings
+### 7.3 Body Text
 
-Recommended hierarchy:
+Default:
 
-- Display / Home hero: 48–64px desktop, 36–44px mobile;
-- H1 inner page: 40–52px desktop, 34–40px mobile;
+- at least 16px;
+- line-height around 1.6–1.7;
+- dark ink on warm light surfaces.
+
+### 7.4 Heading Scale
+
+Recommended:
+
+- Home display: 48–64px desktop, 36–44px mobile;
+- Inner-page H1: 40–52px desktop, 34–40px mobile;
 - H2: 28–36px;
 - H3: 20–24px;
-- Small labels: 12–14px with limited uppercase use.
+- small labels: 12–14px.
 
-### 7.4 Reading Measure
+### 7.5 Reading Measure
 
-Long paragraphs should normally stay around:
-
-- 60–72 characters per line;
-- maximum approximately 75 characters for ordinary reading content.
+Long reading text should normally stay around 60–72 characters per line.
 
 ## 8. Spacing and Shape
 
-### 8.1 Spacing Scale
+### 8.1 Spacing
 
-Use an 8px-oriented rhythm:
+Use a consistent rhythm based around:
 
 - 4px;
 - 8px;
@@ -267,108 +292,96 @@ Use an 8px-oriented rhythm:
 
 ### 8.2 Corners
 
-Use moderate radii:
+Use modern moderate rounding:
 
 - controls: 10–12px;
 - cards: 16–20px;
-- major feature panels: up to 24px.
-
-Avoid excessively rounded "app-like" styling.
+- larger panels: up to 24px.
 
 ### 8.3 Shadows
 
-Use shadows sparingly.
+Use warm, subtle shadows only when hierarchy needs them.
 
-Default cards should rely mainly on:
+Most cards should rely on:
 
 - border;
-- spacing;
-- background contrast.
+- surface;
+- spacing.
 
-## 9. Visual Hierarchy
+## 9. Texture and Book Details
 
-### 9.1 Home Page
+### 9.1 Allowed
 
-Order of importance:
+Subtle visual references may include:
 
-1. Library identity and purpose
-2. Key visitor actions
-3. Current verified needs
-4. Services/resources
-5. Development projects
-6. Transparency/impact
-7. News
-8. Contact/footer
+- faint paper grain;
+- thin book-line illustrations;
+- restrained leather-like color blocking;
+- simple spine or page motifs.
 
-### 9.2 Donor Pages
+### 9.2 Avoid
 
-Priority:
+Do not use:
 
-1. What is needed
-2. Why it matters
-3. Target / pledged / received / remaining
-4. Last verified
-5. Evidence
-6. Approved contact path
+- heavy fake parchment;
+- stained paper;
+- realistic torn edges;
+- excessive book ornaments;
+- decorative textures behind dense text.
 
-## 10. Photography and Illustration
+## 10. Photography
 
-### 10.1 Photography
+### 10.1 Preferred
 
-When approved, prefer real library photography over generic stock imagery.
+After approval, prefer real library photography.
 
-Useful photography:
+Suitable subjects:
 
-- shelves and reading areas;
+- shelves;
+- books;
+- reading areas;
 - facilities;
-- new books;
-- equipment installation;
+- approved equipment;
 - project progress.
 
-### 10.2 Privacy
+### 10.2 Color Grading
 
-Do not publish identifiable children or other people without the required approval process.
+Photos may use a slight warm treatment for visual consistency, but should remain realistic.
 
-### 10.3 Decorative Illustration
+### 10.3 Privacy
 
-Use only when it supports understanding.
-
-The site should not become dependent on decorative AI imagery for credibility.
+Do not publish identifiable people, especially children, without the required approval process.
 
 ## 11. Motion
 
 ### 11.1 Principle
 
-Motion should clarify change, not decorate every interaction.
+Motion should communicate state, not imitate old-fashioned page-turning effects.
 
 ### 11.2 Reduced Motion
 
 Respect `prefers-reduced-motion`.
 
-### 11.3 Recommended Motion
+## 12. Design Tokens
 
-Use subtle transitions for:
+### 12.1 Required
 
-- button hover;
-- card hover where useful;
-- navigation;
-- disclosure panels.
-
-Avoid large parallax, autoplay animation, or distracting loops.
-
-## 12. Design Token Rule
-
-### 12.1 Canonical Tokens
-
-Components must use semantic tokens such as:
+Components use semantic variables such as:
 
 - `--color-brand-primary`;
-- `--color-text`;
+- `--color-brand-secondary`;
+- `--color-bg`;
 - `--color-surface`;
-- `--color-status-warning`.
+- `--color-text`;
+- `--color-accent`;
+- `--color-success`.
 
-Do not scatter arbitrary hex values through components.
+### 12.2 No Arbitrary Green
 
-### 12.2 Future Branding
+Do not add green hex values directly to public or admin components.
 
-If an official approved identity arrives later, update the token layer first rather than rewriting every component.
+If a new color is needed, it should be added to the canonical token system first.
+
+### 12.3 Future Official Branding
+
+When official branding is approved, update the semantic token layer rather than rewriting each page independently.

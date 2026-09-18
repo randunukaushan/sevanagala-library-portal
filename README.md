@@ -78,7 +78,7 @@ Codex and contributors should read [AGENTS.md](./AGENTS.md) before implementatio
 - admin workflow;
 - security/privacy plan;
 - UI/accessibility plan;
-- canonical visual identity, color, typography, and page-pattern system;
+- canonical book-inspired visual identity, color, typography, and page-pattern system;
 - professional public-page UI pass;
 - static admin-dashboard UI preview and admin UX specification;
 - technical architecture;
@@ -121,9 +121,9 @@ Do not publish private member, staff, or donor information without approved purp
 
 ## 7. Development
 
-### 7.1 Prototype Bootstrap
+### 7.1 Prototype Baseline
 
-The prototype application baseline is being developed on `feat/prototype-bootstrap`.
+The prototype application baseline and UI foundation are established on `main`.
 
 Local setup is documented in `docs/local-development-and-codex-setup.md`.
 

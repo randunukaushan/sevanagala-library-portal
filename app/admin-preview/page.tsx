@@ -43,7 +43,7 @@ const activity = [
 
 export default function AdminPreviewPage() {
   return (
-    <div className="min-h-screen bg-[#f2f4f2]">
+    <div className="min-h-screen bg-[var(--color-bg)]">
       <div className="border-b border-[var(--color-border)] bg-[var(--color-accent-soft)]">
         <div className="shell py-3 text-sm">
           <strong>Admin UI preview only.</strong> No authentication, private data,
@@ -100,11 +100,7 @@ export default function AdminPreviewPage() {
               Operational summary
             </h2>
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-              <AdminStatCard
-                label="ACTIVE NEEDS"
-                value="8"
-                note="Sample records"
-              />
+              <AdminStatCard label="ACTIVE NEEDS" value="8" note="Sample records" />
               <AdminStatCard
                 label="AWAITING VERIFICATION"
                 value="3"
@@ -200,7 +196,7 @@ export default function AdminPreviewPage() {
                     <th className="px-5 py-3 font-extrabold">Last verified</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[var(--color-border)] bg-white">
+                <tbody className="divide-y divide-[var(--color-border)] bg-[var(--color-surface)]">
                   <tr>
                     <td className="px-5 py-4 font-bold">Updated English & STEM Books</td>
                     <td className="px-5 py-4">Books</td>
