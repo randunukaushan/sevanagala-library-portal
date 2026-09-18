@@ -17,10 +17,10 @@ export default function Home() {
               future smart-library platform.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <a className="button-primary" href="#needs">
+              <a className="button-primary" href="/needs">
                 View sample needs
               </a>
-              <a className="button-secondary" href="#projects">
+              <a className="button-secondary" href="/projects">
                 Explore roadmap
               </a>
             </div>
