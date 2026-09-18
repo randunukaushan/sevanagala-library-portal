@@ -89,7 +89,17 @@ Validate all external input:
 
 Build reusable components where reuse is real, but do not create unnecessary abstractions.
 
-### 4.4 Accessibility
+### 4.4 UI and Visual System
+
+Before changing public UI, read:
+
+- `docs/ui-ux-accessibility-and-design-system.md`
+- `docs/visual-identity-color-and-typography.md`
+- `docs/ui-ux-page-patterns.md`
+
+Use the documented semantic design tokens. Do not introduce arbitrary brand hex colors inside components unless the design-system documentation is intentionally updated.
+
+### 4.5 Accessibility
 
 Target WCAG 2.2 AA.
 
@@ -103,7 +113,7 @@ Every interactive feature must consider:
 - touch target size;
 - loading/empty/error states.
 
-### 4.5 Performance
+### 4.6 Performance
 
 Public pages should be mobile-first and low-bandwidth friendly.
 

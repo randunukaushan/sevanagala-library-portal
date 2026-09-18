@@ -1,44 +1,69 @@
+import { StatusBadge } from "@/components/status-badge";
 import type { Need } from "@/lib/sample-data";
 
 function remaining(need: Need) {
   return Math.max(need.target - need.pledged - need.received, 0);
 }
 
+function progress(need: Need) {
+  if (need.target <= 0) return 0;
+  const covered = Math.min(need.pledged + need.received, need.target);
+  return Math.round((covered / need.target) * 100);
+}
+
 export function NeedCard({ need }: { need: Need }) {
   const left = remaining(need);
+  const percent = progress(need);
 
   return (
-    <article className="card flex h-full flex-col p-5">
+    <article className="card flex h-full flex-col p-5 md:p-6">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <span className="rounded-full bg-[var(--surface-soft)] px-3 py-1 text-xs font-bold">
+        <span className="rounded-full bg-[var(--color-brand-primary-soft)] px-3 py-1 text-xs font-extrabold text-[var(--color-brand-primary-dark)]">
           {need.category}
         </span>
-        <span className="text-xs font-bold">{need.priority} priority</span>
+        <StatusBadge status={need.status} />
       </div>
 
-      <h3 className="mt-5 text-xl font-bold">{need.title}</h3>
+      <h3 className="mt-5 text-xl font-black tracking-[-0.02em]">
+        {need.title}
+      </h3>
       <p className="muted mt-2">{need.purpose}</p>
 
-      <dl className="mt-5 grid grid-cols-2 gap-3 text-sm">
+      <div className="mt-6">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <p className="muted text-xs font-bold">Still needed</p>
+            <p className="text-2xl font-black">
+              {left} <span className="text-sm font-bold">{need.unit}</span>
+            </p>
+          </div>
+          <p className="muted text-sm">{percent}% covered</p>
+        </div>
+
+        <div
+          className="progress-track mt-3"
+          role="progressbar"
+          aria-label={`Support progress for ${need.title}`}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={percent}
+        >
+          <div className="progress-value" style={{ width: `${percent}%` }} />
+        </div>
+      </div>
+
+      <dl className="mt-5 grid grid-cols-3 gap-3 border-t border-[var(--color-border)] pt-4 text-sm">
         <div>
-          <dt className="muted">Target</dt>
-          <dd className="font-bold">
-            {need.target} {need.unit}
-          </dd>
+          <dt className="muted text-xs">Target</dt>
+          <dd className="mt-1 font-black">{need.target}</dd>
         </div>
         <div>
-          <dt className="muted">Still needed</dt>
-          <dd className="font-bold">
-            {left} {need.unit}
-          </dd>
+          <dt className="muted text-xs">Pledged</dt>
+          <dd className="mt-1 font-black">{need.pledged}</dd>
         </div>
         <div>
-          <dt className="muted">Pledged</dt>
-          <dd className="font-bold">{need.pledged}</dd>
-        </div>
-        <div>
-          <dt className="muted">Status</dt>
-          <dd className="font-bold">{need.status}</dd>
+          <dt className="muted text-xs">Received</dt>
+          <dd className="mt-1 font-black">{need.received}</dd>
         </div>
       </dl>
 
