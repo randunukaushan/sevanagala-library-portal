@@ -45,7 +45,7 @@ Create a foundation for future catalogue, digital-learning, and community techno
 
 ### 3.1 Start Here
 
-Read [Documentation Index](./docs/00-document-index.md).
+Read [Documentation Index](./docs/documentation-index.md).
 
 ### 3.2 Codex
 
@@ -112,12 +112,12 @@ Do not publish private member, staff, or donor information without approved purp
 
 Bootstrap the application only after reviewing:
 
-- `docs/01-product-vision-and-requirements.md`
-- `docs/07-data-model-and-database-design.md`
-- `docs/09-security-privacy-and-compliance.md`
-- `docs/10-ui-ux-accessibility-and-design-system.md`
-- `docs/11-technical-architecture-deployment-and-operations.md`
-- `docs/13-implementation-roadmap-and-codex-workflow.md`
+- `docs/product-vision-and-requirements.md`
+- `docs/data-model-and-database-design.md`
+- `docs/security-privacy-and-compliance.md`
+- `docs/ui-ux-accessibility-and-design-system.md`
+- `docs/technical-architecture-deployment-and-operations.md`
+- `docs/implementation-roadmap-and-codex-workflow.md`
 
 ## 8. Research Foundations
 
