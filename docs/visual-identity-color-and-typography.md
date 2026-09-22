@@ -130,8 +130,6 @@ Prototype web loading now includes:
 
 Sinhala and Tamil content must use their script-appropriate sans-serif stack rather than inheriting the English Playfair display face. Do not force the English serif display style onto scripts where it harms readability.
 
-For Sinhala and Tamil, major display headings use slightly smaller responsive sizes, normal letter spacing, and increased line height so long translated headings wrap naturally on mobile and desktop.
-
 ### 4.4 Scale
 
 Recommended:

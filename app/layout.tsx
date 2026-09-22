@@ -3,29 +3,15 @@ import { headers } from "next/headers";
 import "./globals.css";
 import { SiteChrome } from "@/components/site-chrome";
 import { defaultPublicLocale, isPublicLocale } from "@/lib/i18n/config";
-import { getLocalizedPageMetadata } from "@/lib/i18n/metadata";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const headerStore = await headers();
-  const headerLocale = headerStore.get("x-public-locale");
-  const locale = isPublicLocale(headerLocale) ? headerLocale : defaultPublicLocale;
-  const publicPath = headerStore.get("x-public-path");
-
-  if (!publicPath) {
-    return {
-      title: "Sevanagala Public Library Portal — Prototype",
-      description:
-        "Prototype public library portal and protected staff workspace for Sevanagala Public Library.",
-    };
-  }
-
-  const page = getLocalizedPageMetadata(locale, publicPath);
-
-  return {
-    title: `${page.title} | Sevanagala Public Library`,
-    description: page.description,
-  };
-}
+export const metadata: Metadata = {
+  title: {
+    default: "Sevanagala Public Library Portal — Prototype",
+    template: "%s | Sevanagala Public Library Portal",
+  },
+  description:
+    "Prototype for a public library website, development-needs registry, donor transparency portal, and future smart-library platform.",
+};
 
 export default async function RootLayout({
   children,
