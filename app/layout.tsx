@@ -9,16 +9,20 @@ export async function generateMetadata(): Promise<Metadata> {
   const headerStore = await headers();
   const headerLocale = headerStore.get("x-public-locale");
   const locale = isPublicLocale(headerLocale) ? headerLocale : defaultPublicLocale;
-  const pathname = headerStore.get("x-public-path") ?? "/";
-  const page = getLocalizedPageMetadata(locale, pathname);
+  const publicPath = headerStore.get("x-public-path");
+
+  if (!publicPath) {
+    return {
+      title: "Sevanagala Public Library Portal — Prototype",
+      description:
+        "Prototype public library portal and protected staff workspace for Sevanagala Public Library.",
+    };
+  }
+
+  const page = getLocalizedPageMetadata(locale, publicPath);
 
   return {
-    title: {
-      absolute:
-        pathname === "/"
-          ? `${page.title} | Sevanagala Public Library`
-          : `${page.title} | Sevanagala Public Library`,
-    },
+    title: `${page.title} | Sevanagala Public Library`,
     description: page.description,
   };
 }
