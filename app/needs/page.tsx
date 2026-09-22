@@ -1,4 +1,5 @@
 import { NeedCard } from "@/components/need-card";
+import { publicImages } from "@/lib/public-images";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { sampleNeeds } from "@/lib/sample-data";
@@ -17,6 +18,8 @@ export default function NeedsPage() {
         eyebrow="Current needs"
         title="Show what is needed, what is covered, and what still remains."
         description="The production registry will use verified library data. The cards below remain sample data until staff complete the needs review."
+        image={publicImages.studyInterior}
+        imageAlt="Modern library study interior with bookshelves"
       />
 
       <section className="section">
