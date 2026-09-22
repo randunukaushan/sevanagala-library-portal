@@ -271,6 +271,8 @@ After submission, show a clear success state.
 
 Use visible language names, not flags.
 
+The current prototype does not expose a non-functional language switcher. Add the selector when translated content and routing actually exist.
+
 Suggested labels:
 
 - සිංහල
@@ -354,6 +356,8 @@ Consider autosave for long drafts, but clearly indicate save state.
 ### 13.1 Images
 
 Use responsive, compressed images.
+
+Prototype remote photography may load directly where required for reliability, but production should move approved imagery to controlled storage/CDN and restore an optimized image pipeline.
 
 ### 13.2 JavaScript
 
