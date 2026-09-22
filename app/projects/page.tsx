@@ -1,23 +1,25 @@
 import { EditorialImageBand } from "@/components/editorial-image-band";
 import { PageHero } from "@/components/page-hero";
-import { SectionHeading } from "@/components/section-heading";
-import { localePath } from "@/lib/i18n/config";
-import { publicContent } from "@/lib/i18n/public-content";
-import { localizedSampleProjects } from "@/lib/i18n/sample-content";
-import { getRequestLocale } from "@/lib/i18n/server";
 import { publicImages } from "@/lib/public-images";
+import { SectionHeading } from "@/components/section-heading";
+import { sampleProjects } from "@/lib/sample-data";
 
-export default async function ProjectsPage() {
-  const locale = await getRequestLocale();
-  const copy = publicContent[locale].projects;
-  const sampleProjects = localizedSampleProjects(locale);
+const lifecycle = [
+  "Planned",
+  "Approved",
+  "Seeking Support",
+  "In Progress",
+  "Completed",
+  "Archived",
+];
 
+export default function ProjectsPage() {
   return (
     <>
       <PageHero
-        eyebrow={copy.heroEyebrow}
-        title={copy.heroTitle}
-        description={copy.heroDescription}
+        eyebrow="Development projects"
+        title="Show the outcome behind the equipment, books, or facilities."
+        description="Projects group individual needs into understandable development goals so supporters can see what a contribution is helping the library achieve."
         image={publicImages.studyInterior}
         imageAlt="Modern library interior prepared as a development concept"
       />
@@ -25,17 +27,17 @@ export default async function ProjectsPage() {
       <section className="section">
         <div className="shell">
           <SectionHeading
-            eyebrow={copy.sectionEyebrow}
-            title={copy.sectionTitle}
-            description={copy.sectionDescription}
+            eyebrow="Sample projects"
+            title="A project should tell a complete story."
+            description="Each future project page will explain the problem, objective, related needs, milestones, support received, and latest verified update."
           />
 
-          <div className="grid-auto">
+          <div className="grid-auto mt-8">
             {sampleProjects.map((project, index) => (
               <article className="card overflow-hidden" key={project.title}>
                 <div className="bg-[var(--color-brand-secondary-soft)] px-6 py-4">
                   <span className="text-xs font-extrabold text-[var(--color-brand-secondary)]">
-                    {String(index + 1).padStart(2, "0")} · {project.status}
+                    PROJECT {String(index + 1).padStart(2, "0")} • {project.status}
                   </span>
                 </div>
                 <div className="p-6">
@@ -44,7 +46,7 @@ export default async function ProjectsPage() {
                   </h2>
                   <p className="muted mt-3">{project.summary}</p>
                   <p className="mt-5 text-sm font-bold text-[var(--color-brand-primary)]">
-                    {copy.sampleLabel}
+                    Sample project — milestones pending
                   </p>
                 </div>
               </article>
@@ -54,22 +56,22 @@ export default async function ProjectsPage() {
       </section>
 
       <EditorialImageBand
-        eyebrow={copy.bandEyebrow}
-        title={copy.bandTitle}
-        description={copy.bandDescription}
+        eyebrow="From idea to outcome"
+        title="Show the human result behind every shelf, computer, table, and upgrade."
+        description="A strong project story connects the need, the milestone, the evidence, and the final benefit. That makes development easier for readers and supporters to understand."
         image={publicImages.bookshelves}
         imageAlt="Modern bookshelves in a contemporary library interior"
-        href={localePath(locale, "/transparency")}
-        actionLabel={copy.bandAction}
+        href="/transparency"
+        actionLabel="See the transparency model"
       />
 
       <section className="section section-dark">
         <div className="shell">
           <p className="text-xs font-extrabold tracking-[0.08em] text-white/70">
-            {copy.lifecycleLabel}
+            PROJECT LIFECYCLE
           </p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {copy.lifecycle.map((stage, index) => (
+            {lifecycle.map((stage, index) => (
               <div
                 className="rounded-[var(--radius-control)] border border-white/15 bg-white/5 p-4"
                 key={stage}
