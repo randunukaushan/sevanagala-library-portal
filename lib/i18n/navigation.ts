@@ -19,7 +19,7 @@ export const navigationCopy = {
     primaryNav: "Primary navigation",
     mobileNav: "Mobile navigation",
     homeLabel: "Sevanagala Public Library home",
-    language: "Change language",
+    language: "Language",
     skip: "Skip to main content",
     footer: {
       description:
@@ -62,7 +62,7 @@ export const navigationCopy = {
     primaryNav: "ප්‍රධාන සංචාලනය",
     mobileNav: "ජංගම සංචාලනය",
     homeLabel: "සෙවනගල මහජන පුස්තකාල මුල් පිටුව",
-    language: "භාෂාව මාරු කරන්න",
+    language: "භාෂාව",
     skip: "ප්‍රධාන අන්තර්ගතයට යන්න",
     footer: {
       description:
@@ -84,7 +84,7 @@ export const navigationCopy = {
       partnership: "හවුල්කාරිත්ව විමසීම්",
       adminPreview: "Admin UI මූලාකෘතිය",
       copyright: "© 2026 සෙවනගල මහජන පුස්තකාල ද්වාරය · මූලාකෘතිය.",
-      values: "ප්‍රවේශයට පහසු · ත්‍රිභාෂා සූදානම් · පාරදෘශ්‍යතාව ප්‍රමුඛ",
+      values: "ප්‍රවේශযোগ্য · ත්‍රිභාෂා සූදානම් · පාරදෘශ්‍යතාව ප්‍රමුඛ",
     },
   },
   ta: {
@@ -105,7 +105,7 @@ export const navigationCopy = {
     primaryNav: "முதன்மை வழிசெலுத்தல்",
     mobileNav: "மொபைல் வழிசெலுத்தல்",
     homeLabel: "செவனகல பொது நூலக முகப்பு",
-    language: "மொழியை மாற்றவும்",
+    language: "மொழி",
     skip: "முதன்மை உள்ளடக்கத்திற்குச் செல்லவும்",
     footer: {
       description:
