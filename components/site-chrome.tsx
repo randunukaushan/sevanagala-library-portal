@@ -6,9 +6,12 @@ import { SiteHeader } from "@/components/site-header";
 
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isAdminPreview = pathname.startsWith("/admin-preview");
+  const isWorkspace =
+    pathname.startsWith("/admin-preview") ||
+    pathname.startsWith("/admin") ||
+    pathname.startsWith("/staff-login");
 
-  if (isAdminPreview) {
+  if (isWorkspace) {
     return <>{children}</>;
   }
 
