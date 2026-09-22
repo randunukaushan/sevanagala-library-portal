@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import "./globals.css";
 import { SiteChrome } from "@/components/site-chrome";
+import { defaultPublicLocale, isPublicLocale } from "@/lib/i18n/config";
 
 export const metadata: Metadata = {
   title: {
@@ -11,13 +13,17 @@ export const metadata: Metadata = {
     "Prototype for a public library website, development-needs registry, donor transparency portal, and future smart-library platform.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const headerStore = await headers();
+  const headerLocale = headerStore.get("x-public-locale");
+  const locale = isPublicLocale(headerLocale) ? headerLocale : defaultPublicLocale;
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
