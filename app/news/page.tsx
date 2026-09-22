@@ -1,21 +1,36 @@
 import { EditorialImageBand } from "@/components/editorial-image-band";
 import { PageHero } from "@/components/page-hero";
-import { SectionHeading } from "@/components/section-heading";
-import { localePath } from "@/lib/i18n/config";
-import { publicContent } from "@/lib/i18n/public-content";
-import { getRequestLocale } from "@/lib/i18n/server";
 import { publicImages } from "@/lib/public-images";
+import { SectionHeading } from "@/components/section-heading";
 
-export default async function NewsPage() {
-  const locale = await getRequestLocale();
-  const copy = publicContent[locale].news;
+const sampleNews = [
+  {
+    type: "Development",
+    title: "Prototype development started",
+    summary:
+      "A sample update showing how future library-development and service news may appear.",
+  },
+  {
+    type: "Collection",
+    title: "Collection needs review",
+    summary:
+      "Future updates can explain category gaps, new arrivals, and verified collection-renewal progress.",
+  },
+  {
+    type: "Smart library",
+    title: "Smart-library roadmap",
+    summary:
+      "Future project updates can document connectivity, equipment, catalogue, and learning-space milestones.",
+  },
+];
 
+export default function NewsPage() {
   return (
     <>
       <PageHero
-        eyebrow={copy.heroEyebrow}
-        title={copy.heroTitle}
-        description={copy.heroDescription}
+        eyebrow="News & updates"
+        title="Short, verified updates instead of a cluttered notice board."
+        description="Production news will move through an approval workflow. The entries below remain sample content."
         image={publicImages.bookshelves}
         imageAlt="Library bookshelves representing news and collection updates"
       />
@@ -23,44 +38,42 @@ export default async function NewsPage() {
       <section className="section">
         <div className="shell">
           <SectionHeading
-            eyebrow={copy.sectionEyebrow}
-            title={copy.sectionTitle}
-            description={copy.sectionDescription}
+            eyebrow="Sample updates"
+            title="Keep each update focused on one useful change."
+            description="Future posts can cover services, collections, development projects, new resources, and public notices."
           />
 
-          <div className="grid-auto">
-            {copy.entries.map(([type, title, summary], index) => (
-              <article className="card overflow-hidden" key={title}>
+          <div className="grid-auto mt-8">
+            {sampleNews.map((item, index) => (
+              <article className="card overflow-hidden" key={item.title}>
                 <div className="bg-[var(--color-brand-primary-soft)] px-6 py-4">
                   <span className="text-xs font-extrabold text-[var(--color-brand-primary-dark)]">
-                    {type} · {copy.sample}
+                    {item.type} • SAMPLE
                   </span>
                 </div>
                 <div className="p-6">
-                  <p className="muted text-xs">
-                    {copy.prototypeEntry} {String(index + 1).padStart(2, "0")}
-                  </p>
+                  <p className="muted text-xs">Prototype entry {String(index + 1).padStart(2, "0")}</p>
                   <h2 className="mt-2 text-xl font-black tracking-[-0.02em]">
-                    {title}
+                    {item.title}
                   </h2>
-                  <p className="muted mt-3">{summary}</p>
+                  <p className="muted mt-3">{item.summary}</p>
                 </div>
               </article>
             ))}
           </div>
         </div>
       </section>
-
       <EditorialImageBand
-        eyebrow={copy.bandEyebrow}
-        title={copy.bandTitle}
-        description={copy.bandDescription}
+        eyebrow="Library stories"
+        title="Updates should feel useful, visual, and worth reading."
+        description="Future news can combine a concise verified update with approved photography from new books, projects, services, or community learning."
         image={publicImages.warmInterior}
         imageAlt="Warm modern library interior with shelves and reading areas"
-        href={localePath(locale, "/projects")}
-        actionLabel={copy.bandAction}
+        href="/projects"
+        actionLabel="Explore development projects"
         reverse
       />
+
     </>
   );
 }
