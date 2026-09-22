@@ -1,57 +1,60 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const links = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/books-resources", label: "Books & Resources" },
+  { href: "/books-resources", label: "Books" },
   { href: "/needs", label: "Needs" },
   { href: "/projects", label: "Projects" },
-  { href: "/support", label: "Support" },
   { href: "/transparency", label: "Transparency" },
-  { href: "/news", label: "News" },
   { href: "/contact", label: "Contact" },
 ];
 
 export function SiteHeader() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const update = () => setScrolled(window.scrollY > 42);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--color-border)] bg-[color:rgba(255,255,255,0.96)] backdrop-blur">
-      <div className="shell flex min-h-18 items-center justify-between gap-5 py-3">
-        <Link href="/" className="min-w-0 no-underline">
-          <span className="block text-xs font-extrabold tracking-[0.08em] text-[var(--color-brand-primary)]">
-            SEVANAGALA
+    <header className={scrolled ? "site-nav site-nav-scrolled" : "site-nav"}>
+      <div className="shell site-nav-inner">
+        <Link href="/" className="site-brand" aria-label="Sevanagala Public Library home">
+          <span className="site-brand-mark">S</span>
+          <span className="site-brand-copy">
+            <strong>SEVANAGALA</strong>
+            <span>Public Library</span>
           </span>
-          <span className="block truncate text-base font-black tracking-[-0.01em] sm:text-lg">
-            Public Library Portal
-          </span>
+          <span className="site-preview-pill">Prototype</span>
         </Link>
 
-        <nav className="hidden md:block" aria-label="Primary navigation">
-          <ul className="flex flex-wrap items-center justify-end gap-1 text-sm font-bold">
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link className="nav-link" href={link.href}>
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <nav className="site-nav-links" aria-label="Primary navigation">
+          {links.map((link) => (
+            <Link href={link.href} key={link.href}>
+              {link.label}
+            </Link>
+          ))}
+          <Link className="site-nav-cta" href="/support">
+            Partner
+          </Link>
         </nav>
 
-        <details className="mobile-menu relative md:hidden">
-          <summary className="button-secondary min-w-20">Menu</summary>
-          <nav
-            className="absolute right-0 top-[calc(100%+0.75rem)] w-[min(20rem,calc(100vw-1.25rem))] rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] p-3 shadow-[var(--shadow-soft)]"
-            aria-label="Mobile navigation"
-          >
-            <ul className="grid gap-1 text-sm font-bold">
-              {links.map((link) => (
-                <li key={link.href}>
-                  <Link className="nav-link w-full" href={link.href}>
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+        <details className="site-mobile-menu">
+          <summary aria-label="Open navigation">Menu</summary>
+          <nav aria-label="Mobile navigation">
+            {links.map((link) => (
+              <Link href={link.href} key={link.href}>
+                {link.label}
+              </Link>
+            ))}
+            <Link href="/support">Support & Partner</Link>
           </nav>
         </details>
       </div>
