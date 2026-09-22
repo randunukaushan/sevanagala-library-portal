@@ -1218,6 +1218,117 @@ textarea {
   font-size: 0.76rem;
 }
 
+/* Staff authentication */
+
+.staff-auth-page {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+  background:
+    radial-gradient(circle at top left, rgba(157, 111, 70, 0.13), transparent 34rem),
+    var(--color-bg);
+}
+
+.staff-auth-panel {
+  width: min(100%, 31rem);
+  border: 1px solid var(--color-border);
+  border-radius: 1.5rem;
+  background: var(--color-surface);
+  padding: clamp(1.5rem, 4vw, 2.4rem);
+  box-shadow: var(--shadow-soft);
+}
+
+.staff-auth-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.staff-auth-brand .site-brand-mark {
+  border-color: rgba(23, 21, 18, 0.24);
+  color: var(--color-text);
+}
+
+.staff-auth-brand h1 {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2rem, 8vw, 2.75rem);
+  line-height: 1;
+}
+
+.staff-auth-intro {
+  margin-top: 1.35rem;
+  color: var(--color-text-muted);
+}
+
+.staff-auth-notice,
+.staff-auth-error {
+  margin-top: 1.3rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+.staff-auth-notice {
+  background: var(--color-warning-soft);
+  color: var(--color-warning);
+}
+
+.staff-auth-notice p {
+  margin-top: 0.35rem;
+  color: inherit;
+}
+
+.staff-auth-error {
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+}
+
+.staff-auth-form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.6rem;
+}
+
+.staff-auth-form label {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.staff-auth-form label > span {
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.staff-auth-form input {
+  min-height: 3rem;
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 0.85rem;
+  background: var(--color-surface);
+  padding: 0.7rem 0.85rem;
+  color: var(--color-text);
+}
+
+.staff-auth-form input:disabled {
+  cursor: not-allowed;
+  background: var(--color-surface-soft);
+  color: var(--color-text-muted);
+}
+
+.staff-auth-form button:disabled,
+.button-primary:disabled,
+.button-secondary:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+}
+
+.staff-auth-back {
+  margin-top: 1.5rem;
+}
+
 /* Admin-compatible controls */
 
 .nav-link {
