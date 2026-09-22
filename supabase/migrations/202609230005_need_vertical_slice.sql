@@ -125,8 +125,7 @@ as $$
       'partially_pledged',
       'fully_pledged',
       'partially_received',
-      'fulfilled',
-      'paused'
+      'fulfilled'
     )
   order by
     case n.priority
