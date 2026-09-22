@@ -1,6 +1,4 @@
 import { StatusBadge } from "@/components/status-badge";
-import type { PublicLocale } from "@/lib/i18n/config";
-import { needCardCopy } from "@/lib/i18n/need-card";
 import type { Need } from "@/lib/sample-data";
 
 function remaining(need: Need) {
@@ -13,22 +11,15 @@ function progress(need: Need) {
   return Math.round((covered / need.target) * 100);
 }
 
-export function NeedCard({
-  need,
-  locale = "en",
-}: {
-  need: Need;
-  locale?: PublicLocale;
-}) {
+export function NeedCard({ need }: { need: Need }) {
   const left = remaining(need);
   const percent = progress(need);
-  const copy = needCardCopy[locale];
 
   return (
     <article className="card need-card">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <span className="need-category">{need.category}</span>
-        <StatusBadge locale={locale} status={need.status} />
+        <StatusBadge status={need.status} />
       </div>
 
       <h3 className="need-title">{need.title}</h3>
@@ -37,19 +28,19 @@ export function NeedCard({
       <div className="need-remaining">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <p className="muted text-xs font-semibold">{copy.stillNeeded}</p>
+            <p className="muted text-xs font-semibold">Still needed</p>
             <p>
               <strong>{left}</strong>{" "}
               <span className="muted text-sm font-semibold">{need.unit}</span>
             </p>
           </div>
-          <p className="muted text-sm">{percent}% {copy.covered}</p>
+          <p className="muted text-sm">{percent}% covered</p>
         </div>
 
         <div
           className="progress-track mt-3"
           role="progressbar"
-          aria-label={`${need.title}: ${percent}% ${copy.covered}`}
+          aria-label={`Support progress for ${need.title}`}
           aria-valuemin={0}
           aria-valuemax={100}
           aria-valuenow={percent}
@@ -60,21 +51,21 @@ export function NeedCard({
 
       <dl className="mt-5 grid grid-cols-3 gap-3 border-t border-[var(--color-border)] pt-4 text-sm">
         <div>
-          <dt className="muted text-xs">{copy.target}</dt>
+          <dt className="muted text-xs">Target</dt>
           <dd className="mt-1 font-semibold">{need.target}</dd>
         </div>
         <div>
-          <dt className="muted text-xs">{copy.pledged}</dt>
+          <dt className="muted text-xs">Pledged</dt>
           <dd className="mt-1 font-semibold">{need.pledged}</dd>
         </div>
         <div>
-          <dt className="muted text-xs">{copy.received}</dt>
+          <dt className="muted text-xs">Received</dt>
           <dd className="mt-1 font-semibold">{need.received}</dd>
         </div>
       </dl>
 
       <p className="muted mt-auto pt-5 text-xs">
-        {copy.lastVerified}: {need.lastVerified}
+        Last verified: {need.lastVerified}
       </p>
     </article>
   );

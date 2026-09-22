@@ -1,5 +1,3 @@
-import type { PublicLocale } from "@/lib/i18n/config";
-import { needCardCopy } from "@/lib/i18n/need-card";
 import type { NeedStatus } from "@/lib/sample-data";
 
 function statusClass(status: NeedStatus) {
@@ -17,16 +15,8 @@ function statusClass(status: NeedStatus) {
   }
 }
 
-export function StatusBadge({
-  status,
-  locale = "en",
-}: {
-  status: NeedStatus;
-  locale?: PublicLocale;
-}) {
+export function StatusBadge({ status }: { status: NeedStatus }) {
   return (
-    <span className={`status-badge ${statusClass(status)}`}>
-      {needCardCopy[locale].statuses[status]}
-    </span>
+    <span className={`status-badge ${statusClass(status)}`}>{status}</span>
   );
 }

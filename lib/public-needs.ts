@@ -1,17 +1,17 @@
-import type { PublicLocale } from "@/lib/i18n/config";
-import { localizedSampleNeeds } from "@/lib/i18n/sample-content";
 import type { Need, NeedStatus } from "@/lib/sample-data";
+import { sampleNeeds } from "@/lib/sample-data";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { createClient } from "@/lib/supabase/server";
 
 type PublicNeedsMode = "prototype" | "live" | "error";
+
 type JsonText = Record<string, unknown> | string | null;
 
-function textFromJson(value: JsonText, locale: PublicLocale, fallback: string) {
+function textFromJson(value: JsonText, fallback: string) {
   if (typeof value === "string" && value.trim()) return value;
 
   if (value && typeof value === "object") {
-    for (const key of [locale, "en", "si", "ta"]) {
+    for (const key of ["en", "si", "ta"]) {
       const candidate = value[key];
       if (typeof candidate === "string" && candidate.trim()) {
         return candidate;
@@ -42,37 +42,25 @@ function mapPriority(priority: string): Need["priority"] {
   return "Medium";
 }
 
-function formatVerified(value: string | null, locale: PublicLocale) {
-  const pending = {
-    en: "Verification date pending",
-    si: "තහවුරු කිරීමේ දිනය බලාපොරොත්තුවෙන්",
-    ta: "சரிபார்ப்பு தேதி நிலுவையில்",
-  }[locale];
-
-  if (!value) return pending;
+function formatVerified(value: string | null) {
+  if (!value) return "Verification date pending";
 
   const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return pending;
+  if (Number.isNaN(date.getTime())) return "Verification date pending";
 
-  const localeMap: Record<PublicLocale, string> = {
-    en: "en-LK",
-    si: "si-LK",
-    ta: "ta-LK",
-  };
-
-  return new Intl.DateTimeFormat(localeMap[locale], {
+  return new Intl.DateTimeFormat("en", {
     year: "numeric",
     month: "short",
     day: "numeric",
   }).format(date);
 }
 
-export async function getPublicNeeds(locale: PublicLocale): Promise<{
+export async function getPublicNeeds(): Promise<{
   mode: PublicNeedsMode;
   needs: Need[];
 }> {
   if (!isSupabaseConfigured()) {
-    return { mode: "prototype", needs: localizedSampleNeeds(locale) };
+    return { mode: "prototype", needs: sampleNeeds };
   }
 
   try {
@@ -83,29 +71,11 @@ export async function getPublicNeeds(locale: PublicLocale): Promise<{
       return { mode: "error", needs: [] };
     }
 
-    const fallbacks = {
-      en: {
-        title: "Untitled need",
-        category: "Library need",
-        purpose: "Verified library-development need.",
-      },
-      si: {
-        title: "මාතෘකාවක් නොමැති අවශ්‍යතාවයක්",
-        category: "පුස්තකාල අවශ්‍යතාවයක්",
-        purpose: "තහවුරු කරන ලද පුස්තකාල සංවර්ධන අවශ්‍යතාවයක්.",
-      },
-      ta: {
-        title: "தலைப்பிடப்படாத தேவை",
-        category: "நூலகத் தேவை",
-        purpose: "சரிபார்க்கப்பட்ட நூலக மேம்பாட்டு தேவை.",
-      },
-    }[locale];
-
     const needs: Need[] = (data ?? []).map((row: Record<string, unknown>) => ({
       id: String(row.id),
-      title: textFromJson(row.title as JsonText, locale, fallbacks.title),
-      category: textFromJson(row.category_title as JsonText, locale, fallbacks.category),
-      purpose: textFromJson(row.purpose as JsonText, locale, fallbacks.purpose),
+      title: textFromJson(row.title as JsonText, "Untitled need"),
+      category: textFromJson(row.category_title as JsonText, "Library need"),
+      purpose: textFromJson(row.purpose as JsonText, "Verified library-development need."),
       target: Number(row.target_quantity ?? 0),
       pledged: Number(row.pledged_quantity ?? 0),
       received: Number(row.verified_received_quantity ?? 0),
@@ -114,7 +84,6 @@ export async function getPublicNeeds(locale: PublicLocale): Promise<{
       priority: mapPriority(String(row.priority ?? "medium")),
       lastVerified: formatVerified(
         typeof row.last_verified_at === "string" ? row.last_verified_at : null,
-        locale,
       ),
     }));
 

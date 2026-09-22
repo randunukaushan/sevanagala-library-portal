@@ -236,20 +236,3 @@ Summarise:
 - remaining work.
 
 Do not claim tests passed unless they were actually run.
-
-
-## Public multilingual routes
-
-The public site supports English, Sinhala, and Tamil through visible URL prefixes:
-
-- `/en`
-- `/si`
-- `/ta`
-
-When adding or changing public UI:
-
-- use `getRequestLocale()` in Server Components;
-- use `localePath()` for public internal links;
-- add user-facing copy to the i18n dictionaries rather than hard-coding English;
-- keep `/admin`, `/admin-preview`, and `/staff-login` unprefixed unless the multilingual admin scope is intentionally changed;
-- do not publish unreviewed dynamic translations as official institutional wording.
