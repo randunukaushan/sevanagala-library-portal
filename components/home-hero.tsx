@@ -9,6 +9,9 @@ export function HomeHero() {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
     const id = window.setInterval(() => {
       setActive((current) => (current + 1) % publicImages.heroSlides.length);
     }, 5200);
@@ -60,6 +63,7 @@ export function HomeHero() {
         {publicImages.heroSlides.map((_, index) => (
           <button
             aria-label={`Show library image ${index + 1}`}
+            aria-pressed={index === active}
             className={index === active ? "home-hero-dot is-active" : "home-hero-dot"}
             key={index}
             onClick={() => setActive(index)}
