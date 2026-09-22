@@ -92,6 +92,34 @@ begin
   ) then
     raise exception 'Donation verification policy is missing';
   end if;
+
+  if exists (
+    select 1
+    from pg_policies
+    where schemaname = 'public'
+      and tablename = 'needs'
+      and policyname = 'needs_staff_update'
+  ) then
+    raise exception 'Legacy broad needs update policy must not exist';
+  end if;
+
+  if not exists (
+    select 1
+    from pg_policies
+    where schemaname = 'public'
+      and tablename = 'needs'
+      and policyname = 'needs_manager_update_drafts'
+  ) then
+    raise exception 'Draft-only needs manager policy is missing';
+  end if;
+
+  if to_regprocedure('public.get_public_needs()') is null then
+    raise exception 'Safe public needs read function is missing';
+  end if;
+
+  if not has_function_privilege('anon', 'public.get_public_needs()', 'EXECUTE') then
+    raise exception 'anon should be able to execute safe public needs function';
+  end if;
 end
 $$;
 
