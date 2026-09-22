@@ -1,4 +1,5 @@
 import { PageHero } from "@/components/page-hero";
+import { publicImages } from "@/lib/public-images";
 import { SectionHeading } from "@/components/section-heading";
 
 const categories = [
@@ -20,6 +21,8 @@ export default function BooksResourcesPage() {
         eyebrow="Books & resources"
         title="Make the collection easier to discover — after the data is ready."
         description="The first phase focuses on verified category gaps, exact reader requests, new arrivals, and collection review. A full searchable catalogue comes later."
+        image={publicImages.bookshelves}
+        imageAlt="Curved wooden bookshelves filled with colorful books"
       />
 
       <section className="section">
