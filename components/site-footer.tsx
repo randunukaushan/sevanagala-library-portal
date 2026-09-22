@@ -29,7 +29,7 @@ export function SiteFooter() {
       <div className="shell">
         <div className="site-footer-grid">
           <div>
-            <p className="site-footer-title">Sevanagala Public Library</p>
+            <p className="site-footer-title">{navigationCopy[locale].fullLibraryName}</p>
             <p className="site-footer-copy">{copy.description}</p>
             <p className="site-footer-note">{copy.note}</p>
           </div>
