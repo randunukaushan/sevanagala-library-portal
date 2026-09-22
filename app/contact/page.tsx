@@ -1,4 +1,5 @@
 import { PageHero } from "@/components/page-hero";
+import { publicImages } from "@/lib/public-images";
 import { SectionHeading } from "@/components/section-heading";
 
 const contactTypes = [
@@ -26,6 +27,8 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Use verified institutional contacts — not personal placeholders."
         description="The production site will publish the approved library address, phone, email, opening hours, and a privacy-aware contact path."
+        image={publicImages.hero}
+        imageAlt="Expansive modern library interior representing the future public portal"
       />
 
       <section className="section">
