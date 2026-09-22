@@ -2,15 +2,13 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 import { getSupabaseConfig, isSupabaseConfigured } from "@/lib/supabase/config";
 
-export async function updateSession(
-  request: NextRequest,
-  response: NextResponse = NextResponse.next({ request }),
-) {
+export async function updateSession(request: NextRequest) {
   if (!isSupabaseConfigured()) {
-    return response;
+    return NextResponse.next({ request });
   }
 
   const { url, publishableKey } = getSupabaseConfig();
+  let supabaseResponse = NextResponse.next({ request });
 
   const supabase = createServerClient(url, publishableKey, {
     cookies: {
@@ -22,8 +20,10 @@ export async function updateSession(
           request.cookies.set(name, value);
         });
 
+        supabaseResponse = NextResponse.next({ request });
+
         cookiesToSet.forEach(({ name, value, options }) => {
-          response.cookies.set(name, value, options);
+          supabaseResponse.cookies.set(name, value, options);
         });
       },
     },
@@ -31,5 +31,5 @@ export async function updateSession(
 
   await supabase.auth.getClaims();
 
-  return response;
+  return supabaseResponse;
 }
