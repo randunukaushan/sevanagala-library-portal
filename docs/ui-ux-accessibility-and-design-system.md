@@ -60,21 +60,18 @@ Until official approval:
 
 ### 3.3 Colour
 
-The canonical visual direction is **old-book warmth + modern public-library UI**.
+The canonical public visual direction is **premium editorial library**.
 
-The active palette is built from:
+The active public palette is built from:
 
-- parchment;
-- warm white;
-- aged-paper beige;
-- oxblood/burgundy;
-- walnut brown;
-- leather brown;
-- restrained antique-gold tones;
-- dark ink;
-- muted slate for information.
+- warm paper;
+- white;
+- near-black ink;
+- soft beige;
+- restrained bronze/caramel;
+- dark editorial surfaces.
 
-The previous green-led palette is retired and should not be reused.
+Earlier green-led and burgundy-led public palettes are retired. Public pages should remain visually quiet and photography-led.
 
 All colours must:
 
