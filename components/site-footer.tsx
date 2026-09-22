@@ -1,64 +1,61 @@
 import Link from "next/link";
 
-const libraryLinks = [
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/books-resources", label: "Books & Resources" },
-  { href: "/news", label: "News" },
+const explore = [
+  ["/about", "About"],
+  ["/services", "Services"],
+  ["/books-resources", "Books & Resources"],
+  ["/news", "News"],
 ];
 
-const developmentLinks = [
-  { href: "/needs", label: "Current Needs" },
-  { href: "/projects", label: "Projects" },
-  { href: "/support", label: "Support & Partner" },
-  { href: "/transparency", label: "Transparency" },
+const development = [
+  ["/needs", "Current Needs"],
+  ["/projects", "Projects"],
+  ["/support", "Support & Partner"],
+  ["/transparency", "Transparency"],
 ];
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-[var(--color-border)] bg-[var(--color-surface)]">
-      <div className="shell grid gap-10 py-12 md:grid-cols-[1.35fr_0.65fr_0.65fr]">
-        <div>
-          <p className="text-lg font-black">Sevanagala Public Library Portal</p>
-          <p className="muted mt-3 max-w-xl text-sm">
-            Development prototype for a public-library website, verified needs
-            registry, donor transparency portal, and future smart-library
-            platform.
-          </p>
-          <p className="mt-4 inline-flex rounded-full bg-[var(--color-accent-soft)] px-3 py-1 text-xs font-extrabold text-[var(--color-accent)]">
-            Prototype — not yet an official public website
-          </p>
+    <footer className="site-footer">
+      <div className="shell">
+        <div className="site-footer-grid">
+          <div>
+            <p className="site-footer-title">Sevanagala Public Library</p>
+            <p className="site-footer-copy">
+              A prototype digital home for reading, learning, transparent development,
+              and the library&apos;s future smart-services journey.
+            </p>
+            <p className="site-footer-note">
+              Prototype only · stock imagery and sample content are replaced by approved
+              library material before an official launch.
+            </p>
+          </div>
+
+          <div className="site-footer-column">
+            <strong>Explore</strong>
+            {explore.map(([href, label]) => (
+              <Link href={href} key={href}>{label}</Link>
+            ))}
+          </div>
+
+          <div className="site-footer-column">
+            <strong>Development</strong>
+            {development.map(([href, label]) => (
+              <Link href={href} key={href}>{label}</Link>
+            ))}
+          </div>
+
+          <div className="site-footer-column">
+            <strong>Contact</strong>
+            <Link href="/contact">Library contact</Link>
+            <Link href="/contact">Partnership enquiries</Link>
+            <Link href="/admin-preview">Admin UI preview</Link>
+          </div>
         </div>
 
-        <div>
-          <h2 className="text-sm font-black">Library</h2>
-          <ul className="mt-3 grid gap-2 text-sm">
-            {libraryLinks.map((link) => (
-              <li key={link.href}>
-                <Link className="hover:underline" href={link.href}>
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h2 className="text-sm font-black">Development</h2>
-          <ul className="mt-3 grid gap-2 text-sm">
-            {developmentLinks.map((link) => (
-              <li key={link.href}>
-                <Link className="hover:underline" href={link.href}>
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <Link className="hover:underline" href="/contact">
-                Contact
-              </Link>
-            </li>
-          </ul>
+        <div className="site-footer-bottom">
+          <span>© 2026 Sevanagala Public Library Portal · Prototype.</span>
+          <span>Accessible · multilingual-ready · transparency-first</span>
         </div>
       </div>
     </footer>
