@@ -1,6 +1,4 @@
 import Image from "next/image";
-import { navigationCopy } from "@/lib/i18n/navigation";
-import { getRequestLocale } from "@/lib/i18n/server";
 
 type PageHeroProps = {
   eyebrow: string;
@@ -10,15 +8,13 @@ type PageHeroProps = {
   imageAlt: string;
 };
 
-export async function PageHero({
+export function PageHero({
   eyebrow,
   title,
   description,
   image,
   imageAlt,
 }: PageHeroProps) {
-  const locale = await getRequestLocale();
-
   return (
     <section className="page-hero">
       <Image
@@ -35,9 +31,7 @@ export async function PageHero({
         <p className="eyebrow eyebrow-light">{eyebrow}</p>
         <h1 className="page-title">{title}</h1>
         <p className="page-hero-lead">{description}</p>
-        <p className="prototype-photo-note">
-          {navigationCopy[locale].prototypeImagery}
-        </p>
+        <p className="prototype-photo-note">Prototype imagery · final site will use approved library photography</p>
       </div>
     </section>
   );
