@@ -1,3 +1,4 @@
+import { EditorialImageBand } from "@/components/editorial-image-band";
 import { PageHero } from "@/components/page-hero";
 import { publicImages } from "@/lib/public-images";
 import { SectionHeading } from "@/components/section-heading";
@@ -53,6 +54,16 @@ export default function ProjectsPage() {
           </div>
         </div>
       </section>
+
+      <EditorialImageBand
+        eyebrow="From idea to outcome"
+        title="Show the human result behind every shelf, computer, table, and upgrade."
+        description="A strong project story connects the need, the milestone, the evidence, and the final benefit. That makes development easier for readers and supporters to understand."
+        image={publicImages.bookshelves}
+        imageAlt="Modern bookshelves in a contemporary library interior"
+        href="/transparency"
+        actionLabel="See the transparency model"
+      />
 
       <section className="section section-dark">
         <div className="shell">
