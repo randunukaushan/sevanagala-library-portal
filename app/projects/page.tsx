@@ -1,4 +1,5 @@
 import { PageHero } from "@/components/page-hero";
+import { publicImages } from "@/lib/public-images";
 import { SectionHeading } from "@/components/section-heading";
 import { sampleProjects } from "@/lib/sample-data";
 
@@ -18,6 +19,8 @@ export default function ProjectsPage() {
         eyebrow="Development projects"
         title="Show the outcome behind the equipment, books, or facilities."
         description="Projects group individual needs into understandable development goals so supporters can see what a contribution is helping the library achieve."
+        image={publicImages.studyInterior}
+        imageAlt="Modern library interior prepared as a development concept"
       />
 
       <section className="section">

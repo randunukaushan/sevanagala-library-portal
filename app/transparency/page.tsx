@@ -1,4 +1,5 @@
 import { PageHero } from "@/components/page-hero";
+import { publicImages } from "@/lib/public-images";
 import { SectionHeading } from "@/components/section-heading";
 
 const stages = [
@@ -24,6 +25,8 @@ export default function TransparencyPage() {
         eyebrow="Transparency"
         title="Trust comes from accurate states, dates, and evidence."
         description="A promise, a delivery, a verified donation, and a completed outcome are deliberately treated as different events."
+        image={publicImages.readingRoom}
+        imageAlt="Library reading room representing trustworthy public reporting"
       />
 
       <section className="section">

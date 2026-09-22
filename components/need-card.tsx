@@ -16,25 +16,22 @@ export function NeedCard({ need }: { need: Need }) {
   const percent = progress(need);
 
   return (
-    <article className="card flex h-full flex-col p-5 md:p-6">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <span className="rounded-full bg-[var(--color-brand-primary-soft)] px-3 py-1 text-xs font-extrabold text-[var(--color-brand-primary-dark)]">
-          {need.category}
-        </span>
+    <article className="card need-card">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <span className="need-category">{need.category}</span>
         <StatusBadge status={need.status} />
       </div>
 
-      <h3 className="mt-5 text-xl font-black tracking-[-0.02em]">
-        {need.title}
-      </h3>
-      <p className="muted mt-2">{need.purpose}</p>
+      <h3 className="need-title">{need.title}</h3>
+      <p className="need-purpose muted">{need.purpose}</p>
 
-      <div className="mt-6">
+      <div className="need-remaining">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <p className="muted text-xs font-bold">Still needed</p>
-            <p className="text-2xl font-black">
-              {left} <span className="text-sm font-bold">{need.unit}</span>
+            <p className="muted text-xs font-semibold">Still needed</p>
+            <p>
+              <strong>{left}</strong>{" "}
+              <span className="muted text-sm font-semibold">{need.unit}</span>
             </p>
           </div>
           <p className="muted text-sm">{percent}% covered</p>
@@ -55,15 +52,15 @@ export function NeedCard({ need }: { need: Need }) {
       <dl className="mt-5 grid grid-cols-3 gap-3 border-t border-[var(--color-border)] pt-4 text-sm">
         <div>
           <dt className="muted text-xs">Target</dt>
-          <dd className="mt-1 font-black">{need.target}</dd>
+          <dd className="mt-1 font-semibold">{need.target}</dd>
         </div>
         <div>
           <dt className="muted text-xs">Pledged</dt>
-          <dd className="mt-1 font-black">{need.pledged}</dd>
+          <dd className="mt-1 font-semibold">{need.pledged}</dd>
         </div>
         <div>
           <dt className="muted text-xs">Received</dt>
-          <dd className="mt-1 font-black">{need.received}</dd>
+          <dd className="mt-1 font-semibold">{need.received}</dd>
         </div>
       </dl>
 

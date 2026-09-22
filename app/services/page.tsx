@@ -1,4 +1,5 @@
 import { PageHero } from "@/components/page-hero";
+import { publicImages } from "@/lib/public-images";
 import { SectionHeading } from "@/components/section-heading";
 
 const services = [
@@ -53,6 +54,8 @@ export default function ServicesPage() {
         eyebrow="Library services"
         title="Help visitors understand what they can do before they arrive."
         description="The final service page will combine verified current services with clearly labelled future services. This prototype shows the intended structure."
+        image={publicImages.readingRoom}
+        imageAlt="Warm library reading room with bookshelves and study tables"
       />
 
       <section className="section">

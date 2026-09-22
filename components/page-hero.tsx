@@ -1,16 +1,36 @@
+import Image from "next/image";
+
 type PageHeroProps = {
   eyebrow: string;
   title: string;
   description: string;
+  image: string;
+  imageAlt: string;
 };
 
-export function PageHero({ eyebrow, title, description }: PageHeroProps) {
+export function PageHero({
+  eyebrow,
+  title,
+  description,
+  image,
+  imageAlt,
+}: PageHeroProps) {
   return (
-    <section className="border-b border-[var(--color-border)] bg-[var(--color-brand-primary-soft)]">
-      <div className="shell py-14 md:py-20">
-        <p className="eyebrow">{eyebrow}</p>
+    <section className="page-hero">
+      <Image
+        alt={imageAlt}
+        className="page-hero-image"
+        fill
+        priority
+        sizes="100vw"
+        src={image}
+      />
+      <div className="page-hero-overlay" />
+      <div className="shell page-hero-content">
+        <p className="eyebrow eyebrow-light">{eyebrow}</p>
         <h1 className="page-title">{title}</h1>
-        <p className="lead mt-5">{description}</p>
+        <p className="page-hero-lead">{description}</p>
+        <p className="prototype-photo-note">Prototype imagery · final site will use approved library photography</p>
       </div>
     </section>
   );

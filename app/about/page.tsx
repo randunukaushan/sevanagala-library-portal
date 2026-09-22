@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { publicImages } from "@/lib/public-images";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 
@@ -38,6 +39,8 @@ export default function AboutPage() {
         eyebrow="About the platform"
         title="A public-library portal designed around access, learning, and trust."
         description="The future official website should explain the library clearly, help people use it, and show how the library develops over time."
+        image={publicImages.warmInterior}
+        imageAlt="Warm modern library interior with floor-to-ceiling bookshelves"
       />
 
       <section className="section">

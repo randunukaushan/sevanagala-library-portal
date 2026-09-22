@@ -1,4 +1,5 @@
 import { PageHero } from "@/components/page-hero";
+import { publicImages } from "@/lib/public-images";
 import { SectionHeading } from "@/components/section-heading";
 
 const sampleNews = [
@@ -29,6 +30,8 @@ export default function NewsPage() {
         eyebrow="News & updates"
         title="Short, verified updates instead of a cluttered notice board."
         description="Production news will move through an approval workflow. The entries below remain sample content."
+        image={publicImages.bookshelves}
+        imageAlt="Library bookshelves representing news and collection updates"
       />
 
       <section className="section">

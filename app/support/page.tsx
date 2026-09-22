@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { publicImages } from "@/lib/public-images";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 
@@ -36,6 +37,8 @@ export default function SupportPage() {
         eyebrow="Support & partner"
         title="Make it easy for a suitable organisation to understand the next step."
         description="The production site will connect verified needs to an authorised library contact. Online cash collection remains outside the current V1 scope."
+        image={publicImages.warmInterior}
+        imageAlt="Warm modern library interior representing partnership and learning"
       />
 
       <section className="section">

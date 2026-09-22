@@ -100,7 +100,7 @@ Before changing public UI, read:
 
 Use the documented semantic design tokens. Do not introduce arbitrary brand hex colors inside components unless the design-system documentation is intentionally updated.
 
-The canonical prototype direction is **old-book warmth + modern public-library UI**. The previous green-led palette is retired. Do not reintroduce green as a brand, status, or decorative color unless the visual-identity documentation is intentionally reviewed and changed.
+The canonical public-site direction is **premium editorial library: warm paper, dark ink, restrained bronze, high-quality photography**. Earlier green-led and burgundy-led public palettes are retired. Do not reintroduce strong green, burgundy, or competing accent colours unless the visual-identity documentation is intentionally reviewed and changed.
 
 ### 4.5 Accessibility
 
