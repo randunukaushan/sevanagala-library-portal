@@ -236,3 +236,15 @@ Summarise:
 - remaining work.
 
 Do not claim tests passed unless they were actually run.
+
+
+## Trilingual Visual Lock
+
+For `feat/trilingual-public-v2`, language work is translation-only unless a genuine readability defect cannot be solved otherwise.
+
+- preserve existing buttons, cards, photos, spacing, section heights, layout structure, shadows, borders, radii, and image crops;
+- preserve existing font sizes, font colors, and design tokens;
+- do not add Sinhala/Tamil-specific typography overrides by default;
+- prefer natural wrapping or copy refinement before any visual adjustment;
+- if a visual adjustment becomes necessary, keep it minimal, document the reason, and obtain user approval before merging;
+- keep the public UI visually equivalent to `main` apart from the language selector and translated text.
