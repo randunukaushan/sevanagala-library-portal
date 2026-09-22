@@ -470,6 +470,75 @@ textarea {
   opacity: 0.68;
 }
 
+.language-switcher {
+  position: relative;
+  color: inherit;
+}
+
+.language-switcher summary {
+  display: inline-flex;
+  min-height: 2.5rem;
+  cursor: pointer;
+  list-style: none;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0.42rem 0.72rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+.language-switcher summary::-webkit-details-marker {
+  display: none;
+}
+
+.language-switcher-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.6rem);
+  z-index: 90;
+  display: grid;
+  min-width: 10.5rem;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: 0.9rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  box-shadow: var(--shadow-soft);
+}
+
+.language-switcher-menu a {
+  display: block;
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.72rem 0.9rem;
+  color: var(--color-text) !important;
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-decoration: none;
+  opacity: 1 !important;
+}
+
+.language-switcher-menu a:last-child {
+  border-bottom: 0;
+}
+
+.language-switcher-menu a:hover,
+.language-switcher-menu a[aria-current="page"] {
+  background: var(--color-surface-soft);
+}
+
+.language-switcher-menu a[aria-current="page"] {
+  font-weight: 800;
+}
+
+.site-mobile-actions {
+  display: none;
+  align-items: center;
+  gap: 0.55rem;
+}
+
 .site-nav-cta {
   border-radius: 999px;
   padding: 0.7rem 1rem;
@@ -1358,8 +1427,17 @@ textarea {
     display: none;
   }
 
+  .site-mobile-actions {
+    display: flex;
+  }
+
   .site-mobile-menu {
     display: block;
+  }
+
+  .site-mobile-actions .language-switcher summary {
+    min-height: 2.55rem;
+    padding-inline: 0.68rem;
   }
 
   .library-access-strip {
@@ -1427,6 +1505,16 @@ textarea {
 
   .site-preview-pill {
     display: none;
+  }
+
+  .site-mobile-actions .language-switcher summary span:last-child {
+    display: none;
+  }
+
+  .site-mobile-actions .language-switcher summary {
+    width: 2.65rem;
+    justify-content: center;
+    padding: 0;
   }
 
   .home-hero-dots {
