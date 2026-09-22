@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { HomeHero } from "@/components/home-hero";
 import Link from "next/link";
 import { NeedCard } from "@/components/need-card";
 import { SectionHeading } from "@/components/section-heading";
@@ -41,38 +42,35 @@ const projectImages = [
 export default function Home() {
   return (
     <>
-      <section className="home-hero">
-        <Image
-          alt="Modern library interior with expansive bookshelves and study spaces"
-          className="home-hero-image"
-          fill
-          priority
-          sizes="100vw"
-          src={publicImages.hero}
-        />
-        <div className="home-hero-overlay" />
-        <div className="shell home-hero-content">
-          <p className="eyebrow eyebrow-light">Reading · learning · community</p>
-          <h1 className="display-title">A library worth growing with.</h1>
-          <p className="home-hero-copy">
-            A modern digital home for Sevanagala Public Library — bringing books,
-            learning resources, future services, development projects, and transparent
-            support into one calm, useful experience.
-          </p>
-          <div className="home-hero-actions">
-            <Link className="button-light" href="/books-resources">
-              Explore books & resources
-            </Link>
-            <Link className="button-ghost" href="/needs">
-              See current needs
-            </Link>
-          </div>
-          <p className="prototype-photo-note">
-            Prototype · sample content and stock imagery until official library material is approved
-          </p>
+      <HomeHero />
+
+      <div className="library-access-wrap">
+        <div className="shell library-access-strip">
+          <Link href="/books-resources">
+            <span>01</span>
+            <strong>Books & resources</strong>
+            <small>Collections, references and reading</small>
+          </Link>
+          <Link href="/services">
+            <span>02</span>
+            <strong>Study & services</strong>
+            <small>Reading, learning and future access</small>
+          </Link>
+          <Link href="/needs">
+            <span>03</span>
+            <strong>Current needs</strong>
+            <small>See what still needs support</small>
+          </Link>
+          <Link href="/support">
+            <span>04</span>
+            <strong>Partner with us</strong>
+            <small>Books, technology and facilities</small>
+          </Link>
+          <Link className="library-access-action" href="/about">
+            Explore the library
+          </Link>
         </div>
-        <div className="hero-scroll-note">Scroll to explore</div>
-      </section>
+      </div>
 
       <section className="section">
         <div className="shell editorial-intro">
@@ -112,6 +110,7 @@ export default function Home() {
                 fill
                 sizes="(max-width: 980px) 100vw, 55vw"
                 src={publicImages.warmInterior}
+                unoptimized
               />
             </div>
             <div className="image-stack-small">
@@ -121,6 +120,7 @@ export default function Home() {
                 fill
                 sizes="(max-width: 980px) 45vw, 24vw"
                 src={publicImages.bookshelves}
+                unoptimized
               />
             </div>
           </div>
@@ -144,6 +144,7 @@ export default function Home() {
                     fill
                     sizes="(max-width: 980px) 100vw, 33vw"
                     src={item.image}
+                    unoptimized
                   />
                 </div>
                 <div className="photo-card-overlay" />
@@ -203,6 +204,7 @@ export default function Home() {
                     fill
                     sizes="(max-width: 980px) 100vw, 33vw"
                     src={projectImages[index % projectImages.length]}
+                    unoptimized
                   />
                 </div>
                 <div className="project-photo-copy">
@@ -240,6 +242,7 @@ export default function Home() {
               fill
               sizes="(max-width: 1160px) 100vw, 1160px"
               src={publicImages.studyInterior}
+              unoptimized
             />
             <div className="premium-cta-overlay" />
             <div className="premium-cta-copy">

@@ -24,6 +24,7 @@ export function PageHero({
         priority
         sizes="100vw"
         src={image}
+        unoptimized
       />
       <div className="page-hero-overlay" />
       <div className="shell page-hero-content">
