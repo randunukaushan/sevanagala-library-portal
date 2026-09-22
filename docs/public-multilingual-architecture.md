@@ -184,21 +184,32 @@ The root HTML `lang` attribute follows the active public locale.
 The switcher:
 
 - uses readable language names;
+- uses a neutral globe icon rather than a flag or script-specific symbol;
 - preserves keyboard navigation;
 - identifies the current language;
+- keeps the same page when switching languages;
 - remains available on desktop and mobile.
 
-## 10. SEO Follow-up
+## 10. Metadata and SEO
 
-### 10.1 Planned
+### 10.1 Implemented
 
-Before official deployment, add:
+The prototype now sets locale-aware:
 
-- locale-specific metadata;
+- HTML `lang`;
+- page title;
+- page description.
+
+### 10.2 Planned Before Official Deployment
+
+After the official production domain is known, add:
+
 - canonical URLs;
 - `hreflang` alternates for English, Sinhala, and Tamil;
-- translated page titles/descriptions;
+- locale-aware Open Graph metadata;
 - sitemap entries for public locale routes.
+
+Do not invent a production canonical domain in the prototype.
 
 ## 11. Scope Boundary
 
