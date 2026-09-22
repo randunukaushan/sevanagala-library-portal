@@ -1,27 +1,33 @@
 import Image from "next/image";
-import Link from "next/link";
 import { HomeHero } from "@/components/home-hero";
+import Link from "next/link";
 import { NeedCard } from "@/components/need-card";
 import { SectionHeading } from "@/components/section-heading";
-import { localePath } from "@/lib/i18n/config";
-import { publicContent } from "@/lib/i18n/public-content";
-import { localizedSampleNeeds, localizedSampleProjects } from "@/lib/i18n/sample-content";
-import { getRequestLocale } from "@/lib/i18n/server";
 import { publicImages } from "@/lib/public-images";
+import { sampleNeeds, sampleProjects } from "@/lib/sample-data";
 
-const serviceImages = [
+const serviceCards = [
   {
     href: "/books-resources",
+    title: "Books & resources",
+    description:
+      "Discover the future home for collections, student references, English learning, literature, and requested books.",
     image: publicImages.bookshelves,
     alt: "Curved wooden library bookshelves filled with books",
   },
   {
     href: "/services",
+    title: "Reading & study",
+    description:
+      "A clear digital guide to reading, reference, study support, children’s services, and community learning.",
     image: publicImages.readingRoom,
     alt: "Warm library reading room with bookshelves and study tables",
   },
   {
     href: "/projects",
+    title: "Digital future",
+    description:
+      "Follow planned improvements in computers, connectivity, learning spaces, and the smart-library roadmap.",
     image: publicImages.studyInterior,
     alt: "Modern public library with bookshelves and study areas",
   },
@@ -33,41 +39,35 @@ const projectImages = [
   publicImages.warmInterior,
 ];
 
-export default async function Home() {
-  const locale = await getRequestLocale();
-  const copy = publicContent[locale].home;
-  const sampleNeeds = localizedSampleNeeds(locale);
-  const sampleProjects = localizedSampleProjects(locale);
-
+export default function Home() {
   return (
     <>
-      <HomeHero
-        eyebrow={copy.hero.eyebrow}
-        title={copy.hero.title}
-        description={copy.hero.description}
-        primaryLabel={copy.hero.primary}
-        secondaryLabel={copy.hero.secondary}
-        primaryHref={localePath(locale, "/books-resources")}
-        secondaryHref={localePath(locale, "/needs")}
-        prototypeNote={copy.hero.prototype}
-        scrollLabel={copy.hero.scroll}
-        slideLabel={copy.hero.slideLabel}
-      />
+      <HomeHero />
 
       <div className="library-access-wrap">
         <div className="shell library-access-strip">
-          {copy.access.map(([title, description], index) => {
-            const href = ["/books-resources", "/services", "/needs", "/support"][index];
-            return (
-              <Link href={localePath(locale, href)} key={href}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <strong>{title}</strong>
-                <small>{description}</small>
-              </Link>
-            );
-          })}
-          <Link className="library-access-action" href={localePath(locale, "/about")}>
-            {copy.accessAction}
+          <Link href="/books-resources">
+            <span>01</span>
+            <strong>Books & resources</strong>
+            <small>Collections, references and reading</small>
+          </Link>
+          <Link href="/services">
+            <span>02</span>
+            <strong>Study & services</strong>
+            <small>Reading, learning and future access</small>
+          </Link>
+          <Link href="/needs">
+            <span>03</span>
+            <strong>Current needs</strong>
+            <small>See what still needs support</small>
+          </Link>
+          <Link href="/support">
+            <span>04</span>
+            <strong>Partner with us</strong>
+            <small>Books, technology and facilities</small>
+          </Link>
+          <Link className="library-access-action" href="/about">
+            Explore the library
           </Link>
         </div>
       </div>
@@ -75,20 +75,30 @@ export default async function Home() {
       <section className="section">
         <div className="shell editorial-intro">
           <div className="editorial-intro-copy">
-            <p className="eyebrow">{copy.intro.eyebrow}</p>
-            <h2>{copy.intro.title}</h2>
-            <p>{copy.intro.description}</p>
-            <Link className="button-primary mt-7" href={localePath(locale, "/about")}>
-              {copy.intro.action}
+            <p className="eyebrow">A better digital front door</p>
+            <h2>Designed to feel like a library, not a dashboard.</h2>
+            <p>
+              The public experience should be calm, visual, and easy to understand.
+              Readers find useful services first; supporters see clear needs and verified
+              progress without being pushed through a wall of administrative text.
+            </p>
+            <Link className="button-primary mt-7" href="/about">
+              Discover the vision
             </Link>
 
             <div className="editorial-points">
-              {copy.intro.points.map(([title, description]) => (
-                <div className="editorial-point" key={title}>
-                  <strong>{title}</strong>
-                  <span>{description}</span>
-                </div>
-              ))}
+              <div className="editorial-point">
+                <strong>Read</strong>
+                <span>Books, references & learning resources</span>
+              </div>
+              <div className="editorial-point">
+                <strong>Learn</strong>
+                <span>Study, digital skills & future programmes</span>
+              </div>
+              <div className="editorial-point">
+                <strong>Grow</strong>
+                <span>Projects, partners & transparent progress</span>
+              </div>
             </div>
           </div>
 
@@ -120,36 +130,33 @@ export default async function Home() {
       <section className="section dark-editorial">
         <div className="shell">
           <SectionHeading
-            eyebrow={copy.explore.eyebrow}
-            title={copy.explore.title}
-            description={copy.explore.description}
+            eyebrow="Explore the library"
+            title="Useful paths, beautifully presented."
+            description="The final site will use real Sevanagala library photography. These high-quality prototype images establish the visual direction now."
           />
 
           <div className="photo-grid">
-            {copy.explore.cards.map(([title, description, action], index) => {
-              const item = serviceImages[index];
-              return (
-                <article className="photo-card" key={item.href}>
-                  <div className="photo-card-media">
-                    <Image
-                      alt={item.alt}
-                      fill
-                      sizes="(max-width: 980px) 100vw, 33vw"
-                      src={item.image}
-                      unoptimized
-                    />
-                  </div>
-                  <div className="photo-card-overlay" />
-                  <div className="photo-card-copy">
-                    <h3>{title}</h3>
-                    <p>{description}</p>
-                    <Link className="photo-card-link" href={localePath(locale, item.href)}>
-                      {action} →
-                    </Link>
-                  </div>
-                </article>
-              );
-            })}
+            {serviceCards.map((item) => (
+              <article className="photo-card" key={item.href}>
+                <div className="photo-card-media">
+                  <Image
+                    alt={item.alt}
+                    fill
+                    sizes="(max-width: 980px) 100vw, 33vw"
+                    src={item.image}
+                    unoptimized
+                  />
+                </div>
+                <div className="photo-card-overlay" />
+                <div className="photo-card-copy">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  <Link className="photo-card-link" href={item.href}>
+                    Explore →
+                  </Link>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -157,19 +164,19 @@ export default async function Home() {
       <section className="section">
         <div className="shell">
           <SectionHeading
-            eyebrow={copy.needs.eyebrow}
-            title={copy.needs.title}
-            description={copy.needs.description}
+            eyebrow="Verified needs"
+            title="Support should begin with something real."
+            description="Every published need will show what is required, what has already been covered, and when the information was last verified."
             action={
-              <Link className="button-secondary" href={localePath(locale, "/needs")}>
-                {copy.needs.action}
+              <Link className="button-secondary" href="/needs">
+                View all needs
               </Link>
             }
           />
 
           <div className="grid-auto">
             {sampleNeeds.map((need) => (
-              <NeedCard key={need.id} need={need} locale={locale} />
+              <NeedCard key={need.id} need={need} />
             ))}
           </div>
         </div>
@@ -178,12 +185,12 @@ export default async function Home() {
       <section className="section section-soft">
         <div className="shell">
           <SectionHeading
-            eyebrow={copy.projects.eyebrow}
-            title={copy.projects.title}
-            description={copy.projects.description}
+            eyebrow="Development roadmap"
+            title="Projects should show the outcome, not just the shopping list."
+            description="Books, furniture, connectivity, computers, and facilities become more meaningful when they are connected to a clear library outcome."
             action={
-              <Link className="button-secondary" href={localePath(locale, "/projects")}>
-                {copy.projects.action}
+              <Link className="button-secondary" href="/projects">
+                View projects
               </Link>
             }
           />
@@ -213,10 +220,15 @@ export default async function Home() {
 
       <section className="section quote-section">
         <div className="shell">
-          <blockquote>“{copy.quote}”</blockquote>
-          <p>{copy.quoteDescription}</p>
-          <Link className="button-primary mt-7" href={localePath(locale, "/transparency")}>
-            {copy.quoteAction}
+          <blockquote>
+            “A public library website should make knowledge feel closer — and development easier to trust.”
+          </blockquote>
+          <p>
+            The portal separates pledges, received items, verification, and completed
+            outcomes so public progress remains understandable.
+          </p>
+          <Link className="button-primary mt-7" href="/transparency">
+            See how transparency works
           </Link>
         </div>
       </section>
@@ -234,15 +246,18 @@ export default async function Home() {
             />
             <div className="premium-cta-overlay" />
             <div className="premium-cta-copy">
-              <p className="eyebrow eyebrow-light">{copy.cta.eyebrow}</p>
-              <h2>{copy.cta.title}</h2>
-              <p>{copy.cta.description}</p>
+              <p className="eyebrow eyebrow-light">Build the next chapter</p>
+              <h2>From a stronger collection to a practical smart library.</h2>
+              <p>
+                The long-term vision connects better books, comfortable study spaces,
+                digital access, transparent development, and community learning.
+              </p>
               <div className="home-hero-actions">
-                <Link className="button-light" href={localePath(locale, "/support")}>
-                  {copy.cta.primary}
+                <Link className="button-light" href="/support">
+                  Support & partner
                 </Link>
-                <Link className="button-ghost" href={localePath(locale, "/projects")}>
-                  {copy.cta.secondary}
+                <Link className="button-ghost" href="/projects">
+                  Explore the roadmap
                 </Link>
               </div>
             </div>
