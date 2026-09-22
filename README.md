@@ -76,10 +76,12 @@ Codex and contributors should read [AGENTS.md](./AGENTS.md) before implementatio
 - collection model;
 - database design;
 - initial Supabase/PostgreSQL migrations, roles, grants, and RLS foundation;
+- Next.js Supabase SSR/Auth application wiring and protected staff workspace;
+- Needs draft → approval → publish → public registry vertical slice;
 - admin workflow;
 - security/privacy plan;
 - UI/accessibility plan;
-- canonical book-inspired visual identity, color, typography, and page-pattern system;
+- canonical premium editorial visual identity, typography, photography, and page-pattern system;
 - professional public-page UI pass;
 - multi-screen admin-dashboard UI preview, admin UX specification, and workflow map;
 - technical architecture;
@@ -103,8 +105,8 @@ Codex and contributors should read [AGENTS.md](./AGENTS.md) before implementatio
 - domain decision;
 - institutional approval for official launch;
 - verified production library data;
-- remote Supabase project connection and migration validation;
-- Supabase application client/auth integration;
+- remote Supabase development-project connection and migration validation;
+- real staff-account acceptance testing;
 - official domain decision.
 
 ## 6. Important Boundaries

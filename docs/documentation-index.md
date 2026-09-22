@@ -44,6 +44,7 @@ The documents move from product intent and institutional governance through dono
 
 - [Data Model and Database Design](./data-model-and-database-design.md)
 - [Supabase Backend Foundation](./supabase-backend-foundation.md)
+- [Supabase Auth Application Integration](./supabase-auth-application-integration.md)
 - [Admin Dashboard and Content Workflow](./admin-dashboard-and-content-workflow.md)
 - [Admin Dashboard UI and UX Specification](./admin-dashboard-ui-ux-specification.md)
 - [Admin Screen Map and Workflows](./admin-screen-map-and-workflows.md)
