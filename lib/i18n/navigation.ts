@@ -3,7 +3,9 @@ import type { PublicLocale } from "@/lib/i18n/config";
 export const navigationCopy = {
   en: {
     libraryName: "Public Library",
+    fullLibraryName: "Sevanagala Public Library",
     prototype: "Prototype",
+    prototypeImagery: "Prototype imagery · final site will use approved library photography",
     about: "About",
     services: "Services",
     books: "Books",
@@ -44,7 +46,9 @@ export const navigationCopy = {
   },
   si: {
     libraryName: "මහජන පුස්තකාලය",
+    fullLibraryName: "සෙවනගල මහජන පුස්තකාලය",
     prototype: "මූලාකෘතිය",
+    prototypeImagery: "මූලාකෘති ඡායාරූප · අවසාන අඩවිය අනුමත පුස්තකාල ඡායාරූප භාවිතා කරනු ඇත",
     about: "අප ගැන",
     services: "සේවා",
     books: "පොත්",
@@ -85,7 +89,9 @@ export const navigationCopy = {
   },
   ta: {
     libraryName: "பொது நூலகம்",
+    fullLibraryName: "செவனகல பொது நூலகம்",
     prototype: "முன்மாதிரி",
+    prototypeImagery: "முன்மாதிரி படங்கள் · இறுதி தளம் அங்கீகரிக்கப்பட்ட நூலகப் புகைப்படங்களைப் பயன்படுத்தும்",
     about: "எங்களைப் பற்றி",
     services: "சேவைகள்",
     books: "புத்தகங்கள்",
