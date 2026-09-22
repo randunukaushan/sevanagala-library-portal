@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { signInStaff } from "@/app/staff-login/actions";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
@@ -85,9 +86,9 @@ export default async function StaffLoginPage({
           </button>
         </form>
 
-        <a className="button-quiet staff-auth-back" href="/">
+        <Link className="button-quiet staff-auth-back" href="/">
           ← Return to public site
-        </a>
+        </Link>
       </div>
     </main>
   );
