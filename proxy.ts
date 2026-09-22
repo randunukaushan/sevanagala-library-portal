@@ -41,6 +41,7 @@ export async function proxy(request: NextRequest) {
 
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-public-locale", maybeLocale);
+  requestHeaders.set("x-public-path", strippedPath);
 
   const url = request.nextUrl.clone();
   url.pathname = strippedPath;
