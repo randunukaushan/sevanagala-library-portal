@@ -123,12 +123,12 @@ For:
 
 The production multilingual implementation must use highly legible compatible Sinhala and Tamil fonts.
 
-Preferred direction:
+Prototype web loading now includes:
 
 - Noto Sans Sinhala;
 - Noto Sans Tamil.
 
-Do not force the English serif display style onto scripts where it harms readability.
+Sinhala and Tamil content must use their script-appropriate sans-serif stack rather than inheriting the English Playfair display face. Do not force the English serif display style onto scripts where it harms readability.
 
 ### 4.4 Scale
 
@@ -240,7 +240,18 @@ Use:
 - thin borders;
 - subtle shadow;
 - generous padding;
-- restrained rounded corners.
+- restrained rounded corners;
+- small hover lift on pointer devices.
+
+### 7.4 Mobile Composition
+
+On narrow screens:
+
+- reduce vertical section spacing;
+- keep image sections visually strong without forcing excessive height;
+- make the hero copy readable before secondary details;
+- use horizontal snap scrolling for the quick-access strip instead of stacking a long block of navigation cards;
+- preserve at least touch-friendly interactive target sizes.
 
 ## 8. Motion
 

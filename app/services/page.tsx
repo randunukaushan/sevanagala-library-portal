@@ -1,3 +1,4 @@
+import { EditorialImageBand } from "@/components/editorial-image-band";
 import { PageHero } from "@/components/page-hero";
 import { publicImages } from "@/lib/public-images";
 import { SectionHeading } from "@/components/section-heading";
@@ -87,6 +88,16 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      <EditorialImageBand
+        eyebrow="A calmer visit"
+        title="Space for reading, studying, and discovering what comes next."
+        description="The service experience should feel welcoming before someone even reaches the library. Clear information, comfortable visual rhythm, and useful pathways matter as much as feature count."
+        image={publicImages.warmInterior}
+        imageAlt="Warm library interior with shelves, tables, and quiet reading areas"
+        href="/books-resources"
+        actionLabel="Explore books & resources"
+      />
 
       <section className="section section-dark">
         <div className="shell grid gap-8 md:grid-cols-2 md:items-center">

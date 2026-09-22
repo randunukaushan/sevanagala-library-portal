@@ -1,3 +1,4 @@
+import { EditorialImageBand } from "@/components/editorial-image-band";
 import { PageHero } from "@/components/page-hero";
 import { publicImages } from "@/lib/public-images";
 import { SectionHeading } from "@/components/section-heading";
@@ -62,6 +63,17 @@ export default function NewsPage() {
           </div>
         </div>
       </section>
+      <EditorialImageBand
+        eyebrow="Library stories"
+        title="Updates should feel useful, visual, and worth reading."
+        description="Future news can combine a concise verified update with approved photography from new books, projects, services, or community learning."
+        image={publicImages.warmInterior}
+        imageAlt="Warm modern library interior with shelves and reading areas"
+        href="/projects"
+        actionLabel="Explore development projects"
+        reverse
+      />
+
     </>
   );
 }

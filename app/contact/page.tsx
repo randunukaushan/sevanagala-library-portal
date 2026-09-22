@@ -1,3 +1,4 @@
+import { EditorialImageBand } from "@/components/editorial-image-band";
 import { PageHero } from "@/components/page-hero";
 import { publicImages } from "@/lib/public-images";
 import { SectionHeading } from "@/components/section-heading";
@@ -54,6 +55,16 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <EditorialImageBand
+        eyebrow="A welcoming front door"
+        title="Make it obvious where a question should go."
+        description="The final contact experience will combine approved institutional details with simple routes for readers, book enquiries, and potential partners — without exposing private personal information."
+        image={publicImages.studyInterior}
+        imageAlt="Modern library study space with bookshelves and tables"
+        href="/support"
+        actionLabel="View partnership options"
+      />
 
       <section className="section section-soft">
         <div className="shell">

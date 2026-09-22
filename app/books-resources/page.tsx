@@ -1,3 +1,4 @@
+import { EditorialImageBand } from "@/components/editorial-image-band";
 import { PageHero } from "@/components/page-hero";
 import { publicImages } from "@/lib/public-images";
 import { SectionHeading } from "@/components/section-heading";
@@ -48,6 +49,17 @@ export default function BooksResourcesPage() {
           </div>
         </div>
       </section>
+
+      <EditorialImageBand
+        eyebrow="Collection experience"
+        title="Make the shelves feel discoverable before the full catalogue arrives."
+        description="Photography and category-led browsing give readers an inviting way into the collection while the future catalogue, availability, and request data are still being prepared."
+        image={publicImages.readingRoom}
+        imageAlt="Library reading room with shelves and study tables"
+        href="/needs"
+        actionLabel="See collection needs"
+        reverse
+      />
 
       <section className="section section-soft">
         <div className="shell grid gap-8 md:grid-cols-[0.9fr_1.1fr]">
