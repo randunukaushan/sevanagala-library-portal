@@ -83,6 +83,7 @@ Codex and contributors should read [AGENTS.md](./AGENTS.md) before implementatio
 - UI/accessibility plan;
 - canonical premium editorial visual identity, typography, photography, and page-pattern system;
 - professional public-page UI pass;
+- English / Sinhala / Tamil public-language routing, switcher, and translated prototype content;
 - multi-screen admin-dashboard UI preview, admin UX specification, and workflow map;
 - technical architecture;
 - content/launch plan;

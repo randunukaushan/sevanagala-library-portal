@@ -1,30 +1,19 @@
 import { PageHero } from "@/components/page-hero";
-import { publicImages } from "@/lib/public-images";
 import { SectionHeading } from "@/components/section-heading";
+import { publicContent } from "@/lib/i18n/public-content";
+import { getRequestLocale } from "@/lib/i18n/server";
+import { publicImages } from "@/lib/public-images";
 
-const stages = [
-  ["Enquiry", "An organisation asks about supporting a need or project."],
-  ["Accepted pledge", "The library accepts a defined commitment."],
-  ["Received", "Items physically arrive at the library."],
-  ["Verified", "Authorised staff confirm identity, quantity, and condition."],
-  ["Deployed / catalogued", "Support is placed into service or the collection."],
-  ["Completed", "The related outcome is closed and reported."],
-];
+export default async function TransparencyPage() {
+  const locale = await getRequestLocale();
+  const copy = publicContent[locale].transparency;
 
-const rules = [
-  ["No double counting", "A received item must not remain counted as an active pledge."],
-  ["Visible dates", "Active needs and projects show when they were last verified."],
-  ["Evidence where useful", "Approved photos or records can support completed project claims."],
-  ["Correction history", "Material corrections are fixed publicly and preserved in internal audit history."],
-];
-
-export default function TransparencyPage() {
   return (
     <>
       <PageHero
-        eyebrow="Transparency"
-        title="Trust comes from accurate states, dates, and evidence."
-        description="A promise, a delivery, a verified donation, and a completed outcome are deliberately treated as different events."
+        eyebrow={copy.heroEyebrow}
+        title={copy.heroTitle}
+        description={copy.heroDescription}
         image={publicImages.readingRoom}
         imageAlt="Library reading room representing trustworthy public reporting"
       />
@@ -32,13 +21,13 @@ export default function TransparencyPage() {
       <section className="section">
         <div className="shell">
           <SectionHeading
-            eyebrow="Support lifecycle"
-            title="Follow support from first contact to completed impact."
-            description="The public site will show only the level of certainty that the library has actually verified."
+            eyebrow={copy.lifecycleEyebrow}
+            title={copy.lifecycleTitle}
+            description={copy.lifecycleDescription}
           />
 
-          <ol className="mt-8 grid gap-3">
-            {stages.map(([title, description], index) => (
+          <ol className="grid gap-3">
+            {copy.stages.map(([title, description], index) => (
               <li
                 className="card grid gap-4 p-5 md:grid-cols-[4rem_13rem_1fr] md:items-center"
                 key={title}
@@ -57,11 +46,11 @@ export default function TransparencyPage() {
       <section className="section section-soft">
         <div className="shell">
           <SectionHeading
-            eyebrow="Public reporting rules"
-            title="Simple rules make the numbers believable."
+            eyebrow={copy.rulesEyebrow}
+            title={copy.rulesTitle}
           />
-          <div className="mt-8 grid gap-3 md:grid-cols-2">
-            {rules.map(([title, description]) => (
+          <div className="grid gap-3 md:grid-cols-2">
+            {copy.rules.map(([title, description]) => (
               <article className="card p-5" key={title}>
                 <h2 className="font-black">{title}</h2>
                 <p className="muted mt-2">{description}</p>

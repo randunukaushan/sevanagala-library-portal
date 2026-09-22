@@ -52,6 +52,7 @@ The documents move from product intent and institutional governance through dono
 - [UI, UX, Accessibility and Design System](./ui-ux-accessibility-and-design-system.md)
 - [Visual Identity, Color and Typography](./visual-identity-color-and-typography.md)
 - [UI and UX Page Patterns](./ui-ux-page-patterns.md)
+- [Public Multilingual Architecture](./public-multilingual-architecture.md)
 - [Technical Architecture, Deployment and Operations](./technical-architecture-deployment-and-operations.md)
 
 ## 7. Quality and Operational Readiness

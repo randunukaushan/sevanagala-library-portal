@@ -1,61 +1,64 @@
+"use client";
+
 import Link from "next/link";
-
-const explore = [
-  ["/about", "About"],
-  ["/services", "Services"],
-  ["/books-resources", "Books & Resources"],
-  ["/news", "News"],
-];
-
-const development = [
-  ["/needs", "Current Needs"],
-  ["/projects", "Projects"],
-  ["/support", "Support & Partner"],
-  ["/transparency", "Transparency"],
-];
+import { usePathname } from "next/navigation";
+import { localeFromPathname, localePath } from "@/lib/i18n/config";
+import { navigationCopy } from "@/lib/i18n/navigation";
 
 export function SiteFooter() {
+  const pathname = usePathname();
+  const locale = localeFromPathname(pathname);
+  const copy = navigationCopy[locale].footer;
+
+  const explore = [
+    ["/about", copy.about],
+    ["/services", copy.services],
+    ["/books-resources", copy.books],
+    ["/news", copy.news],
+  ];
+
+  const development = [
+    ["/needs", copy.currentNeeds],
+    ["/projects", copy.projects],
+    ["/support", copy.support],
+    ["/transparency", copy.transparency],
+  ];
+
   return (
     <footer className="site-footer">
       <div className="shell">
         <div className="site-footer-grid">
           <div>
-            <p className="site-footer-title">Sevanagala Public Library</p>
-            <p className="site-footer-copy">
-              A prototype digital home for reading, learning, transparent development,
-              and the library&apos;s future smart-services journey.
-            </p>
-            <p className="site-footer-note">
-              Prototype only · stock imagery and sample content are replaced by approved
-              library material before an official launch.
-            </p>
+            <p className="site-footer-title">{navigationCopy[locale].fullLibraryName}</p>
+            <p className="site-footer-copy">{copy.description}</p>
+            <p className="site-footer-note">{copy.note}</p>
           </div>
 
           <div className="site-footer-column">
-            <strong>Explore</strong>
+            <strong>{copy.explore}</strong>
             {explore.map(([href, label]) => (
-              <Link href={href} key={href}>{label}</Link>
+              <Link href={localePath(locale, href)} key={href}>{label}</Link>
             ))}
           </div>
 
           <div className="site-footer-column">
-            <strong>Development</strong>
+            <strong>{copy.development}</strong>
             {development.map(([href, label]) => (
-              <Link href={href} key={href}>{label}</Link>
+              <Link href={localePath(locale, href)} key={href}>{label}</Link>
             ))}
           </div>
 
           <div className="site-footer-column">
-            <strong>Contact</strong>
-            <Link href="/contact">Library contact</Link>
-            <Link href="/contact">Partnership enquiries</Link>
-            <Link href="/admin-preview">Admin UI preview</Link>
+            <strong>{copy.contact}</strong>
+            <Link href={localePath(locale, "/contact")}>{copy.libraryContact}</Link>
+            <Link href={localePath(locale, "/contact")}>{copy.partnership}</Link>
+            <Link href="/admin-preview">{copy.adminPreview}</Link>
           </div>
         </div>
 
         <div className="site-footer-bottom">
-          <span>© 2026 Sevanagala Public Library Portal · Prototype.</span>
-          <span>Accessible · multilingual-ready · transparency-first</span>
+          <span>{copy.copyright}</span>
+          <span>{copy.values}</span>
         </div>
       </div>
     </footer>
