@@ -1,42 +1,21 @@
 import Link from "next/link";
-import { publicImages } from "@/lib/public-images";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
+import { localePath } from "@/lib/i18n/config";
+import { publicContent } from "@/lib/i18n/public-content";
+import { getRequestLocale } from "@/lib/i18n/server";
+import { publicImages } from "@/lib/public-images";
 
-const ways = [
-  {
-    title: "Books",
-    description:
-      "Support verified exact-title requests or category-based collection needs.",
-    examples: "Reference, English, STEM, children’s, O/L and A/L resources",
-  },
-  {
-    title: "Technology",
-    description:
-      "Support approved digital-access and smart-library equipment.",
-    examples: "Computers, networking, printing, display and learning equipment",
-  },
-  {
-    title: "Furniture & facilities",
-    description:
-      "Support practical improvements that make the library easier to use.",
-    examples: "Shelves, tables, chairs, lighting and approved facility upgrades",
-  },
-  {
-    title: "Long-term partnership",
-    description:
-      "Work with the library on a broader education or community-development outcome.",
-    examples: "Literacy, digital skills, STEM, career or learning programmes",
-  },
-];
+export default async function SupportPage() {
+  const locale = await getRequestLocale();
+  const copy = publicContent[locale].support;
 
-export default function SupportPage() {
   return (
     <>
       <PageHero
-        eyebrow="Support & partner"
-        title="Make it easy for a suitable organisation to understand the next step."
-        description="The production site will connect verified needs to an authorised library contact. Online cash collection remains outside the current V1 scope."
+        eyebrow={copy.heroEyebrow}
+        title={copy.heroTitle}
+        description={copy.heroDescription}
         image={publicImages.warmInterior}
         imageAlt="Warm modern library interior representing partnership and learning"
       />
@@ -44,23 +23,21 @@ export default function SupportPage() {
       <section className="section">
         <div className="shell">
           <SectionHeading
-            eyebrow="Ways to support"
-            title="Start with a real, approved need."
-            description="Support is organised around practical outcomes instead of a generic donation request."
+            eyebrow={copy.sectionEyebrow}
+            title={copy.sectionTitle}
+            description={copy.sectionDescription}
           />
 
           <div className="grid-auto mt-8">
-            {ways.map((item) => (
-              <article className="card p-6" key={item.title}>
-                <h2 className="text-xl font-black tracking-[-0.02em]">
-                  {item.title}
-                </h2>
-                <p className="muted mt-3">{item.description}</p>
+            {copy.ways.map(([title, description, examples]) => (
+              <article className="card p-6" key={title}>
+                <h2 className="text-xl font-black tracking-[-0.02em]">{title}</h2>
+                <p className="muted mt-3">{description}</p>
                 <div className="mt-5 border-t border-[var(--color-border)] pt-4">
                   <p className="text-xs font-extrabold text-[var(--color-brand-primary)]">
-                    EXAMPLES
+                    {copy.examples}
                   </p>
-                  <p className="muted mt-2 text-sm">{item.examples}</p>
+                  <p className="muted mt-2 text-sm">{examples}</p>
                 </div>
               </article>
             ))}
@@ -71,19 +48,15 @@ export default function SupportPage() {
       <section className="section section-soft">
         <div className="shell grid gap-8 md:grid-cols-2 md:items-center">
           <div>
-            <p className="eyebrow">Recognition policy</p>
+            <p className="eyebrow">{copy.recognitionEyebrow}</p>
             <h2 className="text-3xl font-black tracking-[-0.03em]">
-              Acknowledge support without turning the library into an advertising space.
+              {copy.recognitionTitle}
             </h2>
           </div>
           <div>
-            <p className="lead text-base">
-              With approval and consent, the site may show an organisation name,
-              approved logo, website, contribution summary, and verified impact.
-              Acknowledgement will not imply endorsement.
-            </p>
-            <Link className="button-primary mt-6" href="/transparency">
-              See transparency model
+            <p className="lead text-base">{copy.recognitionDescription}</p>
+            <Link className="button-primary mt-6" href={localePath(locale, "/transparency")}>
+              {copy.recognitionAction}
             </Link>
           </div>
         </div>

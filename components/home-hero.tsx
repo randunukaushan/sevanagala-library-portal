@@ -5,7 +5,31 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { publicImages } from "@/lib/public-images";
 
-export function HomeHero() {
+type HomeHeroProps = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  primaryLabel: string;
+  secondaryLabel: string;
+  primaryHref: string;
+  secondaryHref: string;
+  prototypeNote: string;
+  scrollLabel: string;
+  slideLabel: string;
+};
+
+export function HomeHero({
+  eyebrow,
+  title,
+  description,
+  primaryLabel,
+  secondaryLabel,
+  primaryHref,
+  secondaryHref,
+  prototypeNote,
+  scrollLabel,
+  slideLabel,
+}: HomeHeroProps) {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
@@ -39,30 +63,24 @@ export function HomeHero() {
       <div className="home-hero-overlay" />
 
       <div className="shell home-hero-content">
-        <p className="eyebrow eyebrow-light">Reading · learning · community</p>
-        <h1 className="display-title">A library worth growing with.</h1>
-        <p className="home-hero-copy">
-          A modern digital home for Sevanagala Public Library — bringing books,
-          learning resources, future services, development projects, and transparent
-          support into one calm, useful experience.
-        </p>
+        <p className="eyebrow eyebrow-light">{eyebrow}</p>
+        <h1 className="display-title">{title}</h1>
+        <p className="home-hero-copy">{description}</p>
         <div className="home-hero-actions">
-          <Link className="button-light" href="/books-resources">
-            Explore books & resources
+          <Link className="button-light" href={primaryHref}>
+            {primaryLabel}
           </Link>
-          <Link className="button-ghost" href="/needs">
-            See current needs
+          <Link className="button-ghost" href={secondaryHref}>
+            {secondaryLabel}
           </Link>
         </div>
-        <p className="prototype-photo-note">
-          Prototype · stock imagery only until approved Sevanagala Library photography is available
-        </p>
+        <p className="prototype-photo-note">{prototypeNote}</p>
       </div>
 
-      <div className="home-hero-dots" aria-label="Hero image controls">
+      <div className="home-hero-dots" aria-label={slideLabel}>
         {publicImages.heroSlides.map((_, index) => (
           <button
-            aria-label={`Show library image ${index + 1}`}
+            aria-label={`${slideLabel} ${index + 1}`}
             aria-pressed={index === active}
             className={index === active ? "home-hero-dot is-active" : "home-hero-dot"}
             key={index}
@@ -72,7 +90,7 @@ export function HomeHero() {
         ))}
       </div>
 
-      <div className="hero-scroll-note">Scroll to explore</div>
+      <div className="hero-scroll-note">{scrollLabel}</div>
     </section>
   );
 }
