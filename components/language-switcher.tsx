@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 import {
   localeFromPathname,
   localePath,
@@ -14,9 +15,18 @@ export function LanguageSwitcher() {
   const pathname = usePathname();
   const currentLocale = localeFromPathname(pathname);
   const basePath = stripLocalePrefix(pathname);
+  const detailsRef = useRef<HTMLDetailsElement>(null);
+
+  useEffect(() => {
+    detailsRef.current?.removeAttribute("open");
+  }, [pathname]);
+
+  const closeMenu = () => {
+    detailsRef.current?.removeAttribute("open");
+  };
 
   return (
-    <details className="language-switcher">
+    <details className="language-switcher" ref={detailsRef}>
       <summary aria-label={navigationCopy[currentLocale].language}>
         {languageNames[currentLocale]}
       </summary>
@@ -27,6 +37,7 @@ export function LanguageSwitcher() {
             href={localePath(locale, basePath)}
             key={locale}
             lang={locale}
+            onClick={closeMenu}
           >
             {languageNames[locale]}
           </Link>
