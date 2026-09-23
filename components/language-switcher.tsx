@@ -8,7 +8,7 @@ import {
   publicLocales,
   stripLocalePrefix,
 } from "@/lib/i18n/config";
-import { languageNames } from "@/lib/i18n/navigation";
+import { languageNames, navigationCopy } from "@/lib/i18n/navigation";
 
 export function LanguageSwitcher() {
   const pathname = usePathname();
@@ -17,7 +17,7 @@ export function LanguageSwitcher() {
 
   return (
     <details className="language-switcher">
-      <summary aria-label="Change language">
+      <summary aria-label={navigationCopy[currentLocale].language}>
         {languageNames[currentLocale]}
       </summary>
       <div className="language-switcher-menu">
