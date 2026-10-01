@@ -25,6 +25,10 @@ export default async function StaffLoginPage({
     if (staff.status === "active") {
       redirect("/admin");
     }
+
+    if (staff.status === "inactive") {
+      redirect("/staff-setup");
+    }
   }
 
   return (
