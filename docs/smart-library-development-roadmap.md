@@ -6,6 +6,8 @@
 
 Define a phased path from the current public library environment to a practical, sustainable smart library.
 
+For the detailed programme, target-state model, current collection baseline, building/thermal workstreams, accessibility, sustainability, implementation phases, and collection-audit method, use the [Sevanagala Smart Library Transformation Master Plan](./sevanagala-smart-library-transformation-master-plan.md) and [Collection Renewal and Audit Framework](./collection-renewal-and-audit-framework.md).
+
 ## 2. Roadmap Principles
 
 ### 2.1 Service Before Technology

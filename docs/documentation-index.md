@@ -23,6 +23,7 @@ The documents move from product intent and institutional governance through dono
 
 - [Donor, Partner and Transparency Workflow](./donor-partner-and-transparency-workflow.md)
 - [Donor Research and Outreach Strategy](./donor-research-and-outreach-strategy.md)
+- [Donor Evidence and Support Pack Framework](./donor-evidence-and-support-pack-framework.md)
 - [Needs, Projects and Asset Management](./needs-projects-and-asset-management.md)
 
 ## 4. Library Collection and Data
@@ -37,6 +38,8 @@ The documents move from product intent and institutional governance through dono
 ### 5.1 Transformation Roadmap
 
 - [Smart Library Development Roadmap](./smart-library-development-roadmap.md)
+- [Sevanagala Smart Library Transformation Master Plan](./sevanagala-smart-library-transformation-master-plan.md)
+- [Collection Renewal and Audit Framework](./collection-renewal-and-audit-framework.md)
 
 ## 6. System Design
 
