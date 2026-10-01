@@ -37,6 +37,8 @@ The documents move from product intent and institutional governance through dono
 ### 5.1 Transformation Roadmap
 
 - [Smart Library Development Roadmap](./smart-library-development-roadmap.md)
+- [Sevanagala Smart Library Transformation Master Plan](./sevanagala-smart-library-transformation-master-plan.md)
+- [Collection Renewal and Audit Framework](./collection-renewal-and-audit-framework.md)
 
 ## 6. System Design
 
