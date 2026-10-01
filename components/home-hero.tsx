@@ -39,23 +39,26 @@ export function HomeHero() {
       <div className="home-hero-overlay" />
 
       <div className="shell home-hero-content">
-        <p className="eyebrow eyebrow-light">Reading · learning · community</p>
-        <h1 className="display-title">A library worth growing with.</h1>
+        <p className="eyebrow eyebrow-light">
+          Community knowledge · learning · digital access
+        </p>
+        <h1 className="display-title">Building a smarter library for Sevanagala.</h1>
         <p className="home-hero-copy">
-          A modern digital home for Sevanagala Public Library — bringing books,
-          learning resources, future services, development projects, and transparent
-          support into one calm, useful experience.
+          A prototype digital platform for the transformation of Sevanagala Public
+          Library into a comfortable, accessible, digitally enabled Community
+          Knowledge & Learning Hub.
         </p>
         <div className="home-hero-actions">
-          <Link className="button-light" href="/books-resources">
-            Explore books & resources
+          <Link className="button-light" href="/services">
+            Explore the library
           </Link>
           <Link className="button-ghost" href="/needs">
-            See current needs
+            View current needs
           </Link>
         </div>
         <p className="prototype-photo-note">
-          Prototype · stock imagery only until approved Sevanagala Library photography is available
+          Prototype · public facts, official identity and local photography remain subject to
+          institutional verification and approval
         </p>
       </div>
 
