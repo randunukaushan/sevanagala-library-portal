@@ -36,7 +36,7 @@ The documents move from product intent and institutional governance through dono
 
 ### 5.1 Transformation Roadmap
 
-- [Smart Library Development Roadmap](./smart-library-development-roadmap.md)
+- [Smart Library Development Roadmap](./smart-library-development-roadmap.md)\n- [Smart Library Management System Architecture](./smart-library-management-system-architecture.md)
 
 ## 6. System Design
 
@@ -146,4 +146,4 @@ Update the documents with:
 
 ### 11.2 Before Major Coding
 
-Any unresolved requirement that changes data, security, permissions, donations, or institutional workflow must be documented before implementation.
+Any unresolved requirement that changes data, security, permissions, donations, or institutional workflow must be documented before implementation.\n\nBefore any catalogue-normalisation, member, circulation, MARC/DC, AI-search, SIP2/NCIP, RFID, or self-checkout work, review [Smart Library Management System Architecture](./smart-library-management-system-architecture.md).
