@@ -3,7 +3,7 @@
 create schema if not exists private;
 
 revoke all on schema private from public;
-grant usage on schema private to anon, authenticated, service_role;
+grant usage on schema private to anon, authenticated;
 
 create or replace function private.is_active_staff()
 returns boolean
@@ -40,8 +40,8 @@ $$;
 
 revoke all on function private.is_active_staff() from public, anon;
 revoke all on function private.has_permission(text) from public, anon;
-grant execute on function private.is_active_staff() to authenticated, service_role;
-grant execute on function private.has_permission(text) to authenticated, service_role;
+grant execute on function private.is_active_staff() to authenticated;
+grant execute on function private.has_permission(text) to authenticated;
 
 -- Keep existing policy references stable while making the API-visible helpers
 -- SECURITY INVOKER wrappers around non-exposed privileged helpers.
@@ -67,8 +67,8 @@ $$;
 
 revoke all on function public.is_active_staff() from public, anon;
 revoke all on function public.has_permission(text) from public, anon;
-grant execute on function public.is_active_staff() to authenticated, service_role;
-grant execute on function public.has_permission(text) to authenticated, service_role;
+grant execute on function public.is_active_staff() to authenticated;
+grant execute on function public.has_permission(text) to authenticated;
 
 -- Trigger-only function: it should not be directly callable through the Data API.
 revoke all on function public.handle_new_auth_user() from public, anon, authenticated, service_role;
@@ -174,7 +174,7 @@ as $$
 $$;
 
 revoke all on function private.get_public_needs() from public;
-grant execute on function private.get_public_needs() to anon, authenticated, service_role;
+grant execute on function private.get_public_needs() to anon, authenticated;
 
 create or replace function public.get_public_needs()
 returns table (
@@ -201,7 +201,7 @@ as $$
 $$;
 
 revoke all on function public.get_public_needs() from public;
-grant execute on function public.get_public_needs() to anon, authenticated, service_role;
+grant execute on function public.get_public_needs() to anon, authenticated;
 
 -- Avoid per-row auth.uid() re-evaluation in the self-profile policy.
 alter policy profiles_self_or_user_admin_read
