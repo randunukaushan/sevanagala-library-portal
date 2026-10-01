@@ -71,7 +71,7 @@ grant execute on function public.is_active_staff() to authenticated;
 grant execute on function public.has_permission(text) to authenticated;
 
 -- Trigger-only function: it should not be directly callable through the Data API.
-revoke all on function public.handle_new_auth_user() from public, anon, authenticated, service_role;
+revoke all on function public.handle_new_auth_user() from public, anon, authenticated;
 
 -- Move the privileged aggregation behind a non-exposed function. The public RPC
 -- remains SECURITY INVOKER and returns only the intentionally shaped public fields.
