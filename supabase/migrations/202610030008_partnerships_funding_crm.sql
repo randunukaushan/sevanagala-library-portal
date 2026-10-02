@@ -217,8 +217,11 @@ using (
 grant select, insert, update
 on public.supporter_contacts,
    public.partnership_opportunities,
-   public.outreach_interactions,
    public.follow_up_tasks
+to authenticated;
+
+grant select, insert
+on public.outreach_interactions
 to authenticated;
 
 alter table public.supporter_contacts enable row level security;
@@ -266,12 +269,6 @@ using (public.has_permission('partnerships.manage'));
 create policy outreach_interactions_staff_insert
 on public.outreach_interactions for insert
 to authenticated
-with check (public.has_permission('partnerships.manage'));
-
-create policy outreach_interactions_staff_update
-on public.outreach_interactions for update
-to authenticated
-using (public.has_permission('partnerships.manage'))
 with check (public.has_permission('partnerships.manage'));
 
 create policy follow_up_tasks_staff_read
