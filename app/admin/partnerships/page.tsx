@@ -27,7 +27,6 @@ const stages = [
   ["interested", "Interested"],
   ["proposal_sent", "Proposal sent"],
   ["reviewing", "Reviewing"],
-  ["converted_to_pledge", "Converted to pledge"],
   ["not_now", "Not now"],
   ["closed", "Closed"],
 ] as const;
