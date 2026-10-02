@@ -16,6 +16,10 @@ begin
       ('projects'),
       ('needs'),
       ('supporters'),
+      ('supporter_contacts'),
+      ('partnership_opportunities'),
+      ('outreach_interactions'),
+      ('follow_up_tasks'),
       ('pledges'),
       ('donations'),
       ('books'),
@@ -41,6 +45,10 @@ begin
       'profiles',
       'needs',
       'supporters',
+      'supporter_contacts',
+      'partnership_opportunities',
+      'outreach_interactions',
+      'follow_up_tasks',
       'pledges',
       'donations',
       'books',
@@ -61,12 +69,36 @@ begin
   end if;
 
   select count(*) into permission_count from public.permissions;
-  if permission_count < 16 then
+  if permission_count < 18 then
     raise exception 'Expected seeded application permissions, found only %', permission_count;
   end if;
 
   if has_table_privilege('anon', 'public.supporters', 'SELECT') then
     raise exception 'anon must not have SELECT privilege on private supporters table';
+  end if;
+
+  if has_table_privilege('anon', 'public.partnership_opportunities', 'SELECT')
+    or has_table_privilege('anon', 'public.outreach_interactions', 'SELECT')
+    or has_table_privilege('anon', 'public.follow_up_tasks', 'SELECT')
+    or has_table_privilege('anon', 'public.supporter_contacts', 'SELECT') then
+    raise exception 'anon must not have SELECT privilege on private partnership CRM tables';
+  end if;
+
+  if not exists (
+    select 1
+    from public.role_permissions rp
+    join public.roles r on r.id = rp.role_id
+    join public.permissions p on p.id = rp.permission_id
+    where r.key = 'partnership_manager'
+      and p.key = 'partnerships.manage'
+  ) then
+    raise exception 'Partnership Manager must receive partnerships.manage';
+  end if;
+
+  if to_regprocedure(
+    'public.create_partnership_supporter(text,text,text,text,text,text,text,text)'
+  ) is null then
+    raise exception 'Partnership supporter creation function is missing';
   end if;
 
   if not has_table_privilege('anon', 'public.needs', 'SELECT') then
