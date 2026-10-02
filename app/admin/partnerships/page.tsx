@@ -163,12 +163,8 @@ export default async function PartnershipsPage({
     opportunities.map((opportunity) => [opportunity.id, opportunity.title]),
   );
 
-  const now = Date.now();
   const activeOpportunityCount = opportunities.filter(
     (item) => !["converted_to_pledge", "not_now", "closed"].includes(item.stage),
-  ).length;
-  const overdueFollowUpCount = followUps.filter(
-    (item) => new Date(item.due_at).getTime() < now,
   ).length;
 
   const queryError =
@@ -232,7 +228,7 @@ export default async function PartnershipsPage({
           ["Supporters", supporters.length, "Organisations and other supporter records"],
           ["Active opportunities", activeOpportunityCount, "Research through active review"],
           ["Open follow-ups", followUps.length, "Tasks still waiting for action"],
-          ["Overdue follow-ups", overdueFollowUpCount, "Follow-ups past their due time"],
+          ["Recent outreach", outreach.length, "Latest logged email/contact activity"],
         ].map(([label, value, help]) => (
           <article className="card p-5" key={String(label)}>
             <p className="text-xs font-extrabold uppercase tracking-[0.08em] text-[var(--color-brand-primary)]">
@@ -340,9 +336,7 @@ export default async function PartnershipsPage({
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[var(--color-border)]">
-                  {followUps.map((task) => {
-                    const overdue = new Date(task.due_at).getTime() < now;
-                    return (
+                  {followUps.map((task) => (
                       <tr key={task.id} className="bg-[var(--color-surface)]">
                         <td className="px-5 py-4 font-bold">{task.title}</td>
                         <td className="px-5 py-4">
@@ -353,11 +347,7 @@ export default async function PartnershipsPage({
                             ? opportunityNames.get(task.opportunity_id) ?? "Linked opportunity"
                             : "—"}
                         </td>
-                        <td className="px-5 py-4">
-                          <span className={overdue ? "font-bold text-[var(--color-danger)]" : ""}>
-                            {formatDate(task.due_at)}
-                          </span>
-                        </td>
+                        <td className="px-5 py-4">{formatDate(task.due_at)}</td>
                         <td className="px-5 py-4 capitalize">{task.priority}</td>
                         <td className="px-5 py-4">
                           <form action={completeFollowUp}>
@@ -368,8 +358,7 @@ export default async function PartnershipsPage({
                           </form>
                         </td>
                       </tr>
-                    );
-                  })}
+                  ))}
                 </tbody>
               </table>
             </div>
