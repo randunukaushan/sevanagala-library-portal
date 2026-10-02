@@ -24,6 +24,19 @@ export default function AdminDashboardPage() {
           </div>
         </AdminSection>
 
+        <AdminSection eyebrow="FUNDING & PARTNERSHIPS" title="Partnership CRM">
+          <div className="p-5">
+            <p className="muted">
+              Track organisations, contacts, outreach, funding opportunities and
+              follow-ups, then convert confirmed support into the existing pledge and
+              donation workflow.
+            </p>
+            <Link className="button-primary mt-5" href="/admin/partnerships">
+              Open partnership CRM
+            </Link>
+          </div>
+        </AdminSection>
+
         <AdminSection eyebrow="SECURITY" title="Database permissions remain authoritative">
           <div className="p-5">
             <p className="muted">
