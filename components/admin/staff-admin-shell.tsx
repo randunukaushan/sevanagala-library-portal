@@ -4,6 +4,7 @@ import { signOutStaff } from "@/app/admin/actions";
 const navigation = [
   ["/admin", "Dashboard"],
   ["/admin/needs", "Needs"],
+  ["/admin/partnerships", "Partnerships"],
 ];
 
 export function StaffAdminShell({
@@ -61,6 +62,7 @@ export function StaffAdminShell({
             </div>
             <div className="flex items-center gap-3">
               <Link className="text-sm font-bold" href="/admin/needs">Needs</Link>
+              <Link className="text-sm font-bold" href="/admin/partnerships">Partners</Link>
               <form action={signOutStaff}>
                 <button className="text-sm font-bold" type="submit">Sign out</button>
               </form>

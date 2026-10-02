@@ -80,9 +80,13 @@ Cannot:
 
 Can:
 
-- record donor enquiries;
-- record pledges;
-- maintain partner records;
+- research and maintain partner/supporter records;
+- maintain multiple organisation contacts;
+- record outreach and replies;
+- create and update funding/in-kind opportunities;
+- schedule and complete follow-ups;
+- link opportunities to needs/projects;
+- record pledges after a commitment is confirmed;
 - attach permission for public recognition;
 - prepare acknowledgement content.
 
@@ -160,6 +164,7 @@ A project should only become Completed after:
 | Record pledge | No | No | No | Optional | Yes | Yes | Yes | No |
 | Verify receipt | No | No | No | Limited | Limited | Yes | Yes | No |
 | Manage partner recognition | No | No | No | No | Yes | Yes | Yes | No |
+| Manage outreach/opportunities/follow-ups | No | No | No | No | Yes | No | Yes | No |
 | Manage users | No | No | No | No | No | No | Yes | Limited |
 | Database migration | No | No | No | No | No | No | No | Yes |
 | View audit logs | No | No | No | Limited | Limited | Yes | Yes | Technical |

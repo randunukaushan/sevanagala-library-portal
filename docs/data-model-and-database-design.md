@@ -286,6 +286,85 @@ Fields:
 - note;
 - created_at.
 
+### 7.5 supporter_contacts
+
+Multiple staff-only operational contacts may belong to one supporter.
+
+Fields:
+
+- id;
+- supporter_id;
+- full_name;
+- job_title;
+- email;
+- phone;
+- preferred_contact_method;
+- is_primary;
+- notes;
+- audit fields.
+
+### 7.6 partnership_opportunities
+
+Pre-pledge relationship/funding pipeline.
+
+Fields:
+
+- id;
+- supporter_id;
+- need_id nullable;
+- project_id nullable;
+- pledge_id nullable;
+- title;
+- support_type;
+- stage;
+- source;
+- expected_support_summary;
+- estimated_value/currency nullable;
+- next_step;
+- next_follow_up_at;
+- owner_id;
+- internal_notes;
+- audit fields.
+
+Opportunity estimates are internal planning values and must not be counted as pledged or received support.
+
+### 7.7 outreach_interactions
+
+Minimal staff-only contact history.
+
+Fields:
+
+- supporter_id;
+- contact_id nullable;
+- opportunity_id nullable;
+- direction;
+- channel;
+- subject;
+- summary;
+- occurred_at;
+- optional Gmail thread/message IDs;
+- created_by.
+
+Do not store Gmail passwords, OAuth tokens, or unnecessary full email bodies.
+
+### 7.8 follow_up_tasks
+
+Staff attention queue.
+
+Fields:
+
+- supporter_id;
+- contact_id nullable;
+- opportunity_id nullable;
+- title;
+- due_at;
+- priority;
+- status;
+- assigned_to;
+- notes;
+- completed_at;
+- audit fields.
+
 ## 8. Book Tables
 
 ### 8.1 book_categories
