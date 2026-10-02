@@ -25,7 +25,6 @@ const stages = new Set([
   "interested",
   "proposal_sent",
   "reviewing",
-  "converted_to_pledge",
   "not_now",
   "closed",
 ]);
@@ -199,6 +198,31 @@ export async function logOutreach(formData: FormData) {
   }
 
   const supabase = await createClient();
+
+  if (contactId) {
+    const { data: contact, error: contactError } = await supabase
+      .from("supporter_contacts")
+      .select("supporter_id")
+      .eq("id", contactId)
+      .maybeSingle();
+
+    if (contactError || !contact || contact.supporter_id !== supporterId) {
+      redirect("/admin/partnerships?error=outreach");
+    }
+  }
+
+  if (opportunityId) {
+    const { data: opportunity, error: opportunityError } = await supabase
+      .from("partnership_opportunities")
+      .select("supporter_id")
+      .eq("id", opportunityId)
+      .maybeSingle();
+
+    if (opportunityError || !opportunity || opportunity.supporter_id !== supporterId) {
+      redirect("/admin/partnerships?error=outreach");
+    }
+  }
+
   const { error } = await supabase.from("outreach_interactions").insert({
     supporter_id: supporterId,
     opportunity_id: opportunityId,
@@ -233,6 +257,31 @@ export async function createFollowUp(formData: FormData) {
   }
 
   const supabase = await createClient();
+
+  if (contactId) {
+    const { data: contact, error: contactError } = await supabase
+      .from("supporter_contacts")
+      .select("supporter_id")
+      .eq("id", contactId)
+      .maybeSingle();
+
+    if (contactError || !contact || contact.supporter_id !== supporterId) {
+      redirect("/admin/partnerships?error=followup");
+    }
+  }
+
+  if (opportunityId) {
+    const { data: opportunity, error: opportunityError } = await supabase
+      .from("partnership_opportunities")
+      .select("supporter_id")
+      .eq("id", opportunityId)
+      .maybeSingle();
+
+    if (opportunityError || !opportunity || opportunity.supporter_id !== supporterId) {
+      redirect("/admin/partnerships?error=followup");
+    }
+  }
+
   const { error } = await supabase.from("follow_up_tasks").insert({
     supporter_id: supporterId,
     opportunity_id: opportunityId,
