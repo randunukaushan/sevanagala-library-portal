@@ -23,6 +23,7 @@ The documents move from product intent and institutional governance through dono
 
 - [Donor, Partner and Transparency Workflow](./donor-partner-and-transparency-workflow.md)
 - [Donor Research and Outreach Strategy](./donor-research-and-outreach-strategy.md)
+- [Partnerships and Funding CRM](./partnerships-and-funding-crm.md)
 - [Needs, Projects and Asset Management](./needs-projects-and-asset-management.md)
 
 ## 4. Library Collection and Data
