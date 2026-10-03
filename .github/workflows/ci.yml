@@ -89,3 +89,8 @@ jobs:
       - name: Run database foundation assertions
         run: |
           psql -v ON_ERROR_STOP=1 -h localhost -U postgres -d postgres             -f supabase/tests/assert_foundation.sql
+
+      - name: Run project publication RLS assertions
+        run: |
+          psql -v ON_ERROR_STOP=1 -h localhost -U postgres -d postgres -f supabase/tests/assert_project_publication_rls.sql
+
