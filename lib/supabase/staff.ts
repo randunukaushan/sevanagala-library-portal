@@ -5,6 +5,7 @@ export type StaffContext =
   | { status: "unconfigured" }
   | { status: "signed_out" }
   | { status: "inactive" }
+  | { status: "mfa_required"; userId: string }
   | { status: "error"; message: string }
   | {
       status: "active";
@@ -40,6 +41,10 @@ export async function getStaffContext(): Promise<StaffContext> {
 
     if (!profile || profile.account_status !== "active") {
       return { status: "inactive" };
+    }
+
+    if (claimsData?.claims?.aal !== "aal2") {
+      return { status: "mfa_required", userId };
     }
 
     let roleKey: string | null = null;

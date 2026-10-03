@@ -34,6 +34,7 @@ const priorities = new Set(["high", "medium", "low"]);
 
 async function requireStaff() {
   const staff = await getStaffContext();
+  if (staff.status === "mfa_required") redirect("/staff-mfa");
   if (staff.status !== "active") redirect("/staff-login");
   return staff;
 }
@@ -311,12 +312,14 @@ export async function updateOpportunityStage(formData: FormData) {
   if (!id || !stages.has(stage)) redirect("/admin/partnerships?error=stage");
 
   const supabase = await createClient();
-  const { error } = await supabase
+  const { data: changed, error } = await supabase
     .from("partnership_opportunities")
     .update({ stage, updated_by: staff.userId })
-    .eq("id", id);
+    .eq("id", id)
+    .select("id")
+    .maybeSingle();
 
-  if (error) redirect("/admin/partnerships?error=stage");
+  if (error || !changed) redirect("/admin/partnerships?error=stage");
 
   refresh();
   redirect("/admin/partnerships?updated=stage");
@@ -329,7 +332,7 @@ export async function completeFollowUp(formData: FormData) {
   if (!id) redirect("/admin/partnerships?error=followup");
 
   const supabase = await createClient();
-  const { error } = await supabase
+  const { data: changed, error } = await supabase
     .from("follow_up_tasks")
     .update({
       status: "done",
@@ -337,9 +340,11 @@ export async function completeFollowUp(formData: FormData) {
       updated_by: staff.userId,
     })
     .eq("id", id)
-    .eq("status", "open");
+    .eq("status", "open")
+    .select("id")
+    .maybeSingle();
 
-  if (error) redirect("/admin/partnerships?error=followup");
+  if (error || !changed) redirect("/admin/partnerships?error=followup");
 
   refresh();
   redirect("/admin/partnerships?updated=followup");

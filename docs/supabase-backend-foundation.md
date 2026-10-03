@@ -177,7 +177,9 @@ This applies to managed public pages, services, news, and project updates.
 
 ### 8.1 Anonymous Submission
 
-The public role may insert a contact message.
+Direct public contact insertion is now disabled pending a reviewed,
+abuse-resistant submission path. The following describes the intended future
+submission state, not a currently open anonymous write endpoint.
 
 The submitted row must remain:
 
@@ -216,7 +218,10 @@ Normal application roles receive read permission only when authorised.
 
 No normal app role receives direct audit-event insert/update permission in this foundation.
 
-Later workflow functions/triggers should create important audit events.
+Private database triggers now create minimal audit events for application-table
+changes. Staff permissions require verified MFA. See
+[Security Audit Remediation](./security-audit-remediation.md) for current controls
+and limitations.
 
 ## 11. RLS Test Plan
 
@@ -227,7 +232,7 @@ Test:
 - public published content visible;
 - draft content hidden;
 - private donor data hidden;
-- contact submission allowed;
+- direct contact submission denied until abuse controls are implemented;
 - contact read denied.
 
 ### 11.2 Content Editor

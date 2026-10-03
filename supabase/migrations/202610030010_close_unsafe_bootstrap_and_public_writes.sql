@@ -1,3 +1,5 @@
+-- Local replay version repaired from duplicate 202610030009; remote migration
+-- history already uses independent, unique versions. Do not reapply remotely.
 -- Retire the exposed bootstrap mechanism. The old hash remains in migration
 -- history, so it must never be accepted by a callable function again.
 revoke execute on function public.claim_first_admin(text) from public, anon, authenticated;

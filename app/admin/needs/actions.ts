@@ -20,6 +20,7 @@ function slugify(value: string) {
 
 async function requireActiveStaff() {
   const staff = await getStaffContext();
+  if (staff.status === "mfa_required") redirect("/staff-mfa");
 
   if (staff.status !== "active") {
     redirect("/staff-login");
@@ -96,16 +97,18 @@ export async function submitNeedForApproval(formData: FormData) {
   if (!id) redirect("/admin/needs?error=invalid");
 
   const supabase = await createClient();
-  const { error } = await supabase
+  const { data: changed, error } = await supabase
     .from("needs")
     .update({
       status: "pending_approval",
       updated_by: staff.userId,
     })
     .eq("id", id)
-    .eq("status", "draft");
+    .eq("status", "draft")
+    .select("id")
+    .maybeSingle();
 
-  if (error) {
+  if (error || !changed) {
     redirect("/admin/needs?error=submit");
   }
 
@@ -121,7 +124,7 @@ export async function publishNeed(formData: FormData) {
 
   const now = new Date().toISOString();
   const supabase = await createClient();
-  const { error } = await supabase
+  const { data: changed, error } = await supabase
     .from("needs")
     .update({
       status: "seeking_support",
@@ -130,9 +133,11 @@ export async function publishNeed(formData: FormData) {
       updated_by: staff.userId,
     })
     .eq("id", id)
-    .eq("status", "pending_approval");
+    .eq("status", "pending_approval")
+    .select("id")
+    .maybeSingle();
 
-  if (error) {
+  if (error || !changed) {
     redirect("/admin/needs?error=publish");
   }
 

@@ -31,7 +31,16 @@ jobs:
           node-version: "22"
 
       - name: Install dependencies
-        run: npm install --no-audit --no-fund
+        run: npm ci --no-fund
+
+      - name: Security source and migration checks
+        run: npm run security:check
+
+      - name: Production dependency security gate
+        run: npm run security:audit
+
+      - name: Full dependency security gate (explicit time-limited build-only exception)
+        run: npm run security:dependencies
 
       - name: Lint
         run: npm run lint
@@ -93,3 +102,7 @@ jobs:
       - name: Run project publication RLS assertions
         run: |
           psql -v ON_ERROR_STOP=1 -h localhost -U postgres -d postgres -f supabase/tests/assert_project_publication_rls.sql
+
+      - name: Run security remediation regression assertions
+        run: |
+          psql -v ON_ERROR_STOP=1 -h localhost -U postgres -d postgres -f supabase/tests/assert_security_remediation.sql
