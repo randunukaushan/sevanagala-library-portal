@@ -36,4 +36,3 @@ alter policy projects_staff_update on public.projects
 -- abuse-resistant submission path is implemented and reviewed.
 drop policy contact_public_insert on public.contact_messages;
 revoke insert on public.contact_messages from anon, authenticated;
-

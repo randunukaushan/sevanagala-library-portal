@@ -482,4 +482,3 @@ https://owasp.org/projects/asvs/
 ### 20.4 IFLA Privacy
 
 https://www.ifla.org/publications/ifla-statement-on-privacy-in-the-library-environment/
-

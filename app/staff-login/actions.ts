@@ -25,4 +25,3 @@ export async function signInStaff(formData: FormData) {
 
   redirect("/admin");
 }
-
