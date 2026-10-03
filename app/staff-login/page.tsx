@@ -19,6 +19,7 @@ export default async function StaffLoginPage({
 }) {
   const params = await searchParams;
   const configured = isSupabaseConfigured();
+  let inactive = false;
 
   if (configured) {
     const staff = await getStaffContext();
@@ -27,7 +28,7 @@ export default async function StaffLoginPage({
     }
 
     if (staff.status === "inactive") {
-      redirect("/staff-setup");
+      inactive = true;
     }
   }
 
@@ -57,9 +58,9 @@ export default async function StaffLoginPage({
           </div>
         ) : null}
 
-        {params.error ? (
+        {params.error || inactive ? (
           <div className="staff-auth-error" role="alert">
-            {messages[params.error] ?? messages.invalid}
+            {inactive ? messages.inactive : messages[params.error ?? ""] ?? messages.invalid}
           </div>
         ) : null}
 

@@ -146,6 +146,11 @@ Use privacy-conscious anti-spam controls.
 
 Avoid excessive tracking solely for spam prevention.
 
+The prototype has no live public contact form. Direct anonymous and
+authenticated inserts into `contact_messages` remain disabled until a
+validated submission path, abuse controls, privacy notice, and operational
+review are in place.
+
 ## 7. Authentication Security
 
 ### 7.1 Managed Authentication
@@ -168,6 +173,20 @@ Prohibit shared staff logins.
 
 Use secure session management and re-authentication for high-risk actions where appropriate.
 
+### 7.6 First Administrator Provisioning
+
+The former public first-administrator setup and `claim_first_admin` RPC are
+retired. The first administrator must be provisioned by an authorised project
+owner in Supabase, never by a public web form or a hash embedded in a migration.
+The owner must verify the person's identity and email, confirm that no active
+administrator already exists, and record who authorised the change. Create an
+individual Supabase Auth user with email confirmation and MFA, then activate
+only that verified user's `profiles` row and assign the `library_admin` role
+through the protected database administration interface. Do not put credentials,
+bootstrap hashes, or reusable activation tokens in source control or public
+environment variables. If identity or approval is uncertain, leave the account
+pending.
+
 ## 8. Authorisation Security
 
 ### 8.1 Least Privilege
@@ -185,6 +204,13 @@ Sensitive tables should not be publicly readable unless explicitly designed for 
 ### 8.4 Server-Side Secrets
 
 Secret/service-role keys stay server-side.
+
+### 8.5 Project Publication Boundary
+
+Staff with `projects.manage` may edit only planned, unpublished projects.
+Changes to published projects and publication itself require the separate
+`projects.publish` permission. Enforce this in database RLS, not only in the
+admin interface.
 
 ## 9. Application Security
 

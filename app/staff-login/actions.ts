@@ -23,5 +23,5 @@ export async function signInStaff(formData: FormData) {
     redirect("/staff-login?error=invalid");
   }
 
-  redirect("/staff-setup");
+  redirect("/admin");
 }

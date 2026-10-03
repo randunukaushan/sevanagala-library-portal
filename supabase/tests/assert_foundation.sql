@@ -105,14 +105,48 @@ begin
     raise exception 'anon should have SELECT privilege on public-facing needs table';
   end if;
 
-  if not exists (
+  if exists (
     select 1
     from pg_policies
     where schemaname = 'public'
       and tablename = 'contact_messages'
       and policyname = 'contact_public_insert'
   ) then
-    raise exception 'Public contact insert policy is missing';
+    raise exception 'Public contact insert policy must be closed until anti-spam controls exist';
+  end if;
+
+  if has_table_privilege('anon', 'public.contact_messages', 'INSERT')
+    or has_table_privilege('authenticated', 'public.contact_messages', 'INSERT') then
+    raise exception 'Direct contact insert must not be granted to client roles';
+  end if;
+
+  if to_regprocedure('public.claim_first_admin(text)') is not null
+    or to_regprocedure('private.claim_first_admin(text)') is not null then
+    raise exception 'Legacy administrator claim functions must be removed';
+  end if;
+
+  if exists (select 1 from private.staff_bootstrap where token_hash is not null) then
+    raise exception 'Legacy bootstrap hash must be erased';
+  end if;
+
+  if not (select relrowsecurity from pg_class where oid = 'private.staff_bootstrap'::regclass) then
+    raise exception 'Private bootstrap table must have RLS enabled';
+  end if;
+
+  if not exists (
+    select 1
+    from pg_policies
+    where schemaname = 'public'
+      and tablename = 'projects'
+      and policyname = 'projects_staff_update'
+      and qual like '%projects.publish%'
+      and qual like '%projects.manage%'
+      and qual like '%published_at IS NULL%'
+      and with_check like '%projects.publish%'
+      and with_check like '%projects.manage%'
+      and with_check like '%published_at IS NULL%'
+  ) then
+    raise exception 'Project manager update policy must be restricted to unpublished projects';
   end if;
 
   if not exists (
@@ -154,20 +188,3 @@ begin
   end if;
 end
 $$;
-
--- Basic anonymous contact insert should be allowed by grants + RLS.
-set role anon;
-
-insert into public.contact_messages (
-  name,
-  email,
-  subject,
-  message
-) values (
-  'Migration CI Sample',
-  'sample@example.invalid',
-  'Test',
-  'This row exists only during migration CI.'
-);
-
-reset role;
