@@ -11,7 +11,7 @@ The independent audit remediation adds:
 - MFA-enforced staff permissions at application and database boundaries;
 - append-only audit triggers with minimal, privacy-safe summaries;
 - database-assigned staff attribution;
-- removal of anonymous CRM writes and anonymous default table grants;
+- removal of all anonymous CRM access and anonymous default table grants;
 - affected-row checks for workflow updates;
 - patched Next.js 16.3.6, npm lockfile and production audit gate;
 - unique migration version checks and browser security headers.

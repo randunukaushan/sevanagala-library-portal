@@ -133,9 +133,10 @@ begin
   end if;
   foreach table_name in array array['supporter_contacts','partnership_opportunities','outreach_interactions','follow_up_tasks'] loop
     if has_table_privilege('anon', 'public.' || table_name, 'INSERT')
+      or has_table_privilege('anon', 'public.' || table_name, 'SELECT')
       or has_table_privilege('anon', 'public.' || table_name, 'UPDATE')
       or has_table_privilege('anon', 'public.' || table_name, 'DELETE') then
-      raise exception 'Unnecessary anonymous CRM write grant remains';
+      raise exception 'Unnecessary anonymous CRM grant remains';
     end if;
   end loop;
 end;
