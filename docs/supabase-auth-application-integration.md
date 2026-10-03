@@ -93,6 +93,10 @@ Route:
 
 Uses email/password Auth for approved staff accounts.
 
+Password sign-in is followed by mandatory TOTP enrollment/verification at
+/staff-mfa. The staff workspace and database permission helpers require
+aal2; see [Security Audit Remediation](./security-audit-remediation.md).
+
 ### 5.2 Profile Gate
 
 Successful authentication is not enough by itself.

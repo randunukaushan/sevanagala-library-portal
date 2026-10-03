@@ -23,6 +23,9 @@ export default async function StaffLoginPage({
 
   if (configured) {
     const staff = await getStaffContext();
+    if (staff.status === "mfa_required") {
+      redirect("/staff-mfa");
+    }
     if (staff.status === "active") {
       redirect("/admin");
     }

@@ -28,6 +28,7 @@ insert into public.projects (slug, status, published_at) values
   ('rls-published-test', 'approved', now());
 
 set local role authenticated;
+set local request.jwt.claims = '{"aal":"aal2"}';
 set local request.jwt.claim.sub = '00000000-0000-4000-8000-000000000101';
 
 do $$

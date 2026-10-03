@@ -11,6 +11,10 @@ export default async function AdminLayout({
 }) {
   const staff = await getStaffContext();
 
+  if (staff.status === "mfa_required") {
+    redirect("/staff-mfa");
+  }
+
   if (staff.status === "unconfigured") {
     redirect("/staff-login?error=config");
   }
