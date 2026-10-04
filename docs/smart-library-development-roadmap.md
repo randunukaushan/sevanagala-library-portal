@@ -25,6 +25,12 @@ Do not buy equipment before:
 
 Prefer systems the library can continue to operate after donor support ends.
 
+### 2.4 Parallel Workstreams
+
+The phases below describe major transformation workstreams and dependencies, not a rule that software research must wait until every earlier physical phase is complete.
+
+Catalogue cleanup, Koha/LMS discovery, website development, accessibility work, and integration research may proceed in parallel when doing so is safe and useful.
+
 ## 3. Phase One — Collection Renewal
 
 ### 3.1 Goals
@@ -110,26 +116,34 @@ Possible:
 - government e-services;
 - education portals.
 
-## 7. Phase Five — Digital Catalogue
+## 7. Phase Five — Digital Catalogue and Discovery
 
 ### 7.1 Goals
 
 Enable readers to:
 
-- search titles;
-- search authors;
-- browse categories;
+- search titles, authors, ISBNs, subjects, and keywords;
+- browse categories and collections;
+- use Sinhala, Tamil, and English discovery;
 - view new arrivals;
-- view general availability.
+- view book details;
+- see library/section/shelf information where reliable;
+- see live or clearly qualified availability when an authoritative source exists.
 
 ### 7.2 Data Readiness
 
-Do not launch public catalogue until:
+Do not present catalogue information as authoritative until:
 
-- records are cleaned;
-- categories are standardised;
+- records are sufficiently cleaned;
+- categories and languages are standardised;
+- bibliographic records and physical copies are distinguished;
 - duplicate handling is defined;
-- availability data is reliable enough.
+- shelving/location data is reliable enough for public use;
+- the source of live availability is confirmed.
+
+### 7.3 Integration
+
+If Koha or another approved LMS already manages catalogue and circulation truth, prefer integration over rebuilding the same operational database.
 
 ## 8. Phase Six — Smart Library Portal
 
@@ -146,12 +160,16 @@ Connect:
 
 ### 8.2 Reader Services
 
-Possible later:
+Progressively add:
 
 - book request form;
 - reading lists;
 - study resources;
-- event announcements.
+- dedicated children's discovery;
+- events and announcements;
+- private My Library services when supported;
+- due-date / reservation notifications;
+- catalogue-grounded recommendations and natural-language discovery after the core catalogue is reliable.
 
 ## 9. Phase Seven — Community Learning Hub
 
@@ -311,3 +329,38 @@ Examples:
 - multi-room digital upgrade.
 
 Package projects so donors can support realistic, measurable outcomes.
+
+
+## 16. Expansion Path
+
+### 16.1 Sevanagala Reference Implementation
+
+Make Sevanagala work well first and document measurable outcomes, staff feedback, operational lessons, data-cleaning effort, training requirements, and recurring cost.
+
+### 16.2 Reusable Deployment Model
+
+As the Sevanagala implementation stabilises, prepare reusable:
+
+- configuration;
+- deployment checklists;
+- data-migration/import procedures;
+- Koha/LMS integration mappings;
+- staff training materials;
+- accessibility and quality checklists;
+- operating and support procedures.
+
+### 16.3 District and National Future
+
+The architecture should be able to evolve from:
+
+Sevanagala → multiple nearby libraries → Monaragala District → wider provincial/national participation.
+
+Future network capabilities may include:
+
+- cross-library discovery;
+- library-specific holdings;
+- shared search;
+- inter-library requests;
+- aggregate network analytics.
+
+Expansion must remain evidence-driven and should not weaken the quality of the Sevanagala implementation.
