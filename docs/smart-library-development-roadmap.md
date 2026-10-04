@@ -311,3 +311,26 @@ Examples:
 - multi-room digital upgrade.
 
 Package projects so donors can support realistic, measurable outcomes.
+
+## 16. Catalogue and Circulation Decision Gate
+
+### 16.1 Verify Before Building
+
+The portal now has a basic bibliographic catalogue. Before adding members or checkout, confirm with the authorized library/local authority whether Koha or another LMS already owns catalogue items, membership and issue/return history. If it does, prioritize a read-only catalogue integration and avoid duplicate operational truth.
+
+### 16.2 Standalone Option
+
+Only if no approved LMS exists and the authority approves a standalone workflow, build member and physical-copy records additively, then a transactional checkout/return vertical slice with row-level security, audit history, duplicate-checkout protection, backups and explicit operational confirmation. Do not migrate real users or use development policy values as library rules without approval.
+
+The project owner reports that Koha is not currently in use at Sevanagala; confirm this and the data owner with the authority. If confirmed, the proposed direction is a portal-native, limited library-operations module informed by Koha patterns, not a full ILS clone. Start with metadata/copy-inventory readiness, demo-only scan/search workflows and staff acceptance. Then implement only approved minimum member data and atomic issue/return. Defer renewals, holds, notices, offline operation and advanced acquisitions until the basic workflow is accepted. See [Koha Practices Adaptation Plan](./koha-practices-adaptation-plan.md).
+
+## 17. Staff AI Assistant
+
+AI is a later staff-only support layer. First stabilize the source-of-truth and permission-scoped data tools. The assistant may search approved documents, summarize authorized aggregate data and draft content; it must not autonomously issue/return books, alter due dates, publish, verify donations, suspend members, or query arbitrary SQL. See [Staff AI Assistant Architecture](./staff-ai-assistant-architecture.md).
+
+## 18. Current-State References
+
+- [Smart Library Current-State Gap Analysis](./smart-library-current-state-gap-analysis.md)
+- [Sri Lankan Library Benchmark Research](./sri-lankan-library-benchmark-research.md)
+- [Monaragala District Library Expansion Research](./monaragala-district-library-expansion-research.md)
+- [Smart Library Research and Integration Review](./smart-library-research-and-integration-review.md)

@@ -182,7 +182,7 @@ Show:
 - approved email;
 - opening hours;
 - map only after the official location is confirmed;
-- contact form;
+- contact form (submission capability is conditional; public writes are currently disabled);
 - accessibility contact where relevant.
 
 ## 3. User Journeys
@@ -206,6 +206,8 @@ Home → Projects → Project Detail → Remaining Needs → Past Impact → Par
 ### 3.5 Library Staff Journey
 
 Admin Login → Dashboard → Select Content Type → Create/Edit → Review → Publish.
+
+If approved, add a separate staff-only circulation journey: Dashboard → Circulation → Find Member → Scan/Search Copy → Review Rule and Due Date → Confirm Issue/Return. Do not place member records or borrowing history in public navigation. Public availability should be shown only when item-level status is sourced from the approved authoritative inventory and its freshness is clear.
 
 ### 3.6 Content Approver Journey
 

@@ -31,6 +31,8 @@ The documents move from product intent and institutional governance through dono
 ### 4.1 Collection Management
 
 - [Library Collection and Book Management](./library-collection-and-book-management.md)
+- [Library Member and Circulation Design](./library-member-and-circulation-design.md)
+- [Koha Practices Adaptation Plan](./koha-practices-adaptation-plan.md)
 - [Data Import, Migration and Record Quality](./data-import-migration-and-record-quality.md)
 
 ## 5. Smart Library Development
@@ -38,6 +40,11 @@ The documents move from product intent and institutional governance through dono
 ### 5.1 Transformation Roadmap
 
 - [Smart Library Development Roadmap](./smart-library-development-roadmap.md)
+- [Smart Library Research and Integration Review](./smart-library-research-and-integration-review.md)
+- [Sri Lankan Library Benchmark Research](./sri-lankan-library-benchmark-research.md)
+- [Monaragala District Library Expansion Research](./monaragala-district-library-expansion-research.md)
+- [Smart Library Current-State Gap Analysis](./smart-library-current-state-gap-analysis.md)
+- [Staff AI Assistant Architecture](./staff-ai-assistant-architecture.md)
 
 ## 6. System Design
 
@@ -47,9 +54,12 @@ The documents move from product intent and institutional governance through dono
 - [Supabase Backend Foundation](./supabase-backend-foundation.md)
 - [Supabase Auth Application Integration](./supabase-auth-application-integration.md)
 - [Admin Dashboard and Content Workflow](./admin-dashboard-and-content-workflow.md)
+- [Admin Operations Implementation](./admin-operations-implementation.md)
+- [Admin Projects Implementation](./admin-projects-implementation.md)
 - [Admin Dashboard UI and UX Specification](./admin-dashboard-ui-ux-specification.md)
 - [Admin Screen Map and Workflows](./admin-screen-map-and-workflows.md)
 - [Security, Privacy and Compliance](./security-privacy-and-compliance.md)
+- [Security Audit Remediation](./security-audit-remediation.md)
 - [UI, UX, Accessibility and Design System](./ui-ux-accessibility-and-design-system.md)
 - [Visual Identity, Color and Typography](./visual-identity-color-and-typography.md)
 - [UI and UX Page Patterns](./ui-ux-page-patterns.md)
@@ -77,6 +87,8 @@ The documents move from product intent and institutional governance through dono
 
 The product, governance, donor, library-operations, technical, quality, and long-term development foundations are documented.
 
+Koha practices have been researched as a reference for a proposed limited portal-native circulation workflow; this does not yet represent local authority approval or a live implementation.
+
 ### 9.2 Institutional Approval
 
 Pending confirmation from the library or responsible authority for:
@@ -103,7 +115,7 @@ Pending:
 
 ### 9.4 Development
 
-Prototype bootstrap is in progress on a feature branch using placeholder/sample data.
+The repository contains a public prototype and a protected Supabase-backed staff workspace; individual branches may include work not yet present on `main`. Implementation-status documents distinguish live backend workflows from static `/admin-preview` screens and unimplemented features.
 
 Official publication must wait for required approval and verified content.
 
@@ -148,3 +160,7 @@ Update the documents with:
 ### 11.2 Before Major Coding
 
 Any unresolved requirement that changes data, security, permissions, donations, or institutional workflow must be documented before implementation.
+
+### 11.3 Smart Library Next Gate
+
+The current-state gap analysis and research documents are a desk-review baseline. Verify Sevanagala/Thanamalvila's LMS, system of record, member-data governance and circulation rules with an authorized representative before selecting standalone circulation or Koha integration.

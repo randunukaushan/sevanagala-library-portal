@@ -238,9 +238,9 @@ Current preview:
 
 ### 4.2 Production Boundary
 
-Before a real admin system exists, implement:
+The repository now has a protected staff workspace and Supabase-backed workflows. This screen map remains a product/design reference, not proof that every mapped screen or production control is complete. Before production use, verify:
 
-- Supabase Auth;
+- Supabase Auth and account lifecycle;
 - documented role model;
 - RLS;
 - server-side validation;
@@ -314,11 +314,13 @@ The screens will later connect to:
 
 Privileged database keys must never be exposed to these screens.
 
-## 8. Next Admin Implementation Phase
+## 8. Implementation Status and Remaining Work
 
-### 8.1 Interactive Form Previews
+### 8.1 Preview Versus Live Admin
 
-Implemented static form/workflow previews:
+`/admin-preview/**` remains static and sample-only. The protected `/admin` workspace is a separate live backend implementation for the workflows listed in [Admin Operations Implementation](./admin-operations-implementation.md) and [Admin Projects Implementation](./admin-projects-implementation.md).
+
+Static preview patterns include:
 
 - create need;
 - create project;
@@ -330,19 +332,18 @@ Implemented static form/workflow previews:
 - partner recognition permission;
 - role/permission matrix.
 
-Still planned:
+Not yet fully implemented in the live backend:
 
 - edit existing records;
 - full multilingual page editor;
 - enquiry assignment/detail view;
 - media upload permission review.
 
-### 8.2 Backend Phase
+### 8.2 Future Backend Work
 
-After the interaction patterns are complete:
+Continue from the existing backend rather than recreating its foundation. Remaining work includes:
 
-- create Supabase project;
-- add migrations;
-- add RLS tests;
-- connect authentication;
-- replace sample data gradually.
+- complete authorised staff browser acceptance and role-by-role testing;
+- implement remaining approved workflows incrementally;
+- add public enquiry only after privacy and abuse-control review;
+- keep circulation out of scope until its institutional decision gate passes.

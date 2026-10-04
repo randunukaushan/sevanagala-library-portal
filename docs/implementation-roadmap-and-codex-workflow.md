@@ -454,3 +454,15 @@ https://nextjs.org/docs
 ### 20.4 Supabase
 
 https://supabase.com/docs/guides/database/postgres/row-level-security
+
+## 21. Smart Library Implementation Gate
+
+### 21.1 Before Circulation Development
+
+Review [Smart Library Current-State Gap Analysis](./smart-library-current-state-gap-analysis.md) and the related benchmark research. Confirm the existing Sevanagala/Thanamalvila LMS, data owner, approved collection export/API, membership and circulation rules, privacy purpose, retention and staff roles with an authorized library/local-authority representative.
+
+If an approved LMS owns circulation, prototype a read-only catalogue integration first. If the authority confirms no LMS and approves a standalone workflow, use the additive design in [Library Member and Circulation Design](./library-member-and-circulation-design.md). Keep real member data out of development fixtures.
+
+### 21.2 AI
+
+Do not begin AI tools until the source of truth and permission-filtered data tools exist. Follow [Staff AI Assistant Architecture](./staff-ai-assistant-architecture.md); never grant arbitrary SQL or autonomous circulation writes.

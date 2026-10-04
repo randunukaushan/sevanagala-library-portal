@@ -42,7 +42,7 @@ Responsible for:
 
 Review:
 
-- urgent contact messages;
+- urgent contact messages (if a public enquiry path is enabled);
 - system errors;
 - donation receipts.
 
@@ -50,7 +50,7 @@ Review:
 
 Review:
 
-- open enquiries;
+- open enquiries (if a public enquiry path is enabled);
 - pending pledges;
 - active needs.
 
@@ -97,6 +97,8 @@ Train staff to:
 - publish news;
 - manage book requests;
 - avoid publishing private data.
+
+If circulation is approved, add a practice environment and short task guide for member lookup, item lookup/scan, issue, return and common exceptions. Train staff not to share accounts, bypass blocked rules or put reader details in free-text notes. Assign named owners for policy changes, account removal, privacy requests, recovery and incident escalation. Do not introduce offline circulation until there is a tested reconciliation and duplicate/conflict procedure; a benchmark system's offline feature is not a local operating plan.
 
 ## 5. Account Management
 

@@ -20,8 +20,9 @@ Can:
 - view public needs;
 - view public project progress;
 - view public partner acknowledgements;
-- use approved public search;
-- submit approved enquiry forms.
+- use approved public search.
+
+Public enquiry submission is currently disabled. It may be enabled only after a validated submission path, privacy notice, abuse controls and operational review are in place.
 
 Cannot:
 
@@ -170,6 +171,12 @@ A project should only become Completed after:
 | View audit logs | No | No | No | Limited | Limited | Yes | Yes | Technical |
 
 Final permissions must be approved by the library's responsible authority.
+
+### 4.2 Future Circulation Permissions
+
+If standalone circulation is approved, consider distinct members.manage, circulation.view, circulation.issue, circulation.return, circulation.renew and circulation.policy.manage permissions. These are proposals only; they are not currently seeded or granted. Keep staff able to perform only their assigned duties, and enforce every operation in RLS/database functions as well as the UI. If Koha owns circulation, use its approved staff permissions instead of duplicating this role model.
+
+For the proposed portal-native workflow, member lookup must not implicitly grant member editing or loan-history access. Keep issue, return, renewal, policy override and policy administration separately assignable; gate exceptions behind a dedicated permission and require an attributable reason. See [Koha Practices Adaptation Plan](./koha-practices-adaptation-plan.md).
 
 ## 5. Authentication
 

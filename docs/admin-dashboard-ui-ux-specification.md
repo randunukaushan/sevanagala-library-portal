@@ -46,6 +46,10 @@ Admin pages may be denser than the public site, but should still preserve:
 - large enough touch targets;
 - strong focus states.
 
+### 2.5 Common Library Tasks First
+
+If circulation is approved, put frequent tasks—find member, issue item, return item—into a focused workspace with minimal steps. Support barcode scanning as keyboard input and manual fallback; keep member search results privacy-minimal. Show copy location/status and a plain-language rule outcome before confirmation. Keep uncommon overrides behind a separate permission. Validate with staff task observation and a short guide instead of assuming the interface is self-explanatory. See [Koha Practices Adaptation Plan](./koha-practices-adaptation-plan.md).
+
 ## 3. Admin Information Architecture
 
 ### 3.1 Primary Navigation

@@ -80,6 +80,8 @@ Donor can review:
 
 ### 3.3 Enquiry
 
+This describes the intended workflow if a public submission path is approved. Direct anonymous contact-message inserts are currently disabled pending privacy, validation and abuse-control review. Until then, published contact details are informational routes only.
+
 Donor submits:
 
 - organisation name;

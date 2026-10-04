@@ -151,6 +151,10 @@ V1 is not intended to replace a complete Integrated Library System.
 
 A catalogue module may be added, but circulation, fines, member records, barcode workflows, and acquisitions should only be implemented after staff requirements and privacy obligations are separately documented.
 
+The Smart Library research review now provides a proposed member/circulation design, but it does not replace confirmation of Sevanagala's current LMS or written local rules. Before real circulation records are introduced, determine whether Koha/another approved LMS is authoritative. Do not build a competing loan/member source of truth.
+
+The project owner reports that Sevanagala is not currently using Koha. Verify this with the responsible library/local authority before treating the portal as the approved circulation system. The proposed direction is to retain the portal and selectively adapt ILS practices—copy-level inventory, scan-friendly issue/return, approved configurable rules, least-privilege staff roles, audit and privacy controls—rather than reproduce the full Koha feature set. Live circulation still requires institutional approval and staff testing. See [Koha Practices Adaptation Plan](./koha-practices-adaptation-plan.md).
+
 ### 5.4 Unverified Public Claims
 
 The system must not publish:
@@ -359,7 +363,7 @@ Do not publish borrowing history or personally identifiable reader activity.
 
 ### 10.4 Contact Forms
 
-Contact forms should collect the minimum fields required to respond, define retention periods, and provide a privacy notice.
+If a public contact form is enabled, it should collect the minimum fields required to respond, define retention periods, and provide a privacy notice. Public enquiry writes are currently disabled; do not describe the form as operational until a reviewed, abuse-resistant submission path is implemented and approved.
 
 ## 11. Success Measures
 

@@ -213,7 +213,7 @@ Test:
 - RLS;
 - pledge → receipt workflow;
 - donor consent visibility;
-- contact submission;
+- direct anonymous contact-write denial while the submission endpoint is disabled;
 - content publication.
 
 ### 10.3 End-to-End Tests
@@ -221,7 +221,7 @@ Test:
 Critical flows:
 
 - visitor views current need;
-- donor submits enquiry;
+- donor enquiry submission after an approved abuse-resistant path is enabled (until then, verify direct writes are denied);
 - staff records pledge;
 - verifier records received support;
 - public remaining value updates correctly;

@@ -12,20 +12,18 @@ Define the local setup for developing the Sevanagala Public Library Portal with 
 
 The prototype baseline uses:
 
-- Next.js 16.3.3
+- Next.js 16.3.6
 - React 19.3
 - TypeScript
 - Tailwind CSS 4
 - App Router
 - ESLint
 
-The versions should be reviewed before future major upgrades.
+The package lockfile pins the installed versions. Review updates before upgrading; the current package requires Node.js 22 or later because the application and Supabase dependencies declare that engine requirement.
 
 ### 2.2 Node.js
 
-Next.js requires Node.js 20.9 or newer.
-
-The project CI currently runs on Node.js 22.
+Use Node.js 22 or later for local development and CI.
 
 ## 3. Clone and Install
 
@@ -39,10 +37,10 @@ cd sevanagala-library-portal
 ### 3.2 Install Dependencies
 
 ```powershell
-npm install
+npm ci
 ```
 
-After the first trusted local install, commit the generated package-lock.json so CI and future developers can use deterministic `npm ci`.
+Use `npm ci` to reproduce the committed lockfile. Only change dependencies intentionally, then review and commit the resulting lockfile.
 
 ## 4. Run the Prototype
 
@@ -152,23 +150,21 @@ Never commit:
 - tokens;
 - production secrets.
 
-## 9. Backend Phase
+## 9. Backend Status
 
-### 9.1 Not Yet Required for Prototype Home Page
+### 9.1 Current Application
 
-The first public prototype is intentionally static and sample-data-driven.
+The site includes sample-data fallback when the backend is not configured and Supabase-backed public read models and protected staff workflows when configured. `/admin-preview` remains static/sample-only; `/admin` requires the connected backend and authenticated staff.
 
-### 9.2 Supabase Integration
+### 9.2 Environment Setup
 
-Add Supabase only when implementing the documented backend phase:
+An approved development environment requires:
 
-- authentication;
-- needs database;
-- projects;
-- pledges;
-- donations;
-- books;
-- audit records.
+- a dedicated Supabase project and public URL/publishable key in local environment settings;
+- migrations reconciled and applied in order (do not run a blind `supabase db push` against the connected project);
+- approved staff account plus MFA for acceptance testing.
+
+See [Security Audit Remediation](./security-audit-remediation.md) and [Admin Operations Implementation](./admin-operations-implementation.md) for current migration and acceptance status.
 
 ## 10. GitHub CI
 

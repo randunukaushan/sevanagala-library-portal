@@ -304,7 +304,7 @@ Find:
 - monitoring;
 - admin accounts;
 - privacy notice;
-- contact form;
+- verified contact route; enable a website submission form only after privacy, validation, abuse controls and operational ownership are reviewed;
 - sitemap;
 - analytics if approved.
 
