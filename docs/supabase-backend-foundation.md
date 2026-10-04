@@ -43,7 +43,11 @@ This phase does not yet include:
 - real admin writes;
 - public donor-transparency view/function;
 - database transition functions for every workflow;
-- RLS automated test suite.
+- RLS automated test suite;
+- verified Koha/LMS connection;
+- catalogue synchronization or integration mappings;
+- physical item/copy model suitable for authoritative circulation;
+- member circulation integration.
 
 ## 3. Identity Model
 
@@ -299,3 +303,46 @@ After the database is tested:
 Recommended first vertical slice:
 
 **Need draft → approval → publish → public display**
+
+
+## 13. Smart Library Integration Boundary
+
+### 13.1 Supabase Role
+
+Supabase remains the application backend for portal-owned concerns such as:
+
+- authentication for portal staff;
+- needs/projects;
+- donor and partnership workflows;
+- website content;
+- events and future application-specific services;
+- audit and integration metadata.
+
+It is not automatically authoritative for catalogue, physical-copy, member, loan, hold, or fine data when Koha or another approved LMS owns those domains.
+
+### 13.2 Current books Table
+
+The current `books` table is preserved.
+
+Do not delete, rename, or reshape it destructively until the real catalogue source and migration/integration strategy are verified.
+
+### 13.3 Future Integration Tables
+
+A future migration may add application-owned tables for:
+
+- external-system connections;
+- entity mappings;
+- synchronization state;
+- cached/enriched discovery metadata.
+
+External credentials must stay in secure server/environment configuration rather than normal database rows exposed to application clients.
+
+### 13.4 Public Read Safety
+
+If catalogue information is sourced from an external LMS, public Supabase views or caches must not silently present stale availability as live status.
+
+### 13.5 Member Data
+
+Do not copy full member or borrowing histories into Supabase merely for convenience.
+
+Any member-data synchronization must have a documented purpose, minimum field set, retention rule, access model, and authoritative-source definition.
