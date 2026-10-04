@@ -4,11 +4,10 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const links = [
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/books-resources", label: "Books" },
-  { href: "/needs", label: "Needs" },
-  { href: "/projects", label: "Projects" },
+  { href: "/about", label: "Library" },
+  { href: "/books-resources", label: "Books & Resources" },
+  { href: "/projects", label: "Smart Library" },
+  { href: "/needs", label: "Current Needs" },
   { href: "/transparency", label: "Transparency" },
   { href: "/contact", label: "Contact" },
 ];
@@ -42,7 +41,7 @@ export function SiteHeader() {
             </Link>
           ))}
           <Link className="site-nav-cta" href="/support">
-            Partner
+            Support
           </Link>
         </nav>
 
@@ -54,6 +53,8 @@ export function SiteHeader() {
                 {link.label}
               </Link>
             ))}
+            <Link href="/services">Services</Link>
+            <Link href="/news">News</Link>
             <Link href="/support">Support & Partner</Link>
           </nav>
         </details>
