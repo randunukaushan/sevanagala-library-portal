@@ -8,6 +8,8 @@ A planned public-library website, development-needs portal, donor transparency p
 
 The repository is currently in the planning/prototype stage. It must not be represented as the official library website until the responsible authority approves the website, official identity, publishing process, and public launch.
 
+This documentation-only update includes implementation notes written against a separate development branch. It does not include that branch's application code or migrations. Until those changes are separately reviewed and merged, the admin implementation notes describe branch work and must not be treated as features available on `main`.
+
 ## 2. Goals
 
 ### 2.1 Public Information
@@ -51,18 +53,20 @@ Read [Documentation Index](./docs/documentation-index.md).
 
 Codex and contributors should read [AGENTS.md](./AGENTS.md) before implementation.
 
-## 4. Planned Technology
+## 4. Technology Baseline
 
 ### 4.1 Baseline Stack
 
-- Next.js 16.3.3
+- Next.js 16.3.6
 - React 19.3
 - TypeScript
 - Tailwind CSS 4
-- Supabase — backend phase
+- Supabase PostgreSQL, Auth, Storage and RLS
 - Vercel — deployment phase
 - GitHub
 - VS Code + Codex
+
+Use Node.js 22 or later. Exact dependency versions are recorded in `package-lock.json`.
 
 ## 5. Current Status
 
@@ -78,6 +82,8 @@ Codex and contributors should read [AGENTS.md](./AGENTS.md) before implementatio
 - initial Supabase/PostgreSQL migrations, roles, grants, and RLS foundation;
 - Next.js Supabase SSR/Auth application wiring and protected staff workspace;
 - Needs draft → approval → publish → public registry vertical slice;
+- implementation notes for protected admin workflows (the corresponding development-branch code is not included in this documentation-only update; see the main-branch caveat above);
+- MFA, audit, private media and security-hardening foundations;
 - admin workflow;
 - security/privacy plan;
 - UI/accessibility plan;
@@ -105,9 +111,9 @@ Codex and contributors should read [AGENTS.md](./AGENTS.md) before implementatio
 - domain decision;
 - institutional approval for official launch;
 - verified production library data;
-- remote Supabase development-project connection and migration validation;
-- real staff-account acceptance testing;
-- official domain decision.
+- authorised staff browser acceptance and role-by-role workflow testing;
+- local development environment setup and migration-history reconciliation before connecting another project;
+- production data verification and institutional launch approval.
 
 ## 6. Important Boundaries
 
@@ -127,7 +133,7 @@ Do not publish private member, staff, or donor information without approved purp
 
 ### 7.1 Prototype Baseline
 
-The prototype application baseline and UI foundation are established on `main`.
+The repository contains a public prototype and a Supabase-backed protected admin workspace. Check the current branch and its implementation notes before assuming a feature is included in `main` or deployed. Nothing in this repository status implies official institutional approval or production deployment.
 
 Local setup is documented in `docs/local-development-and-codex-setup.md`.
 

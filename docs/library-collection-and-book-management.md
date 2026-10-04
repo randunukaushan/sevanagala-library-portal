@@ -71,6 +71,8 @@ Possible fields:
 - notes;
 - cover image only where lawful and permitted.
 
+The title-level record is distinct from each physical copy. Keep a metadata mapping path for a future reviewed MARC 21 import/export rather than making the staff-facing form a raw MARC editor. Preserve the library's existing classification until an authorized librarian approves a mapping. NLDSB's MARC 21 framework is a reference for consultation, not evidence that the local catalogue already follows it.
+
 ## 4. Book Condition
 
 ### 4.1 Suggested Values
@@ -380,6 +382,10 @@ Use approved publisher/metadata sources, licensed images, or no cover image.
 ### 15.4 Phase Four
 
 Consider circulation integration only after separate requirements and privacy review.
+
+The current portal's books table remains the bibliographic catalogue during discovery. A future physical-copy model is additive and one-to-many; copy-level accession, barcode, shelf, condition and live status must not be inferred from copy_count. If an approved LMS owns the collection, its records remain authoritative and the portal uses a reviewed integration/mapping layer. See [Library Member and Circulation Design](./library-member-and-circulation-design.md) and [Smart Library Research and Integration Review](./smart-library-research-and-integration-review.md).
+
+Koha-informed local improvements should be introduced incrementally: title/copy separation, scan-friendly item lookup, explicit item status/location and cataloguing import validation before advanced authority control, full MARC editing, acquisitions or serials. See [Koha Practices Adaptation Plan](./koha-practices-adaptation-plan.md).
 
 ## 16. Research Basis
 

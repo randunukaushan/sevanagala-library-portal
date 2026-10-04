@@ -154,7 +154,7 @@ Mitigation:
 
 - lightweight public pages;
 - caching;
-- offline administrative fallback procedures.
+- approved manual continuity procedures for essential information; do not assume the web app or circulation system supports offline transactions.
 
 ### 7.2 Power Problems
 

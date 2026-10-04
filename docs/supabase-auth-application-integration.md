@@ -23,18 +23,19 @@ The repository now contains:
 - a safe public needs RPC/read model;
 - prototype fallback when Supabase is not configured.
 
-### 2.2 External Connection Still Required
+### 2.2 Environment and Acceptance Status
 
-A real development environment still requires:
+The admin operations migration was applied to a connected Supabase project on 2026-10-04 (see [Admin Operations Implementation](./admin-operations-implementation.md)). A developer's local environment still requires:
 
 - a Supabase development project;
 - project URL;
 - publishable key;
-- migrations applied to that project;
+- any remaining migrations reconciled/applied safely to the intended project;
 - approved staff Auth users;
-- profile activation and role assignment.
+- profile activation and role assignment;
+- authenticated browser and real Storage API acceptance testing.
 
-No remote project credentials are committed to the repository.
+No remote project credentials are committed to the repository. Do not infer that the existing connected project is production-approved; confirm its ownership, purpose and migration history before using it.
 
 ## 3. Environment Variables
 

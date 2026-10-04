@@ -50,14 +50,14 @@ Test:
 - storage;
 - authentication;
 - donation workflow;
-- contact forms.
+- contact submission denial while public writes are disabled; validate successful form submission only after an approved anti-abuse/privacy path exists.
 
 ### 3.3 End-to-End Tests
 
 Critical journeys:
 
 - visitor views need;
-- donor sends enquiry;
+- donor uses an approved enquiry path (currently disabled; until enabled, public direct writes remain denied);
 - staff records pledge;
 - verifier confirms receipt;
 - public remaining quantity updates;
@@ -190,6 +190,8 @@ Staff should test:
 - record donation;
 - publish update;
 - edit book request.
+
+For an approved circulation pilot, test with synthetic members and copies before real data. Observe staff completing member lookup, issue, return and common error recovery on the actual device/scanner setup. Include missing barcode/manual lookup, inactive member, unavailable copy, blocked policy, duplicate/concurrent checkout, network interruption/retry, permission denial and returned-damaged exception. Confirm the public catalogue never reveals borrower identity and audit records attribute staff actions without unnecessary personal details.
 
 ### 13.2 Acceptance
 

@@ -63,7 +63,7 @@ Suggested fields:
 
 - id;
 - display_name;
-- staff_role;
+- role_id (references the normalized roles table; enforce assignment through approved role-management policy);
 - account_status;
 - locale;
 - created_at;
@@ -435,6 +435,16 @@ Optional materialised or derived data:
 - replacement_needed;
 - request_count;
 - calculated_at.
+
+### 8.5 Future Physical Copies and Circulation
+
+The current books table is in use and must not be destructively replaced. The copy_count field is a legacy aggregate; it is not a copy-level inventory or circulation ledger.
+
+If the authorized library confirms that this portal, rather than Koha/another LMS, owns circulation, add a private book_copies table linked books 1:N, followed by members, loans and explicit renewal history. Add integration identifiers instead if the LMS is authoritative. The source-of-truth choice must precede operational migration. Proposed invariants and privacy boundaries are documented in [Library Member and Circulation Design](./library-member-and-circulation-design.md).
+
+Do not store real member or loan records until purpose, legal/data-controller roles, required fields, retention, access, audit and recovery are approved. Never expose member or borrowing data through public RLS/read models.
+
+For portal-owned operations, preserve stable item identity and explicit copy status, keep loans as transaction history rather than overwriting them, and derive availability from authoritative active-loan/copy state. Issue/return must atomically update loan and copy state with concurrency protection. Define retention/anonymization for patron-linked history separately from non-identifying collection statistics. Keep future MARC fields behind a reviewed mapping/import boundary instead of copying Koha's internal schema. See [Koha Practices Adaptation Plan](./koha-practices-adaptation-plan.md).
 
 ## 9. Content Tables
 

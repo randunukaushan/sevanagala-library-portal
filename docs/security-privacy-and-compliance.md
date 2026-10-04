@@ -72,6 +72,8 @@ Do not publish personal information merely because it exists in the database.
 
 The design should comply with applicable requirements of Sri Lanka's Personal Data Protection Act No. 9 of 2022, as amended.
 
+As of the review on 2026-10-04, the Personal Data Protection (Amendment) Act No. 22 of 2025 changed the commencement mechanism. Extraordinary Gazette No. 2498/16 (2026-07-22) appoints 2027-01-01 for sections 2 and 3 and Parts I and III. Do not infer that other Parts have the same commencement date; check subsequent Orders and obtain advice from the responsible authority/legal counsel before live personal-data processing. This note is a source-status summary, not legal advice.
+
 ### 4.2 Current Legal Sources
 
 The Data Protection Authority publishes:
@@ -84,8 +86,16 @@ The Data Protection Authority publishes:
 
 Because the legal framework can change, implementation should re-check the DPA website before production launch.
 
+Also review DPA Circular No. 01/2026 for public-sector implementation guidance, including local authorities, controller duties and governance preparation. The DPA guideline page lists the current Act, amendment, gazettes and circulars; do not rely on older commencement text elsewhere on the DPA site when a later Gazette supersedes it.
+
 Reference:
 https://www.dpa.gov.lk/guidelines.php
+
+Extraordinary Gazette No. 2498/16 (2026-07-22):
+https://www.dpa.gov.lk/Gazet/2498-16_E.pdf
+
+DPA Circular No. 01/2026 (public sector):
+https://www.dpa.gov.lk/media/DPA_Circular_012026_E.pdf
 
 ### 4.3 Public-Sector Classification
 
@@ -116,6 +126,10 @@ Do not collect unless separately approved:
 - payment-card data;
 - unnecessary date of birth;
 - unnecessary location tracking.
+
+If circulation is approved, treat member identity and patron-linked loan history as sensitive operational data. Retain active-loan data as needed to return items, but set an authority-approved retention/anonymization schedule for completed loans; preserve aggregate collection statistics only when they cannot reasonably identify readers. Do not make reading history visible to general staff by default, and do not use it for profiling, marketing, or AI context. See [Koha Practices Adaptation Plan](./koha-practices-adaptation-plan.md).
+
+Member records and loan history are a new, sensitive purpose and are not present in the current database. Before implementation, confirm data-controller/processor responsibility with the local authority, document the service purpose and lawful basis, minimize fields, define access and retention, and provide reader-facing notice. Avoid date of birth and home address unless policy proves they are necessary. Do not publish or embed individual reading histories; prefer non-identifying aggregate statistics.
 
 ## 6. Contact Forms
 

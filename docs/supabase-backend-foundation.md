@@ -1,12 +1,14 @@
 # Supabase Backend Foundation
 
+> Historical foundation-phase specification. Sections describing what was “not yet included” record the state when this foundation was designed, not the current application status. For implemented Auth/admin workflows and verification, see [Supabase Auth Application Integration](./supabase-auth-application-integration.md), [Admin Operations Implementation](./admin-operations-implementation.md), and [Security Audit Remediation](./security-audit-remediation.md).
+
 ## 1. Purpose
 
 ### 1.1 Objective
 
 Translate the documented product/data/security model into the first migration-based Supabase/PostgreSQL foundation.
 
-## 2. Current Scope
+## 2. Original Foundation Scope
 
 ### 2.1 Included
 
@@ -31,7 +33,7 @@ The foundation includes:
 - explicit grants;
 - Row Level Security.
 
-### 2.2 Not Yet Included
+### 2.2 Excluded at Foundation Stage
 
 This phase does not yet include:
 
@@ -125,9 +127,9 @@ Therefore the foundation does not grant anonymous access to:
 - donations;
 - donation evidence.
 
-### 5.3 Future Transparency Read Model
+### 5.3 Public Transparency Read Model
 
-A later migration should expose only safe fields needed by public transparency pages.
+The current implementation exposes a bounded public-safe support projection. Keep exposing only approved fields needed by public transparency pages.
 
 Possible output:
 
@@ -269,33 +271,24 @@ Test:
 
 All privileged app policies should fail when the account is disabled.
 
-## 12. Next Backend Steps
+## 12. Remaining Backend Work
 
 ### 12.1 Local Supabase Environment
 
-Add Supabase CLI/local configuration and run migrations from a clean database.
+Establish a reproducible local Supabase CLI environment and reconcile local/remote migration histories before using it with the connected project. Do not blindly apply the full local migration chain to a project already managed through a separate migration API.
 
 ### 12.2 Database Tests
 
-Add automated RLS and workflow-transition tests.
+Maintain automated RLS and workflow-transition tests; the repository now includes database assertions and CI replay coverage. Add focused tests alongside every new policy/transition.
 
 ### 12.3 Storage
 
-Create:
+Current storage policies and staff upload workflows exist; before expanding storage, verify:
 
 - approved public media bucket;
 - private evidence bucket;
 - RLS storage policies.
 
-### 12.4 Application Integration
+### 12.4 Application Acceptance
 
-After the database is tested:
-
-- add Supabase browser/server clients;
-- add staff login;
-- protect real `/admin` routes;
-- connect one vertical slice first.
-
-Recommended first vertical slice:
-
-**Need draft → approval → publish → public display**
+Complete authenticated browser acceptance with approved staff accounts, verify actual Storage APIs and each role's capabilities, and generate typed database bindings once the schema is stable. Current application scope is documented in [Supabase Auth Application Integration](./supabase-auth-application-integration.md) and [Admin Operations Implementation](./admin-operations-implementation.md).
