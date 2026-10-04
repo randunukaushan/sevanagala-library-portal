@@ -35,30 +35,45 @@ The website must never automatically decide that a physical book should be remov
 
 ## 3. Book Record
 
-### 3.1 Core Fields
+### 3.1 Bibliographic Record
 
-Recommended fields:
+Recommended bibliographic concepts include:
 
-- internal record ID;
+- internal or authoritative record ID;
 - title;
 - subtitle;
-- author;
-- ISBN where available;
+- contributors such as author, editor, or translator;
+- identifiers such as ISBN-13 where available;
 - language;
 - classification code;
-- category;
+- subjects / categories;
 - publisher;
 - publication year;
 - edition;
-- copy count;
-- location/section;
+- description or notes where approved.
+
+A bibliographic title must not be treated as the same thing as a physical copy.
+
+### 3.2 Physical Item / Copy
+
+Copy-level concepts may include:
+
+- authoritative item/copy ID;
+- bibliographic record ID;
+- owning library;
+- barcode;
+- future RFID identifier;
+- collection;
+- shelving location;
 - circulation type;
-- condition;
-- review status;
+- circulation status;
+- physical condition;
 - acquisition source;
 - added date.
 
-### 3.2 Optional Fields
+If Koha or another approved library-management system owns these item records, the Smart Library platform should integrate rather than maintain conflicting live copy data.
+
+### 3.3 Optional Enrichment Fields
 
 Possible fields:
 
@@ -329,12 +344,19 @@ Record:
 Possible public fields:
 
 - title;
-- author;
+- author / contributor;
+- ISBN where appropriate;
 - language;
-- category;
+- category / subject;
 - classification;
 - publication year;
-- general availability state.
+- edition;
+- cover image where lawful;
+- public description;
+- owning library;
+- collection / section;
+- shelf location where reliable;
+- availability only when supplied or confirmed by the authoritative library system.
 
 ### 13.2 Private Fields
 
@@ -359,27 +381,37 @@ Use approved publisher/metadata sources, licensed images, or no cover image.
 
 ## 15. Implementation Phases
 
-### 15.1 Phase One
+### 15.1 Foundation
 
 - category needs;
 - exact requests;
-- book-demand counts.
+- book-demand counts;
+- collection-data assessment;
+- current library-system / Koha discovery.
 
-### 15.2 Phase Two
+### 15.2 Data Readiness
 
-- current collection inventory;
+- inventory or authoritative catalogue import/integration;
+- duplicate and authority-name cleanup;
+- bibliographic/copy separation;
 - review status;
-- condition status.
+- condition status;
+- shelf and collection normalization.
 
-### 15.3 Phase Three
+### 15.3 Public Discovery
 
 - searchable public catalogue;
+- book detail pages;
 - new arrivals;
-- advanced filters.
+- multilingual search;
+- advanced filters;
+- authoritative availability and location where available.
 
-### 15.4 Phase Four
+### 15.4 Circulation Integration
 
-Consider circulation integration only after separate requirements and privacy review.
+Integrate member loans, holds, renewals, returns, or fines only after the authoritative system, staff workflow, permissions, and privacy requirements are confirmed.
+
+Do not rebuild circulation merely to avoid integrating an existing approved LMS.
 
 ## 16. Research Basis
 
@@ -392,3 +424,61 @@ https://www.ifla.org/public-library-manifesto/
 
 IFLA Statement on Privacy in the Library Environment:
 https://www.ifla.org/publications/ifla-statement-on-privacy-in-the-library-environment/
+
+
+## 17. Koha and Integration Boundary
+
+### 17.1 Authority Discovery
+
+Before changing the current Supabase collection schema, verify:
+
+- whether Sevanagala currently uses Koha or another LMS;
+- the version and hosting model;
+- catalogue-data quality;
+- item/copy records;
+- barcode practices;
+- patron/member records;
+- circulation workflows;
+- supported APIs or export formats.
+
+### 17.2 Current Supabase Collection Tables
+
+Existing Supabase book tables are not automatically obsolete.
+
+Depending on the verified library environment, they may serve as:
+
+- temporary catalogue storage;
+- import staging;
+- data-cleaning workspace;
+- discovery/search index;
+- cache;
+- enrichment metadata;
+- integration mappings.
+
+Their final role must be documented before destructive migration.
+
+### 17.3 Metadata Interoperability
+
+The collection architecture should remain compatible with relevant library metadata concepts and standards, including where appropriate:
+
+- MARC21;
+- Dublin Core;
+- Dewey Decimal Classification;
+- ISBN-13;
+- authority control;
+- Unicode Sinhala, Tamil, and English metadata.
+
+### 17.4 Search Quality
+
+Data quality directly affects search quality.
+
+Normalize and review:
+
+- author/contributor names;
+- duplicate bibliographic records;
+- Sinhala/Tamil Unicode forms;
+- language codes;
+- subjects;
+- classification;
+- edition information;
+- shelving locations.
