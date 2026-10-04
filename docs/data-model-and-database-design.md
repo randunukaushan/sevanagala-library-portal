@@ -92,22 +92,32 @@ Maps roles to permissions.
 
 ## 4. Library Tables
 
-### 4.1 library_profile
+### 4.1 libraries
+
+The architecture should evolve from a single-profile assumption to a configurable library entity without forcing immediate multi-library UI.
 
 Suggested fields:
 
 - id;
+- code / slug;
 - official_name_si;
 - official_name_en;
 - official_name_ta;
 - description translations;
 - address translations;
+- district;
+- divisional_secretariat;
+- local_authority;
 - postal_code;
+- latitude / longitude where verified;
 - public_email;
 - public_phone;
 - opening_hours;
 - website_status;
+- active;
 - last_verified_at.
+
+The current `library_profile` table may remain during transition. Do not replace it destructively until a migration path and data mapping are approved.
 
 Sensitive or unapproved details should not be stored as public fields.
 
@@ -365,9 +375,24 @@ Fields:
 - completed_at;
 - audit fields.
 
-## 8. Book Tables
+## 8. Book and Catalogue Data
 
-### 8.1 book_categories
+### 8.1 Data Ownership Rule
+
+Before creating or changing catalogue tables, determine the authoritative source for each field.
+
+Possible roles for the Smart Library database include:
+
+- authoritative application-owned data;
+- import staging;
+- data-cleaning workspace;
+- search index/cache;
+- enrichment metadata;
+- integration mappings.
+
+If Koha or another approved LMS owns live bibliographic, item, patron, or circulation data, do not create a second operational source of truth.
+
+### 8.2 book_categories
 
 Fields:
 
@@ -378,31 +403,68 @@ Fields:
 - active;
 - display_order.
 
-### 8.2 books
+### 8.3 bibliographic_records
 
-Fields:
+Conceptual fields:
 
 - id;
+- source_system;
+- source_record_id;
 - title;
 - subtitle;
-- author;
-- isbn;
+- identifiers such as ISBN-13;
 - language;
 - classification_code;
-- category_id;
 - publisher;
 - publication_year;
 - edition;
-- copy_count;
-- circulation_type;
-- condition;
-- review_status;
-- location;
+- description;
+- MARC / metadata payload where appropriate;
 - public_visible;
+- synchronization metadata;
 - created_at;
 - updated_at.
 
-### 8.3 book_requests
+Contributors and subjects should be modelled so one record can have multiple authors, editors, translators, subjects, or classifications where required.
+
+### 8.4 book_items
+
+Conceptual copy/item fields:
+
+- id;
+- bibliographic_record_id;
+- source_system;
+- source_item_id;
+- library_id;
+- barcode;
+- RFID identifier nullable;
+- collection;
+- shelving_location;
+- circulation_type;
+- circulation_status;
+- condition;
+- public_visible;
+- synchronization metadata;
+- created_at;
+- updated_at.
+
+Live circulation status should come from the authoritative library-management source.
+
+### 8.5 Existing books Table
+
+The current `books` table must be treated as an existing implementation asset, not automatically deleted.
+
+Until the final integration model is verified, it may serve as:
+
+- temporary catalogue storage;
+- import staging;
+- cleaned discovery data;
+- search cache/index;
+- enrichment data.
+
+A later migration may map it into a more normalized bibliographic/item structure only after compatibility, rollback, and authoritative-source rules are documented.
+
+### 8.6 book_requests
 
 Fields:
 
@@ -424,7 +486,7 @@ Fields:
 - created_at;
 - updated_at.
 
-### 8.4 collection_category_stats
+### 8.7 collection_category_stats
 
 Optional materialised or derived data:
 
@@ -652,3 +714,79 @@ Secret/service-role keys must remain server-side.
 
 Reference:
 https://supabase.com/docs/guides/database/secure-data
+
+
+## 18. Integration and Synchronization Data
+
+### 18.1 integration_connections
+
+Store configuration metadata for approved external systems without storing secrets in public application tables.
+
+Possible fields:
+
+- id;
+- library_id;
+- system_type;
+- system_name;
+- base_url or endpoint identifier;
+- status;
+- capabilities;
+- last_successful_sync_at;
+- last_error_at;
+- created_at;
+- updated_at.
+
+Secrets must remain in secure environment/server configuration.
+
+### 18.2 integration_mappings
+
+Map Smart Library entities to external authoritative identifiers.
+
+Possible fields:
+
+- id;
+- library_id;
+- entity_type;
+- local_id nullable;
+- source_system;
+- source_id;
+- metadata;
+- last_synced_at.
+
+### 18.3 sync_state
+
+Track safe synchronization state such as:
+
+- source;
+- cursor/version;
+- last_started_at;
+- last_completed_at;
+- result;
+- error summary.
+
+Do not place private patron payloads or secrets into generic synchronization logs.
+
+### 18.4 Failure Behavior
+
+If an authoritative system is temporarily unavailable:
+
+- do not fabricate availability or member status;
+- public informational pages should remain available;
+- cached catalogue data may be shown only when clearly identified as non-live where necessary;
+- live-only actions such as hold, renew, or current-loan status should fail safely with a clear message.
+
+## 19. Multi-Library Scalability
+
+### 19.1 Library Foreign Keys
+
+Application-owned entities that logically belong to a library should be capable of carrying a `library_id` when expansion requires it.
+
+Do not hard-code Sevanagala identifiers throughout business logic.
+
+### 19.2 Network Discovery
+
+Future network-level search should support one bibliographic work being held by multiple libraries without duplicating the conceptual title unnecessarily.
+
+### 19.3 Tenant Isolation
+
+If multiple libraries eventually share the platform, define explicit access boundaries so staff from one library cannot access another library's restricted operational data unless granted network-level authority.
