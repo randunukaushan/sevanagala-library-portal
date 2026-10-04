@@ -8,9 +8,16 @@ Define how the project moves from documentation to a reviewed prototype, secure 
 
 ## 2. Development Principle
 
-### 2.1 Documentation First
+### 2.1 Inspect, Then Reconcile
 
-Before implementing a feature, Codex should read the relevant documents in /docs.
+Before implementing a feature, Codex should:
+
+1. inspect the current implementation;
+2. read the relevant documents in /docs;
+3. identify where code and documentation differ;
+4. use current research and approved decisions to propose the smallest safe change.
+
+Do not assume older documentation is wrong, and do not assume existing code is automatically correct. Preserve useful working behavior while conflicts are intentionally reconciled.
 
 ### 2.2 Small Reviewed Changes
 
@@ -218,27 +225,49 @@ Implement consent-controlled public acknowledgement.
 
 Implement public tracker and methodology.
 
-## 11. Phase 8 — Books and Collection Module
+## 11. Phase 8 — Books, Catalogue and Integration
 
-### 11.1 Requests First
+### 11.1 Preserve Existing Collection Work
 
-Implement:
+Retain:
 
 - exact requests;
 - category requests;
-- aggregate demand.
+- aggregate demand;
+- collection-review data already implemented.
 
-### 11.2 Inventory
+### 11.2 Library-System Discovery
 
-Add collection records when staff data is ready.
+Before expanding live circulation features, verify:
 
-### 11.3 Import
+- current catalogue source;
+- Koha or other LMS status;
+- bibliographic records;
+- copy/item data;
+- barcode practices;
+- patron/member workflows;
+- API/export options.
 
-Add CSV import with preview and validation.
+### 11.3 Data Readiness and Import
+
+Support safe CSV/import staging and validation where needed, including preview, duplicate detection, Unicode normalization, and error reporting.
 
 ### 11.4 Public Catalogue
 
-Launch only when data quality is sufficient.
+Implement or integrate catalogue discovery when data quality is sufficient.
+
+Prioritise:
+
+- title/author/ISBN/keyword search;
+- multilingual discovery;
+- book details;
+- filters;
+- shelf/location;
+- authoritative availability.
+
+### 11.5 Member and Circulation Services
+
+Where Koha or another approved LMS owns circulation, integrate loans, renewals, holds, and patron status instead of independently rebuilding them.
 
 ## 12. Phase 9 — Official Content
 
@@ -454,3 +483,42 @@ https://nextjs.org/docs
 ### 20.4 Supabase
 
 https://supabase.com/docs/guides/database/postgres/row-level-security
+
+
+## 21. Smart Library Research Workstream
+
+### 21.1 Benchmark Before Major Redesign
+
+For major catalogue/search/member UX changes, compare the current Sevanagala implementation with relevant Sri Lankan public-library OPACs, digital libraries, and modern library portals.
+
+Do not copy source code, branding, text, or layouts.
+
+### 21.2 Required Gap Classification
+
+For each researched capability classify the Sevanagala state as:
+
+- Already Implemented;
+- Partially Implemented;
+- Missing;
+- Needs Refactoring;
+- Future Feature;
+- Requires Institutional Verification.
+
+### 21.3 Non-Destructive Rule
+
+A new research finding is not, by itself, permission to rewrite working functionality.
+
+Prefer additive or incremental migration and document:
+
+- what is changing;
+- why;
+- data ownership;
+- migration path;
+- rollback or recovery considerations;
+- affected tests and documentation.
+
+### 21.4 Current Project Continuity
+
+The current repository is the starting point.
+
+Do not restart the project to implement the Smart Library direction. Extend the existing public portal, security, admin, donor/transparency, and collection foundations while improving reader-facing discovery and integration.
