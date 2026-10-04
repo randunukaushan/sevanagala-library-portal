@@ -10,6 +10,8 @@ This repository is for the Sevanagala Public Library Portal: a public-library we
 
 Before implementing or changing a feature, read the relevant files in `/docs`.
 
+For catalogue, OPAC, Koha integration, member-library services, search, or Smart Library architecture work, also read `docs/smart-library-research-and-integration-review.md` before changing existing data ownership or workflows.
+
 If code conflicts with the approved documentation, do not silently redesign the product. Explain the conflict and update the documentation only when the change is intentionally accepted.
 
 ## 2. Safety and Institutional Boundaries
