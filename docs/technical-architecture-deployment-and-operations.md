@@ -20,13 +20,17 @@ Recommended:
 
 Use stable releases at implementation time and pin exact versions in the lockfile.
 
-### 2.2 Backend
+### 2.2 Backend and Integration
 
-Recommended:
+Recommended application-owned backend:
 
 - Supabase PostgreSQL;
 - Supabase Auth;
 - Supabase Storage.
+
+The Smart Library platform must also support integration with an approved library-management system such as Koha where that system is authoritative for catalogue, item, patron, or circulation data.
+
+Supabase is not automatically the system of record for every library-management domain.
 
 ### 2.3 Hosting
 
@@ -50,24 +54,54 @@ Recommended:
 ### 3.1 High-Level Flow
 
 ```text
-Public Browser
-     |
-     v
-Next.js Application
-     |
-     +--> Public server-rendered content
-     |
-     +--> Authenticated Admin
-               |
-               v
-          Supabase Auth
-               |
-               v
-       PostgreSQL + RLS
-               |
-               +--> Storage
-               +--> Audit Data
+Public / Member Browser
+          |
+          v
+   Next.js Application
+          |
+     +----+-------------------------------+
+     |                                    |
+     v                                    v
+Application-owned content          Library discovery/member services
+     |                                    |
+     v                                    v
+Supabase Auth / PostgreSQL      Integration / Service Layer
+     |                                    |
+     +--> RLS / Storage / Audit           v
+                                  Koha or approved LMS
+                                  (authoritative where applicable)
 ```
+
+### 3.2 Data Ownership Boundary
+
+The application must know whether each data domain is:
+
+- Smart Library owned;
+- externally authoritative;
+- cached;
+- indexed;
+- enriched;
+- or staged for migration/import.
+
+Avoid hidden dual-write behavior across Supabase and Koha.
+
+### 3.3 Integration Layer
+
+External library-system calls should pass through a defined server-side integration layer.
+
+Responsibilities include:
+
+- authentication to the external system;
+- request validation;
+- response normalization;
+- timeout handling;
+- retries where safe;
+- caching where appropriate;
+- error translation;
+- audit/diagnostic metadata;
+- protection of external credentials.
+
+Client components must not receive privileged Koha/LMS credentials.
 
 ## 4. Next.js Architecture
 
@@ -123,7 +157,11 @@ Feature modules may include:
 - projects;
 - donations;
 - partners;
-- books;
+- catalogue/discovery;
+- member-library services;
+- integrations;
+- events;
+- children/resources;
 - news;
 - admin;
 - contact.
@@ -218,14 +256,19 @@ Test:
 
 ### 10.3 End-to-End Tests
 
-Critical flows:
+Critical flows include:
 
 - visitor views current need;
 - donor submits enquiry;
 - staff records pledge;
 - verifier records received support;
 - public remaining value updates correctly;
-- admin role restriction works.
+- admin role restriction works;
+- reader searches catalogue;
+- book detail displays correct holding/location data;
+- live availability is never guessed when the authoritative system is unavailable;
+- member-only library data remains private;
+- integration failure degrades safely.
 
 ### 10.4 Accessibility Tests
 
@@ -373,3 +416,109 @@ Vercel/Next.js security training explains that browser-exposed environment varia
 
 Reference:
 https://vercel.com/academy/nextjs-foundations/env-and-security
+
+
+## 19. Koha / LMS Integration Architecture
+
+### 19.1 Supported Interface First
+
+Prefer supported APIs or export/import interfaces over scraping OPAC HTML.
+
+For Koha deployments, evaluate the installed version and enabled REST API capabilities before implementation.
+
+### 19.2 Authentication
+
+Keep Koha/LMS credentials server-side.
+
+Use the minimum scopes/permissions required for the integration.
+
+Do not reuse staff personal credentials for machine-to-machine integration where a dedicated integration credential is available.
+
+### 19.3 Read and Write Separation
+
+Start with read-oriented discovery integration where practical.
+
+Introduce write actions such as holds or renewals only after:
+
+- staff workflow is understood;
+- permission mapping is defined;
+- error/retry behavior is tested;
+- duplicate-action protection is designed;
+- audit requirements are documented.
+
+### 19.4 Caching
+
+Cache only data appropriate for temporary reuse.
+
+Examples:
+
+- bibliographic metadata may tolerate short-lived caching;
+- live checkout/hold/member status requires stricter freshness;
+- stale availability must not be presented as live fact.
+
+### 19.5 Resilience
+
+The public website should remain useful when the LMS is unavailable.
+
+Expected behavior:
+
+- Home/About/Services/Events/Needs/Projects/News remain available;
+- catalogue pages may show cached descriptive metadata if appropriate;
+- live availability is marked temporarily unavailable;
+- hold/renew/member actions are disabled with a clear error;
+- failures are logged without exposing secrets.
+
+## 20. Search Architecture
+
+### 20.1 Separation of Discovery and Authority
+
+A search index may improve speed, multilingual matching, typo tolerance, or ranking, but it does not become the source of truth for live circulation status.
+
+### 20.2 Search Options to Evaluate
+
+Evaluate using evidence from the real collection size and language needs:
+
+- Koha-native search;
+- PostgreSQL search;
+- trigram matching;
+- dedicated search index;
+- hybrid search;
+- later natural-language query translation.
+
+Avoid adding a heavy search service before simpler approaches are measured.
+
+### 20.3 Multilingual Search
+
+Search architecture must preserve Unicode and support Sinhala, Tamil, and English data without lossy transliteration.
+
+## 21. Multi-Library Architecture
+
+### 21.1 Sevanagala First
+
+The deployed product should optimize for Sevanagala while avoiding hard-coded assumptions that make later expansion expensive.
+
+### 21.2 Configurable Library Context
+
+Future multi-library support should use library entities/configuration for:
+
+- identity;
+- contact;
+- opening hours;
+- collections;
+- holdings;
+- integrations;
+- staff scope;
+- public URLs or routing where needed.
+
+### 21.3 Network Services
+
+Potential later network services include:
+
+- cross-library discovery;
+- shared bibliographic indexing;
+- per-library holdings;
+- inter-library requests;
+- aggregate analytics;
+- network administration.
+
+These should be introduced only after the single-library operational model is proven.
