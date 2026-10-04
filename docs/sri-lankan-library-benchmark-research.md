@@ -399,7 +399,52 @@ Accessibility should be designed into the Sevanagala experience rather than trea
 
 The National Library's visually impaired reader services also reinforce that accessibility is part of library service, not only website compliance.
 
-## 13. Research Still Required
+## 13. Additional Verified Findings
+
+### 13.1 Ampara Result Facets
+
+Reviewed Sinhala search-result pages expose useful facets including:
+
+- availability;
+- authors;
+- collections;
+- item types;
+- locations;
+- topics.
+
+Results also expose:
+
+- material/format;
+- language;
+- publication information;
+- owning library;
+- available-copy count;
+- call number.
+
+This supports the Sevanagala decision to separate a simple search UI from richer underlying metadata.
+
+### 13.2 Bibile Copy-Level Detail
+
+A reviewed Bibile MARC/item detail exposes:
+
+- collection code;
+- permanent location;
+- current location;
+- shelving location;
+- acquisition date;
+- call number;
+- barcode;
+- Koha item type.
+
+This is strong evidence for bibliographic-record versus physical-item separation in the Sevanagala data/integration model.
+
+### 13.3 Chankanai Member Account
+
+Chankanai exposes a Koha account-login flow and directs users without a library card/password to the circulation desk.
+
+This is a useful reminder that digital account UX depends on the offline membership/account-provisioning process.
+
+## 14. Research Still Required
 
 ### 13.1 Per-Site Verification
 
@@ -446,7 +491,7 @@ Separately map:
 - online presence;
 - likely integration/readiness gaps.
 
-## 14. Sources Reviewed
+## 15. Sources Reviewed
 
 Primary sources currently include:
 
