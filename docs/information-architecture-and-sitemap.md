@@ -99,7 +99,7 @@ Recommended structure:
 - English Learning
 - STEM and Technology
 - Digital Resources
-- Search Catalogue — future or phased feature
+- Search Catalogue — activate when verified catalogue data or an approved integration is ready
 
 ### 2.6 Current Needs
 
@@ -331,26 +331,53 @@ If a translation is unavailable:
 
 ## 8. Search and Filtering
 
-### 8.1 V1 Search
+### 8.1 Search Priorities
 
-V1 search should prioritise:
+Search should progressively support two distinct discovery needs:
+
+Public-site search:
 
 - needs;
 - projects;
 - news;
-- books if catalogue data is available.
+- services;
+- approved pages.
+
+Library catalogue search, when verified catalogue data or an approved library-system integration is available:
+
+- title;
+- author;
+- ISBN;
+- keyword;
+- subject;
+- category;
+- language.
+
+Catalogue discovery should become a primary reader journey as soon as the data quality and authoritative availability source are sufficient.
 
 ### 8.2 Filters
 
-Useful filters:
+Public-content filters may include:
 
 - category;
-- language;
-- age or learning level;
 - status;
 - project;
 - date;
 - priority where appropriate.
+
+Catalogue filters may include:
+
+- language;
+- category / subject;
+- author;
+- audience or age group;
+- item type / format;
+- collection;
+- availability;
+- publication year;
+- shelving location where reliable.
+
+Progressive disclosure should keep the default mobile search simple while making advanced filters available when needed.
 
 ### 8.3 Search Privacy
 
@@ -498,3 +525,71 @@ https://www.w3.org/TR/WCAG22/
 
 Next.js documentation:
 https://nextjs.org/docs
+
+
+## 14. Reader-Facing Smart Library Expansion
+
+### 14.1 Catalogue
+
+A future or phased catalogue area should include:
+
+- simple search;
+- advanced search;
+- browse by category;
+- new arrivals;
+- popular or highlighted titles where data is reliable;
+- book detail pages;
+- copy/holding information;
+- shelf or section information;
+- hold/reserve actions only when supported by the authoritative system.
+
+### 14.2 My Library
+
+When member integration is approved, a private My Library area may contain:
+
+- current loans;
+- due dates;
+- eligible renewals;
+- holds/reservations;
+- saved books or lists;
+- notifications;
+- membership information.
+
+Sensitive information must remain authenticated and role-protected.
+
+### 14.3 Children's Experience
+
+The information architecture should be able to support a dedicated children's discovery area without making the whole site visually childish.
+
+Potential entry points include:
+
+- age groups;
+- recommended collections;
+- new children's books;
+- reading programmes;
+- events;
+- reading challenges.
+
+### 14.4 Events and Announcements
+
+Events and announcements should remain first-class library content rather than being hidden inside general news.
+
+### 14.5 Mobile Navigation
+
+On narrow screens, prioritise the most common reader tasks:
+
+1. Search books;
+2. Home;
+3. Books / Resources;
+4. Services;
+5. My Library when available.
+
+Lower-frequency institutional, donor, and transparency destinations can remain accessible through the menu without competing with core reader actions.
+
+### 14.6 Multi-Library Discovery
+
+When more libraries join, the same information architecture should be able to show:
+
+Book → Holdings → Library → Section → Shelf / location.
+
+The single-library Sevanagala experience should remain clear even when the underlying architecture becomes multi-library capable.
