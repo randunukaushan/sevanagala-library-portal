@@ -40,6 +40,7 @@ The documents move from product intent and institutional governance through dono
 - [Smart Library Development Roadmap](./smart-library-development-roadmap.md)
 - [Smart Library Research and Integration Review](./smart-library-research-and-integration-review.md)
 - [Sri Lankan Library Website and Smart Library Benchmark Research](./sri-lankan-library-benchmark-research.md)
+- [Monaragala District Library Expansion and Readiness Research](./monaragala-district-library-expansion-research.md)
 
 ## 6. System Design
 
