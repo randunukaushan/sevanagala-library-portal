@@ -1570,3 +1570,85 @@ textarea {
     animation-iteration-count: 1 !important;
   }
 }
+
+
+/* Trilingual language switcher — additive only; existing public layout tokens stay unchanged. */
+.language-switcher {
+  position: relative;
+  color: inherit;
+}
+
+.language-switcher summary {
+  display: inline-flex;
+  min-height: 2.5rem;
+  cursor: pointer;
+  list-style: none;
+  align-items: center;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0.42rem 0.72rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.language-switcher summary::-webkit-details-marker {
+  display: none;
+}
+
+.language-switcher-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.6rem);
+  z-index: 140;
+  display: grid;
+  min-width: 10.5rem;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: 0.9rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  box-shadow: var(--shadow-soft);
+}
+
+.language-switcher-menu a {
+  display: block;
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.72rem 0.9rem;
+  color: var(--color-text) !important;
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.language-switcher-menu a:last-child {
+  border-bottom: 0;
+}
+
+.language-switcher-menu a:hover,
+.language-switcher-menu a[aria-current="page"] {
+  background: var(--color-surface-soft);
+}
+
+.language-switcher-menu a[aria-current="page"] {
+  font-weight: 800;
+}
+
+.site-mobile-language {
+  padding: 0.7rem 1rem;
+}
+
+.site-mobile-language .language-switcher {
+  width: 100%;
+}
+
+.site-mobile-language .language-switcher summary {
+  width: 100%;
+  justify-content: center;
+  color: var(--color-text);
+}
+
+.site-mobile-language .language-switcher-menu {
+  position: static;
+  margin-top: 0.5rem;
+  box-shadow: none;
+}
