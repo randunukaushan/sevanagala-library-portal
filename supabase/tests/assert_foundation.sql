@@ -186,5 +186,21 @@ begin
   if not has_function_privilege('anon', 'public.get_public_needs()', 'EXECUTE') then
     raise exception 'anon should be able to execute safe public needs function';
   end if;
+
+  if to_regprocedure('public.get_public_need_progress()') is null then
+    raise exception 'Safe public need progress function is missing';
+  end if;
+
+  if not has_function_privilege('anon', 'public.get_public_need_progress()', 'EXECUTE') then
+    raise exception 'anon should be able to execute safe public need progress function';
+  end if;
+
+  if to_regprocedure('public.get_public_supporter_recognition()') is null then
+    raise exception 'Safe public supporter recognition function is missing';
+  end if;
+
+  if has_table_privilege('anon', 'public.supporters', 'SELECT') then
+    raise exception 'Public recognition must not require anon SELECT on private supporters table';
+  end if;
 end
 $$;

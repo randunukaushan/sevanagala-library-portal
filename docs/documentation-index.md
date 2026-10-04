@@ -45,6 +45,7 @@ The documents move from product intent and institutional governance through dono
 
 - [Data Model and Database Design](./data-model-and-database-design.md)
 - [Supabase Backend Foundation](./supabase-backend-foundation.md)
+- [Public Transparency and Support Lifecycle](./public-transparency-and-support-lifecycle.md)
 - [Supabase Auth Application Integration](./supabase-auth-application-integration.md)
 - [Admin Dashboard and Content Workflow](./admin-dashboard-and-content-workflow.md)
 - [Admin Dashboard UI and UX Specification](./admin-dashboard-ui-ux-specification.md)
@@ -79,9 +80,11 @@ The product, governance, donor, library-operations, technical, quality, and long
 
 ### 9.2 Institutional Approval
 
-Pending confirmation from the library or responsible authority for:
+Library staff have given in-person permission to proceed with the website project. Written authorization and the exact scope are being formalized.
 
-- official website permission;
+Pending written confirmation from the library or responsible authority for:
+
+- exact website/publication scope;
 - official branding;
 - approved contacts;
 - public photographs;
