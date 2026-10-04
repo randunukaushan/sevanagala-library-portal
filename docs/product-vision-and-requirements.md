@@ -43,7 +43,7 @@ The portal should become the digital layer for:
 - project progress;
 - smart-library development;
 - digital-learning access;
-- future online catalogue services.
+- modern catalogue discovery and, when the authoritative library system supports them, integrated member services.
 
 ## 3. Core Problems to Solve
 
@@ -115,17 +115,23 @@ The product should:
 
 ### 4.3 Smart-Library Goals
 
-The architecture should allow later addition of:
+The architecture should support progressive addition of:
 
-- searchable book catalogue;
+- searchable book catalogue and OPAC/discovery experience;
 - new-arrivals catalogue;
 - book request workflows;
+- Koha or other approved library-management-system integration;
+- live copy availability and shelf/location information when authoritative data exists;
+- member account services such as loans, due dates, renewals, and holds when supported by the authoritative system;
 - digital-resource links;
-- computer-lab or Wi-Fi project pages;
-- event registration;
+- events and event registration;
+- children's and student discovery experiences;
 - learning-resource collections;
-- reporting dashboards;
-- optional public APIs.
+- reporting dashboards and privacy-preserving analytics;
+- catalogue-grounded recommendation and natural-language discovery features;
+- optional public or partner APIs where approved.
+
+Smart features must extend the library's authoritative systems rather than create conflicting operational truth.
 
 ## 5. Non-Goals for V1
 
@@ -147,9 +153,11 @@ V1 will not build detailed personal reading profiles, borrowing-history analytic
 
 ### 5.3 Full Library Management System
 
-V1 is not intended to replace a complete Integrated Library System.
+V1 is not intended to replace a complete Integrated Library System such as Koha.
 
-A catalogue module may be added, but circulation, fines, member records, barcode workflows, and acquisitions should only be implemented after staff requirements and privacy obligations are separately documented.
+Catalogue discovery may be brought forward when reliable collection data is available, but circulation, fines, patron/member records, barcode workflows, holds, renewals, acquisitions, and copy-level availability must not be independently reimplemented when an approved authoritative library-management system already provides them.
+
+Where Koha or another approved system is authoritative, the Smart Library platform should integrate through supported interfaces and keep clear data-ownership boundaries.
 
 ### 5.4 Unverified Public Claims
 
@@ -171,7 +179,7 @@ Readers should be able to:
 - browse current needs and projects;
 - view new resources and updates;
 - request information;
-- later search the catalogue.
+- search the catalogue when verified catalogue data is available.
 
 ### 6.2 Students
 
@@ -482,3 +490,47 @@ To be confirmed:
 - book-request process;
 - staff who will maintain the portal;
 - required training.
+
+
+## 15. Smart Library Scope Evolution
+
+### 15.1 Sevanagala First
+
+The immediate delivery target is Sevanagala Public Library.
+
+The system should be built as a production-quality reference implementation that can later support additional libraries without forcing the current public experience to become unnecessarily complex.
+
+### 15.2 Integration Before Duplication
+
+Before adding a new library-management function, determine whether the function already belongs to Koha or another approved authoritative system.
+
+For each domain, document whether the Smart Library platform is:
+
+- authoritative;
+- integrating;
+- caching;
+- indexing;
+- enriching;
+- staging/importing;
+- or displaying data owned elsewhere.
+
+### 15.3 Catalogue and Availability
+
+A modern discovery interface may differ visually from a Koha OPAC, but authoritative bibliographic, item, and circulation facts must remain traceable to the system that owns them.
+
+Never invent live availability, due dates, holds, or member status.
+
+### 15.4 Multi-Library Future
+
+Future expansion should support configurable library entities and identifiers rather than hard-coded Sevanagala assumptions.
+
+Potential future capabilities include:
+
+- district-wide discovery;
+- cross-library holdings;
+- inter-library request workflows;
+- shared discovery services;
+- library-specific configuration;
+- network-level aggregate analytics.
+
+These are future scalability requirements, not reasons to delay making Sevanagala work well first.
